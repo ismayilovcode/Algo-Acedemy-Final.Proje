@@ -1,0 +1,51 @@
+header {
+  display: flex;
+  gap: 10px;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 1px 1px 5px 1px rgb(0, 0, 0, 0.1);
+  background-color: rgb(245, 245, 245);
+}
+header > div#logo {
+  padding-left: 100px;
+}
+header > div#logo > a > img {
+  width: 100%;
+  height: auto;
+}
+header > div#logo > a {
+  display: inline-block;
+  width: 130px;
+}
+header > a#Cars {
+  flex: 1;
+}
+header > a#Features {
+  flex: 1;
+}
+header > a#Favorites {
+  flex: 1;
+}
+
+header > a#Cars,
+header > a#Features,
+header > a#Favorites {
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+  color: #67729d;
+
+  padding: 45px;
+  display: inline-block;
+  font-size: 20px;
+}
+
+header > a#Cars:hover,
+header > a#Features:hover,
+header > a#Favorites:hover {
+  background-color: #67729d;
+  color: pink;
+}
