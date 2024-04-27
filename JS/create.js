@@ -71,17 +71,26 @@ function addvertCar() {
 function renderHTML() {
   let todos = JSON.parse(localStorage.getItem("todolist") || "[]");
   let x = ``;
-
+  // <img src="${todos[i].img}" alt="error">  
+  
   for (let i = 0; i < todos.length; i++) {
     x += `
-    <span class="img">
-    <img src="${todos[i].img}" alt="error">
+    <div class="parent">
+    <div class="imgParent">
+    <span class="imga">
+    <img src="fotos/logo/logo2.jpg" alt="error">
     </span>
+    </div>
     <span class="text">
     <h1>${todos[i].brand}</h1>
-    <p>${todos[i].model},${todos[i].engine},${todos[i].year},${todos[i].bodyType},${todos[i].color},${todos[i].millage},${todos[i].fuel},${todos[i].transmission},${todos[i].price}</p>
+    <p>${todos[i].model},${todos[i].engine},
+    ${todos[i].year},${todos[i].bodyType},${todos[i].color},
+    ${todos[i].millage},${todos[i].fuel},${todos[i].transmission},
+    ${todos[i].price}</p>
     </span>
+    </div>
     `;
+    // <button id="button${todos[i].id}" onclick="fav(${todos[i].id})">button</button>
   }
   document.getElementById("cars").innerHTML = x;
 }

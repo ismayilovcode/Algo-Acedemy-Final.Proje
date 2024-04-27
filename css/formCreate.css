@@ -1,0 +1,67 @@
+form.create {
+    display: grid;
+    grid-template-columns: auto auto;
+    margin-top: 60px;
+    gap: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0.5px 0.5px 0.5px 0.5px rgb(0, 0, 0, 0.1);
+    padding: 20px 20px;
+    background-color: whitesmoke;
+    border-radius: 20px;
+    width: 300px;
+}
+form.create:hover {
+    box-shadow: 2px 2px 2px 2px rgb(0, 0, 0, 0.1);
+
+}
+form.create input {
+    background-color: whitesmoke;
+    border-color: white;
+}
+form.create input:hover {
+  background-color: white;
+}
+form.create input:focus {
+    color: pink;
+    background-color: white;
+}
+
+button.onclick{
+    padding: 10px 15px;
+    border-color: white;
+}
+button.onclick:hover{
+    color: pink;
+    background-color: white;
+    box-shadow: 0.5px 0.5px 0.5px 0.5px rgb(0, 0, 0, 0.1);
+}
+form.create label{
+    padding: 5px; 
+}
+form.create label:hover{
+    box-shadow: 0.5px 0.5px 0.5px 0.5px rgb(0, 0, 0, 0.1);
+    color: pink;
+    background-color: white;
+}
+form.create select{
+    background-color: whitesmoke;
+}
+form.create select:focus{
+    color: pink;
+    border-color: white;
+    background-color: white;
+}
+form.create select:hover{
+    color: pink;
+    border-color: white;
+    background-color: white;
+}
+
+form.create select option{
+    
+}
+form.create select option:hover{
+}

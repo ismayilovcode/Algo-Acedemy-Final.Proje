@@ -1,51 +1,45 @@
 header {
   display: flex;
-  gap: 10px;
-  
+  justify-content: space-between;
+  align-items: center;
+
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   box-shadow: 1px 1px 5px 1px rgb(0, 0, 0, 0.1);
-  background-color: rgb(245, 245, 245);
+  /* background-color: red; */
 }
-header > div#logo {
-  padding-left: 100px;
-}
-header > div#logo > a > img {
+header a img {
   width: 100%;
   height: auto;
+  display: flex;
 }
-header > div#logo > a {
+header > a {
   display: inline-block;
   width: 130px;
 }
-header > a#Cars {
-  flex: 1;
+header > div.right {
+  display: flex;
 }
-header > a#Features {
-  flex: 1;
-}
-header > a#Favorites {
-  flex: 1;
-}
-
-header > a#Cars,
-header > a#Features,
-header > a#Favorites {
+header > div.right a,
+header a {
   text-decoration: none;
   text-align: center;
   font-weight: bold;
   color: #67729d;
 
-  padding: 45px;
+  padding: 16px;
   display: inline-block;
   font-size: 20px;
 }
 
-header > a#Cars:hover,
-header > a#Features:hover,
-header > a#Favorites:hover {
-  background-color: #67729d;
+header > div.right a:hover,
+header a:hover {
   color: pink;
+  background-color: whitesmoke;
+}
+a#Favorites{
+  display: flex;
+  flex-direction: column;
 }

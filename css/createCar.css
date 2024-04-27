@@ -1,34 +1,79 @@
-form.create {
+section.toDisplay {
+  display: grid;
+  margin-top: 86px;
+  gap: 20px;
+  grid-template-columns: 15% 85%;
+  padding: 100px;
+  background-color: #eeeeee;
+}
+section.toDisplay div.filter:hover {
+  box-shadow: 2px 2px 2px 2px rgb(0, 0, 0, 0.1);
+}
+section.toDisplay div.filter h1:hover,
+section.toDisplay div.filter p:hover {
+  background-color: white;
+  color: pink;
+}
+section.toDisplay div.filter {
+  box-shadow: 0.5px 0.5px 0.5px 0.5px rgb(0, 0, 0, 0.1);
+  background-color: whitesmoke;
+  /* padding: 10px; */
+  color: black;
+  text-align: center;
+  border-radius: 30px;
+}
+section.toDisplay div.filter p {
+  border-bottom: 1px solid gray;
+  padding: 12px 16px;
+}
+section.toDisplay div.filter h1 {
+  padding: 12px 16px;
+  border-bottom: 1px solid gray;
+  justify-items: center;
+  color: white;
+  background-color: pink;
+}
+.add {
+  background-color: whitesmoke;
+  border-radius: 80px;
+}
+.added p {
+  font-size: 60px;
+  padding: 16px 36px;
+  border: 1px solid black;
+  border-radius: 80px;
+
+  position: absolute;
+}
+.added {
+  color: black;
+  text-decoration: none;
+}
+div#cars {
+  margin-top: 200px;
   display: grid;
   grid-template-columns: auto auto;
   gap: 10px;
-
-  margin-top: 200px;
-  padding: 15px;
 }
-form.create button {
+div#cars span.imga {
+  width: 130px;
 }
-form.create input {
+div#cars div.imgParent {
+  width: 130px;
 }
-
-section#cars {
-  margin-top: 150px;
-  position: static;
-  display: flex;
-
-  padding: 20px;
-}
-section#cars span.img {
-  width: 100px;
-  flex: 1;
-}
-section#cars span.img img {
+div#cars span.imga img {
   width: 100%;
+  border-top-left-radius: 80px;
+  border-bottom-left-radius: 80px;
 }
-section#cars span.text {
-  flex: 1;
+div#cars span.text {
 }
-section#cars span.text h1 {
+div.parent {
+  background-color: white;
+  display: flex;
+  box-shadow: 0.5px 0.5px 0.5px 0.5px rgb(0, 0, 0, 0.1);
+  border-radius: 80px;
 }
-section#cars span.text p {
+div.parent:hover {
+  box-shadow: 2px 2px 2px 2px rgb(0, 0, 0, 0.1);
 }

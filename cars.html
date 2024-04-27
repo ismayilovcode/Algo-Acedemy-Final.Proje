@@ -3,27 +3,68 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/main.css">
-    <link rel="stylesheet" href="/css/header.css">
-    <link rel="stylesheet" href="/css/responsiv.css">
-    <link rel="stylesheet" href="/css/createCar.css">
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/formCreate.css" />
+    <link rel="stylesheet" href="css/responsiv.css" />
+    <link rel="stylesheet" href="css/createCar.css" />
     <title>Document</title>
   </head>
   <body>
     <header>
-      <div id="logo">
-        <a href="index.html">
-          <img src="/fotos/logo/logo2.jpg" alt="error" />
-        </a>
+      <a href="index.html">
+        <img src="fotos/logo/logo4.svg" alt="error" />
+      </a>
+      <div class="right">
+        <a href="#" id="Cars">Cars</a>
+        <a href="#" id="Features">Features</a>
       </div>
-      <a href="cars.html" id="Cars">cars</a>
-      <a href="#" id="Features">Features</a>
-      <a href="#" id="Favorites">Favorites</a>
+      <a href="#" id="Favorites">
+        <div>SAVE</div>
+        <div><i class="fa-solid fa-heart"></i></div>
+      </a>
     </header>
 
-    <section id="cars"></section>
+    <form class="create"  autocomplete="off">
+      <label for="" id="label1">Brand</label>
+      <input type="text" name="" id="input1" />
+      <label for="" id="label2">Model</label>
+      <input type="text" name="" id="input2"  />
+      <label for="" id="label3">Engine</label>
+      <input type="number" name="" id="input3" step="0.1" min="0" />
+      <label for="" id="label4">Year</label>
+      <input type="year" name="" id="input4"  />
+      <label for="" id="label5">BodyType</label>
+      <select name="engine" id="input5" >
+        <option value="Sedan">Sedan</option>
+        <option value="Hatchback">Hatchback</option>
+        <option value="Panel truck">Panel truck</option>
+        <option value="Microvan">Microvan</option>
+        <option value="Limousine">Limousine</option>
+      </select>
+      <label for="" id="label6">Color</label>
+      <input type="color" name="" id="input6"  />
+      <label for="" id="label7">Millage</label>
+      <input type="text" name="" id="input7"  />
+      <label for="" id="label8">fuel</label>
+      <select name="fuel" id="input8" >
+        <option value="petrol ">petrol</option>
+        <option value="diesel">diesel</option>
+      </select>
+      <label for="" id="label9">transmission</label>
+      <select name="transmission" id="input10" >
+        <option value="manual">Manual</option>
+        <option value="automatic">Automatic</option>
+      </select>
+      <label for="" id="label10">img</label>
+      <input type="url" name="" id="input10"/>
+      <label for="" id="label11">price</label>
+      <input type="number" name="" id="input11" step="1000" min="0"  />
 
-    <script src="/JS/create.js"></script>
+      <button onclick="addvertCar()" class="onclick">Add new advert</button>
+    </form>
+
+    <script src="JS/create.js"></script>
     <script
       src="https://kit.fontawesome.com/d49ab259ea.js"
       crossorigin="anonymous"
