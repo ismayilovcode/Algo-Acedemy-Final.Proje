@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/header.css" />
+    <link rel="stylesheet" href="css/formCreate.css" />
+    <link rel="stylesheet" href="css/createCar.css" />
+    <link rel="stylesheet" href="css/responsiv.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <a href="index.html">
+        <img src="fotos/logo/logo4.svg" alt="error" />
+      </a>
+    </header>
+
+    <form class="create">
+        <h4>Enter your car info</h4>
+            <input type="text" name="" id="input1" value="Brand"/>
+            <input type="text" name="" id="input2" value="Model"/>
+            <label for="" id="label3">Engine</label>
+            <input type="number" name="" id="input3" step="0.1" min="0" />
+            <label for="" id="label4">Year</label>
+            <input type="year" name="" id="input4" />
+            <label for="" id="label5">BodyType</label>
+            <select name="engine" id="input5">
+                <option value="Sedan">Sedan</option>
+                <option value="Hatchback">Hatchback</option>
+                <option value="Panel truck">Panel truck</option>
+                <option value="Microvan">Microvan</option>
+                <option value="Limousine">Limousine</option>
+            </select>
+            <label for="" id="label6">Color</label>
+            <input type="color" name="" id="input6" />
+            <input type="text" name="" id="input7" value="Millage"/>
+        <label for="" id="label8"></label>
+        <select name="fuel" id="input8">
+            <option value="petrol ">petrol</option>
+            <option value="diesel">diesel</option>
+        </select>
+        <label for="" id="label9">Transmission</label>
+        <select name="transmission" id="input9">
+            <option value="manual">Manual</option>
+            <option value="automatic">Automatic</option>
+        </select>
+        <input type="url" name="" id="input10" value="Img"/>
+        <label for="" id="label11">Price</label>
+        <input type="number" name="" id="input11" step="1000" min="0"/>
+
+        <button type="button" onclick="addvertCar()" class="onclick">
+            Add new advert
+      </button>
+    </form>
+
+    <script src="JS/create.js"></script>
+    <script
+      src="https://kit.fontawesome.com/d49ab259ea.js"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,79 +1,104 @@
-section.toDisplay {
-  display: grid;
+section.carsHolder {
   margin-top: 86px;
-  gap: 20px;
-  grid-template-columns: 15% 85%;
-  padding: 100px;
-  background-color: #eeeeee;
-}
-section.toDisplay div.filter:hover {
-  box-shadow: 2px 2px 2px 2px rgb(0, 0, 0, 0.1);
-}
-section.toDisplay div.filter h1:hover,
-section.toDisplay div.filter p:hover {
-  background-color: white;
-  color: pink;
-}
-section.toDisplay div.filter {
-  box-shadow: 0.5px 0.5px 0.5px 0.5px rgb(0, 0, 0, 0.1);
-  background-color: whitesmoke;
-  /* padding: 10px; */
-  color: black;
-  text-align: center;
-  border-radius: 30px;
-}
-section.toDisplay div.filter p {
-  border-bottom: 1px solid gray;
-  padding: 12px 16px;
-}
-section.toDisplay div.filter h1 {
-  padding: 12px 16px;
-  border-bottom: 1px solid gray;
-  justify-items: center;
-  color: white;
-  background-color: pink;
-}
-.add {
-  background-color: whitesmoke;
-  border-radius: 80px;
-}
-.added p {
-  font-size: 60px;
-  padding: 16px 36px;
-  border: 1px solid black;
-  border-radius: 80px;
-
-  position: absolute;
-}
-.added {
-  color: black;
-  text-decoration: none;
-}
-div#cars {
-  margin-top: 200px;
   display: grid;
-  grid-template-columns: auto auto;
+  padding: 50px;
+  gap: 20px;
+  grid-template-areas:
+    "F A A"
+    "F C C"
+    "F C C";
+}
+section.carsHolder > div.add {
+  grid-area: A;
+  font-size: 30px;
+  text-align: center;
+  border: 5px dashed black;
+  padding: 16px;
+  border-radius: 10px;
+}
+section.carsHolder > div.add a {
+  text-decoration: none;
+  color: black;
+}
+section.carsHolder > div.filter {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  border-radius: 12px;
+  grid-area: F;
+}
+section.carsHolder > div.filter span.selected {
+  background-color: violet;
+  border-radius: 10px 10px 0px 0px;
+}
+section.carsHolder > div.filter span {
+  border-bottom: 1px solid #ccc;
+  background-color: white;
+  font-size: 20px;
+  font-weight: 350;
+  padding: 12px;
+  box-shadow: 0px 2px 5px rgb(0, 0, 0, 0.1);
+}
+section.carsHolder > div.filter span.selected2 {
+  border-radius: 0px 00px 10px 10px;
+}
+
+section.carsHolder div.carInfo {
+  box-shadow: 0px 2px 5px rgb(0, 0, 0, 0.1);
+  display: flex;
+  flex: 3;
+  border-radius: 10px;
+  grid-area: C;
+}
+section.carsHolder > div.carInfo div.image {
+  flex: 1;
+  width: 200px;
+}
+section.carsHolder > div.carInfo div.image img {
+  display: flex;
+  width: 100%;
+  border-radius: 10px 0px 0px 10px;
+}
+section.carsHolder > div.carInfo div.text {
+  flex: 3;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+section.carsHolder > div.carInfo div.text div.name {
+  font-weight: 600;
+  display: flex;
   gap: 10px;
 }
-div#cars span.imga {
-  width: 130px;
+section.carsHolder > div.carInfo div.text div.name span {
 }
-div#cars div.imgParent {
-  width: 130px;
+section.carsHolder > div.carInfo div.text div.engineYear {
 }
-div#cars span.imga img {
-  width: 100%;
-  border-top-left-radius: 80px;
-  border-bottom-left-radius: 80px;
+section.carsHolder > div.carInfo div.text div.engineYear span {
 }
-div#cars span.text {
+section.carsHolder > div.carInfo div.text div.features {
 }
-div.parent {
-  background-color: white;
+section.carsHolder > div.carInfo div.text div.features span {
+  font-weight: 400;
+  color: #948979;
+}
+section.carsHolder > div.carInfo div.text div.price {
+  font-weight: 500;
   display: flex;
-  box-shadow: 0.5px 0.5px 0.5px 0.5px rgb(0, 0, 0, 0.1);
-  border-radius: 80px;
+  gap: 10px;
 }
-div.parent:hover {
-  box-shadow: 2px 2px 2px 2px rgb(0, 0, 0, 0.1);
+section.carsHolder > div.carInfo div.text div.price span {
+}
+section.carsHolder > div.carInfo div.text div.about {
+}
+section.carsHolder > div.carInfo div.text div.about span {
+  font-weight: 400;
+  color: #948979;
+}
+section.carsHolder > div.carInfo div.favs {
+  padding: 10px;
+}
+section.carsHolder > div.carInfo div.favs i {
+  font-size: 20px;
 }

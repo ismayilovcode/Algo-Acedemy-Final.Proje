@@ -8,7 +8,7 @@ header {
   left: 0;
   right: 0;
   box-shadow: 1px 1px 5px 1px rgb(0, 0, 0, 0.1);
-  /* background-color: red; */
+  background-color: white;
 }
 header a img {
   width: 100%;
@@ -39,7 +39,7 @@ header a:hover {
   color: pink;
   background-color: whitesmoke;
 }
-a#Favorites{
+a#Favorites {
   display: flex;
   flex-direction: column;
 }
