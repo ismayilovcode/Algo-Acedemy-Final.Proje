@@ -49,6 +49,7 @@ function addvertCar() {
     transmission: input9.value,
     img: input10.value,
     price: input11.value,
+    // features: input12.value,
   };
 
   todos.push(newtodo);
@@ -65,5 +66,6 @@ function addvertCar() {
   input9.value = "";
   input10.value = "";
   input11.value = "";
+  // input12.value = "";
 }
 

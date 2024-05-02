@@ -1,24 +1,61 @@
 body {
   background-color: whitesmoke;
 }
-
 form.create {
-  margin-top: 150px;
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  padding: 20px;
+  margin: 100px;
+  /* text-align: center; */
   background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+}
+form.create:hover {
   box-shadow: 0px 2px 5px rgb(0, 0, 0, 0.1);
-  border-radius: 12px;
-
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 form.create h4 {
+  text-align: center;
   border-bottom: 1px solid #ccc;
+}
+form.create div.divParent {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  gap: 10px;
+}
+form.create div.divParent div {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+form.create div.divParent div.leftCar {
+}
+form.create div.divParent div.rightCar {
+}
+form.create button {
+  padding: 12px 16px;
+  border-radius: 12px;
+  background-color: #e54592;
+  border-color: #e54592;
+  color: white;
+}
+form.create div.divParent div label {
+}
+form.create div.divParent div label:hover {
+  font-weight: bold;
+}
+form.create div.divParent div input {
+}
+form.create div.divParent div select {
+}
+form.create div.divParent div select option {
+}
+form.create input,
+form.create select {
+  overflow: hidden;
+}
+form.create input:hover,
+form.create select:hover {
+  border: 1px solid black;
+  box-shadow: 0px 2px 5px rgb(0, 0, 0, 0.1);
 }
 form.create input,
 form.create select {
@@ -26,19 +63,10 @@ form.create select {
   border-radius: 12px;
   border: 0.0625rem solid #ccc;
 }
-form.create input:hover {
-  border: 1px solid black;
-}
-form.create input,
-form.create select {
-  width: 200px;
-}
-form.create button {
-  padding: 12px 16px;
-  border-radius: 12px;
-  background-color: #e54592 !important;
-  border-color: #e54592 !important;
-  color: white;
-}
-form.create button:hover {
+form.create div.divParent div input,
+form.create div.divParent div label,
+form.create div.divParent div select {
+  padding: 10px;
+  border-radius: 10px;
+  /* border-color: violet ; */
 }

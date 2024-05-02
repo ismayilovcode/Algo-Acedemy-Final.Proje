@@ -8,7 +8,7 @@ section.carsHolder {
     "F C C"
     "F C C";
 }
-section.carsHolder > div.add {
+section.carsHolder div.carList div.add {
   grid-area: A;
   font-size: 30px;
   text-align: center;
@@ -16,7 +16,12 @@ section.carsHolder > div.add {
   padding: 16px;
   border-radius: 10px;
 }
-section.carsHolder > div.add a {
+section.carsHolder div.carList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+section.carsHolder div.carList div.add a {
   text-decoration: none;
   color: black;
 }
@@ -27,11 +32,11 @@ section.carsHolder > div.filter {
   border-radius: 12px;
   grid-area: F;
 }
-section.carsHolder > div.filter span.selected {
+div.filter span.selected {
   background-color: violet;
   border-radius: 10px 10px 0px 0px;
 }
-section.carsHolder > div.filter span {
+div.filter span {
   border-bottom: 1px solid #ccc;
   background-color: white;
   font-size: 20px;
@@ -39,66 +44,66 @@ section.carsHolder > div.filter span {
   padding: 12px;
   box-shadow: 0px 2px 5px rgb(0, 0, 0, 0.1);
 }
-section.carsHolder > div.filter span.selected2 {
+div.filter span.selected2 {
   border-radius: 0px 00px 10px 10px;
 }
 
-section.carsHolder div.carInfo {
+div.carList div.carInfo {
   box-shadow: 0px 2px 5px rgb(0, 0, 0, 0.1);
   display: flex;
   flex: 3;
   border-radius: 10px;
   grid-area: C;
 }
-section.carsHolder > div.carInfo div.image {
+div.carList div.carInfo div.image {
   flex: 1;
   width: 200px;
 }
-section.carsHolder > div.carInfo div.image img {
+div.carList div.carInfo div.image img {
   display: flex;
   width: 100%;
   border-radius: 10px 0px 0px 10px;
 }
-section.carsHolder > div.carInfo div.text {
+div.carList div.carInfo div.text {
   flex: 3;
   padding: 10px;
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
-section.carsHolder > div.carInfo div.text div.name {
+div.carList div.carInfo div.text div.name {
   font-weight: 600;
   display: flex;
   gap: 10px;
 }
-section.carsHolder > div.carInfo div.text div.name span {
+div.carList div.carInfo div.text div.name span {
 }
-section.carsHolder > div.carInfo div.text div.engineYear {
+div.carList div.carInfo div.text div.engineYear {
 }
-section.carsHolder > div.carInfo div.text div.engineYear span {
+div.carList div.carInfo div.text div.engineYear span {
 }
-section.carsHolder > div.carInfo div.text div.features {
+div.carInfo div.text div.features {
 }
-section.carsHolder > div.carInfo div.text div.features span {
+div.carInfo div.text div.features span {
   font-weight: 400;
   color: #948979;
 }
-section.carsHolder > div.carInfo div.text div.price {
+div.carList div.carInfo div.text div.price {
   font-weight: 500;
   display: flex;
   gap: 10px;
 }
-section.carsHolder > div.carInfo div.text div.price span {
+div.carList div.carInfo div.text div.price span {
 }
-section.carsHolder > div.carInfo div.text div.about {
+div.carList div.carInfo div.text div.about {
 }
-section.carsHolder > div.carInfo div.text div.about span {
+div.carList div.carInfo div.text div.about span {
   font-weight: 400;
   color: #948979;
 }
-section.carsHolder > div.carInfo div.favs {
+div.carList div.carInfo div.favs {
   padding: 10px;
 }
-section.carsHolder > div.carInfo div.favs i {
+div.carList div.carInfo div.favs i {
   font-size: 20px;
 }

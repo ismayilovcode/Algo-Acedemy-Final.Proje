@@ -1,10 +1,10 @@
 function renderHTML() {
-    let todos = JSON.parse(localStorage.getItem("carlist") || "[]");
-    let x = ``;
-    // <img src="${todos[i].img}" alt="error">
-  
-    for (let i = 0; i < todos.length; i++) {
-      x += `
+  let todos = JSON.parse(localStorage.getItem("carlist") || "[]");
+  let x = ``;
+  // <img src="${todos[i].img}" alt="error">
+
+  for (let i = 0; i < todos.length; i++) {
+    x += `
       <div class="carInfo">
       <div class="image"><img src="${todos[i].img}" alt=""></div>
       <div class="text">
@@ -28,11 +28,12 @@ function renderHTML() {
       </div>
     </div>
     <div class="favs"><i class="fa-solid fa-heart"></i></div>
+  </div>
 
       `;
-      // <button id="button${todos[i].id}" onclick="fav(${todos[i].id})">button</button>
-    }
-    document.getElementById("carsHolder").innerHTML = x;
+    // <button id="button${todos[i].id}" onclick="fav(${todos[i].id})">button</button>
   }
-  
-  renderHTML()
+  document.querySelectorAll(".carlist").innerHTML = x;
+}
+
+renderHTML();
