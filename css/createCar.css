@@ -1,12 +1,13 @@
 section.carsHolder {
-  margin-top: 86px;
+  margin-top: 80px;
   display: grid;
-  padding: 50px;
+  padding: 50px 0px 0px 0px;
   gap: 20px;
   grid-template-areas:
-    "F A A"
-    "F C C"
-    "F C C";
+    "F A"
+    "F C"
+    "F C";
+  background-color: whitesmoke;
 }
 section.carsHolder div.carList div.add {
   grid-area: A;
@@ -15,6 +16,7 @@ section.carsHolder div.carList div.add {
   border: 5px dashed black;
   padding: 16px;
   border-radius: 10px;
+  background-color: white;
 }
 section.carsHolder div.carList {
   display: flex;
@@ -54,6 +56,7 @@ div.carList div.carInfo {
   flex: 3;
   border-radius: 10px;
   grid-area: C;
+  background-color: white;
 }
 div.carList div.carInfo div.image {
   flex: 1;
@@ -72,7 +75,7 @@ div.carList div.carInfo div.text {
   gap: 8px;
 }
 div.carList div.carInfo div.text div.name {
-  font-weight: 600;
+  font-weight: 700;
   display: flex;
   gap: 10px;
 }
@@ -85,11 +88,11 @@ div.carList div.carInfo div.text div.engineYear span {
 div.carInfo div.text div.features {
 }
 div.carInfo div.text div.features span {
-  font-weight: 400;
+  font-weight: 500;
   color: #948979;
 }
 div.carList div.carInfo div.text div.price {
-  font-weight: 500;
+  font-weight: 700;
   display: flex;
   gap: 10px;
 }
@@ -98,7 +101,7 @@ div.carList div.carInfo div.text div.price span {
 div.carList div.carInfo div.text div.about {
 }
 div.carList div.carInfo div.text div.about span {
-  font-weight: 400;
+  font-weight: 500;
   color: #948979;
 }
 div.carList div.carInfo div.favs {
@@ -106,4 +109,15 @@ div.carList div.carInfo div.favs {
 }
 div.carList div.carInfo div.favs i {
   font-size: 20px;
+}
+div.favorites2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#bura {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }

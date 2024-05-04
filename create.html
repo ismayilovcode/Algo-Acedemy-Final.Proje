@@ -19,34 +19,35 @@
         <a href="#" id="Cars">Cars</a>
         <a href="#" id="Features">Features</a>
       </div>
-      <a href="#" id="Favorites">
+      <a href="favorite.html" id="Favorites" onclick="favorites()">
         <div>SAVE</div>
         <div><i class="fa-solid fa-heart"></i></div>
       </a>
     </header>
 
-    <form class="create">
-      <h4>Enter your car info</h4>
-      <div class="divParent">
-        <div class="leftCar">
-          <label for="" id="label1">Brand</label>
-          <input type="text" name="" id="input1" />
-          <label for="" id="label2">Model</label>
-          <input type="text" name="" id="input2" />
-          <label for="" id="label3">Engine</label>
-          <input type="number" name="" id="input3" step="0.1" min="0" />
-          <label for="" id="label4">Year</label>
-          <input type="year" name="" id="input4" />
-          <label for="" id="label5">BodyType</label>
-          <select name="engine" id="input5">
-            <option value="Sedan">Sedan</option>
+    <div class="createForm container">
+      <form class="create">
+        <h4>Enter your car info</h4>
+        <div class="divParent">
+          <div class="leftCar">
+            <label for="" id="label1">Brand</label>
+            <input type="text" name="" id="input1" />
+            <label for="" id="label2">Model</label>
+            <input type="text" name="" id="input2" />
+            <label for="" id="label3">Engine</label>
+            <input type="number" name="" id="input3" step="0.1" min="0" />
+            <label for="" id="label4">Year</label>
+            <input type="year" name="" id="input4" />
+            <label for="" id="label5">BodyType</label>
+            <select name="engine" id="input5">
+              <option value="Sedan">Sedan</option>
             <option value="Hatchback">Hatchback</option>
             <option value="Panel truck">Panel truck</option>
             <option value="Microvan">Microvan</option>
             <option value="Limousine">Limousine</option>
           </select>
           <label for="" id="label6">Color</label>
-          <input type="color" name="" id="input6" />
+          <input type="text" name="" id="input6" />
         </div>
         <div class="rightCar">
           <label for="" id="label7">Milllage</label>
@@ -75,6 +76,7 @@
         Add new advert
       </button>
     </form>
+  </div>
 
     <script src="JS/create.js"></script>
     <script

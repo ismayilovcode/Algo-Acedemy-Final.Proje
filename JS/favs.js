@@ -1,7 +1,6 @@
-function renderHTML() {
-  let todos = JSON.parse(localStorage.getItem("carlist") || "[]");
-  let x = ``;
-  // <img src="${todos[i].img}" alt="error">
+function favorites() {
+    let todos = JSON.parse(localStorage.getItem("carlist") || "[]");
+    let x = ``;
 
   for (let i = 0; i < todos.length; i++) {
     x += `
@@ -27,7 +26,6 @@ function renderHTML() {
           <span>${todos[i].millage} millage</span> <span>${todos[i].fuel}</span> <span>${todos[i].transmission}</span> <span>${todos[i].color}</span>
       </div>
     </div>
-    <div class="favs"><i class="fa-solid fa-heart"></i></div>
   </div>
       `;
     // <button id="button${todos[i].id}" onclick="fav(${todos[i].id})">button</button>
@@ -35,4 +33,5 @@ function renderHTML() {
   document.getElementById("bura").innerHTML = x;
 }
 
-renderHTML();
+favorites();
+
