@@ -2,7 +2,7 @@ body {
   background-color: whitesmoke;
 }
 form.create {
-  margin: 100px;
+  margin-top: 100px;
   background-color: white;
   padding: 20px;
   border-radius: 15px;
@@ -10,13 +10,13 @@ form.create {
 form.create:hover {
   box-shadow: 0px 2px 5px rgb(0, 0, 0, 0.1);
 }
-form.create h4 {
+form.create h3 {
   text-align: center;
   border-bottom: 1px solid #ccc;
 }
 form.create div.divParent {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   padding: 20px;
   gap: 10px;
 }
@@ -47,19 +47,17 @@ form.create div.divParent div select {
 }
 form.create div.divParent div select option {
 }
-form.create input,
-form.create select {
-  overflow: hidden;
-}
 form.create input:hover,
 form.create select:hover {
   border: 1px solid black;
   box-shadow: 0px 2px 5px rgb(0, 0, 0, 0.1);
 }
+form.create select {
+  padding: 9px;
+}
 form.create input,
 form.create select {
-  padding: 12px;
-  border-radius: 12px;
+  overflow: hidden;
   border: 0.0625rem solid #ccc;
 }
 form.create div.divParent div input,
@@ -67,5 +65,4 @@ form.create div.divParent div label,
 form.create div.divParent div select {
   padding: 10px;
   border-radius: 10px;
-  /* border-color: violet ; */
 }

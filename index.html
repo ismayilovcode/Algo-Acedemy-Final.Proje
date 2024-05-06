@@ -9,57 +9,45 @@
     <link rel="stylesheet" href="css/responsiv.css" />
     <title>Document</title>
   </head>
-  <body>
-    <header class="container">
-      <a href="index.html">
-        <img src="fotos/logo/logo4.svg" alt="error" />
-      </a>
-      <div class="right">
-        <a href="#" id="Cars">Cars</a>
-        <a href="#" id="Features">Features</a>
-      </div>
-      <a href="favorite.html" id="Favorites" onclick="favorites()">
-        <div>SAVE</div>
-        <div><i class="fa-solid fa-heart"></i></div>
-      </a>
-    </header>
+  <body id="detail">
+    <div class="header-bg">
+      <header class="container">
+        <a href="index.html">
+          <img src="fotos/logo/logo4.svg" alt="error" />
+        </a>
+        <div class="right">
+          <a href="#" id="Cars">Cars</a>
+          <a href="features.html" id="Features">Features</a>
+        </div>
+        <a href="#" id="Favorites" onclick="list()">
+          <div><i class="fa-solid fa-heart"></i></div>
+          <div>SAVE</div>
+        </a>
+      </header>
+    </div>
 
-    <section class="carsHolder container">
-      <div class="filter">
-        <span class="selected">Filters</span>
-        <span>Engine</span>
-        <span>Model</span>
-        <span class="selected2">Brand</span>
-      </div>
-      <div class="carList">
-        <div class="add">
-          <a href="create.html"><i class="fa-solid fa-plus"></i></a>
+    <div class="carsholder-bg">
+      <section class="carsHolder container">
+        <div class="filter">
+          <span class="selected">Filters</span>
+          <span>Engine</span>
+          <span>Model</span>
+          <span class="selected2">Brand</span>
         </div>
-        <div id="bura">
-          <div class="carInfo">
-            <div class="image"><img src="fotos/logo/logo2.jpg" alt="" /></div>
-            <div class="text">
-              <div class="name">
-                <span>e60</span>
-              </div>
-              <div class="engineYear"><span>V10</span> <span>2008</span></div>
-              <div class="features">
-                <span>Feature1</span>
-                <span>Feature2</span>
-                <span>Feature3</span>
-                <span>Feature4</span>
-              </div>
-              <div class="price"><span>$</span> <span>30000</span></div>
-              <div class="about">
-                <span>10000 millage</span> <span>benzin</span>
-                <span>sedan</span> <span>black</span>
-              </div>
-            </div>
+        <div class="carList">
+          <a href="create.html" class="add"><i class="fa-solid fa-plus"></i></a>
+            <div id="home-carsholder">
+            <div class="favs"><i class="fa-solid fa-heart"></i></div>
           </div>
-          <div class="favs"><i class="fa-solid fa-heart"></i></div>
         </div>
+      </section>
+    </div>
+    <div id="favorites2">
+      <div class="carList">
+        <div id="favorite-carsHolder"></div>
       </div>
-    </section>
+    </div>
+
 
     <script src="JS/index.js"></script>
     <script

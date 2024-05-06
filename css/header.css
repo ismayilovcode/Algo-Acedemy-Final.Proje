@@ -1,14 +1,16 @@
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
+div.header-bg{
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   box-shadow: 1px 1px 5px 1px rgb(0, 0, 0, 0.1);
   background-color: white;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 header a img {
   width: 100%;

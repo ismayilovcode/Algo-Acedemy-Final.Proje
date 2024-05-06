@@ -1,0 +1,58 @@
+body {
+  background-color: whitesmoke;
+}
+div.form-bg {
+  background-color: white;
+  border-radius: 15px;
+}
+
+form.features {
+  padding: 20px;
+  margin-top: 100px;
+}
+form div.divParent {
+  display: flex;
+  padding: 20px;
+  /* gap: 10px; */
+}
+form div.divParent div {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+form.features button {
+  padding: 12px 16px;
+  border-radius: 12px;
+  background-color: #e54592;
+  border-color: #e54592;
+  color: white;
+}
+form div.divParent div input {
+  width: 200px;
+}
+form.features h3 {
+  text-align: center;
+  border-bottom: 1px solid #ccc;
+}
+form.features div.divParent div label:hover {
+  font-weight: bold;
+}
+form.features div.divParent div input,
+form.features div.divParent div label {
+  padding: 10px;
+  border-radius: 10px;
+}
+
+form div.divParent div.left div {
+  display: flex;
+  align-items: center;
+  width: 80px;
+  flex-direction: column;
+}
+
+form div.divParent div.right div {
+  width: 80px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

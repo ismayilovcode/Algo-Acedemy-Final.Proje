@@ -1,4 +1,4 @@
-function addvertCar() {
+function addvertFeatures() {
   input1 = document.getElementById("input1");
   input2 = document.getElementById("input2");
   input3 = document.getElementById("input3");
@@ -7,11 +7,8 @@ function addvertCar() {
   input6 = document.getElementById("input6");
   input7 = document.getElementById("input7");
   input8 = document.getElementById("input8");
-  input9 = document.getElementById("input9");
-  input10 = document.getElementById("input10");
-  input11 = document.getElementById("input11");
 
-  let todos = JSON.parse(localStorage.getItem("carlist") || "[]");
+  let todos = JSON.parse(localStorage.getItem("Features") || "[]");
   let maxId = 0;
   for (let i = 0; i < todos.length; i++) {
     if (todos[i].id > maxId) {
@@ -21,22 +18,19 @@ function addvertCar() {
 
   let newtodo = {
     id: maxId + 1,
-    brand: input1.value,
-    model: input2.value,
-    engine: input3.value,
-    year: input4.value,
-    bodyType: input5.value,
-    color: input6.value,
-    millage: input7.value,
-    fuel: input8.value,
-    transmission: input9.value,
-    img: input10.value,
-    price: input11.value,
+    city: input1.value,
+    doors: input2.value,
+    gear: input3.value,
+    banType: input4.value,
+    seatHeating: input5.value,
+    parkingCamera: input6.value,
+    parkingRadar: input7.value,
+    wingMirror: input8.value,
   };
 
   todos.push(newtodo);
 
-  localStorage.setItem("carlist", JSON.stringify(todos));
+  localStorage.setItem("Features", JSON.stringify(todos));
   input1.value = "";
   input2.value = "";
   input3.value = "";
@@ -45,9 +39,6 @@ function addvertCar() {
   input6.value = "";
   input7.value = "";
   input8.value = "";
-  input9.value = "";
-  input10.value = "";
-  input11.value = "";
 
   renderHTML();
 }

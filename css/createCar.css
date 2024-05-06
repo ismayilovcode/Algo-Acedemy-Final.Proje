@@ -1,38 +1,38 @@
-section.carsHolder {
-  margin-top: 80px;
-  display: grid;
-  padding: 50px 0px 0px 0px;
-  gap: 20px;
-  grid-template-areas:
-    "F A"
-    "F C"
-    "F C";
+div.carsholder-bg {
   background-color: whitesmoke;
 }
-section.carsHolder div.carList div.add {
-  grid-area: A;
+div.carsholder-bg section.carsHolder div.carList a,
+div#favorite-carsHolder a {
+  text-decoration: none;
+  color: black;
+}
+section.carsHolder {
+  margin-top: 80px;
+  display: flex;
+  padding-top: 20px;
+  gap: 20px;
+}
+section.carsHolder div.carList a.add {
   font-size: 30px;
   text-align: center;
   border: 5px dashed black;
   padding: 16px;
   border-radius: 10px;
   background-color: white;
+  /* text-decoration: none; */
+  /* color: black; */
 }
 section.carsHolder div.carList {
   display: flex;
   flex-direction: column;
   gap: 10px;
-}
-section.carsHolder div.carList div.add a {
-  text-decoration: none;
-  color: black;
+  flex: 3;
 }
 section.carsHolder > div.filter {
   display: flex;
   flex-direction: column;
   flex: 1;
   border-radius: 12px;
-  grid-area: F;
 }
 div.filter span.selected {
   background-color: violet;
@@ -53,22 +53,21 @@ div.filter span.selected2 {
 div.carList div.carInfo {
   box-shadow: 0px 2px 5px rgb(0, 0, 0, 0.1);
   display: flex;
-  flex: 3;
   border-radius: 10px;
-  grid-area: C;
   background-color: white;
 }
 div.carList div.carInfo div.image {
-  flex: 1;
+  flex: 3;
   width: 200px;
 }
 div.carList div.carInfo div.image img {
   display: flex;
   width: 100%;
+  height: 100%;
   border-radius: 10px 0px 0px 10px;
 }
 div.carList div.carInfo div.text {
-  flex: 3;
+  flex: 4;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -110,14 +109,25 @@ div.carList div.carInfo div.favs {
 div.carList div.carInfo div.favs i {
   font-size: 20px;
 }
-div.favorites2 {
-  position: absolute;
-  top: 50%;
+div#favorites2 {
+  position: fixed;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-#bura {
+div#favorites2:hover,
+  .buttonType:hover {
+  box-shadow: 1px 2px 5px rgb(0, 0, 0, 0.1);
+}
+#favorite-carsholder {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+}
+.buttonType {
+  color: #67729d;
+  background-color:white;
+  width: 80px;
+  height: 50px;
+  border-radius: 10px;
+  margin: auto;
 }

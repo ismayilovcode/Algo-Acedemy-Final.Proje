@@ -2,34 +2,34 @@
 
 .container {
   width: 100%;
+  margin: auto;
 }
 @media (min-width: 576px) {
   .container {
     width: 540px;
-    margin: auto;
+  }
+
+  form.create div.divParent {
+    flex-direction: row;
   }
 }
 @media (min-width: 768px) {
   .container {
     width: 720px;
-    margin: auto;
   }
 }
 @media (min-width: 992px) {
   .container {
-    width: 100%;
-    margin: auto;
+    width: 960px;
   }
 }
 @media (min-width: 1200px) {
   .container {
     width: 1140px;
-    margin: auto;
   }
 }
 @media (min-width: 1400px) {
-    .container {
-        width: 1320px;
-        margin: auto;
-    }
+  .container {
+    width: 1320px;
+  }
 }
