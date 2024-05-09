@@ -1,8 +1,13 @@
 function renderHTML() {
   let todos = JSON.parse(localStorage.getItem("carlist") || "[]");
-  let todos2 = JSON.parse(localStorage.getItem("Features") || "[]");
+  let FeaturesJson = JSON.parse(localStorage.getItem("Features") || "[]");
   let x = ``;
   // onclick="aboutCarsHolder"
+  //
+
+  // for
+
+  //
   for (let i = 0; i < todos.length; i++) {
     x += `
     <a href="#CarsAbout${todos[i].id}">
@@ -28,7 +33,9 @@ function renderHTML() {
          <span>${todos[i].color}</span>
        </div>
      </div>
-     <div class="favs" onclick="favs(${todos[i].id})"><i class="fa-solid fa-heart"></i></div>
+     <div class="favs" onclick="favs(${todos[i].id})"><i class="${
+      check(todos[i].id) ? "fa-solid" : "fa-regular"
+    } fa-heart"></i></div>
      </div>
      <a/>
      `;
@@ -36,28 +43,7 @@ function renderHTML() {
   document.getElementById("home-carsholder").innerHTML = x;
 }
 renderHTML();
-{
-  /* <span>City:${todos2[i].city}</span> */
-}
-{
-  /* <span>Doors:${todos2[i].doors}</span> */
-}
-{
-  /* <span>Gear:${todos2[i].gear}</span> */
-}
-{
-  /* <span>BanType:${todos2[i].banType}</span> */
-}
-{
-  /* <span>SeatHeating:${todos2[i].seatHeating}</span> */
-}
-{
-  /* <span>ParkingCamera:${todos2[i].parkingCamera}</span> */
-}
-{
-  /* <span>ParkingRadar:${todos2[i].parkingRadar}</span> */
-}
-// <span>WingMirror:${todos2[i].wingMirror}</span>
+
 function favs(id) {
   let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
 
@@ -107,7 +93,7 @@ function list() {
            <span>${todos[i].color}</span>
          </div>
        </div>
-     <button id="button${todos[i].id}" onclick="deletFavs(${todos[i].id})" class="buttonType" >Delete</button>
+     <button type="button" id="button${todos[i].id}" onclick="deletFavs(${todos[i].id})" class="buttonType" >Delete</button>
       </div> 
     </a>`;
     }
@@ -133,3 +119,18 @@ function deletFavs(id) {
   renderHTML();
 }
 renderHTML();
+
+function check(id) {
+  // favorit listini gotur
+  // id-nin siyahida olub olmamasina bax
+  // tru veya false olaraq cavab qaytar
+  let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
+
+  for (let i = 0; i < favsCars.length; i++) {
+    if (favsCars.includes(id)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+}

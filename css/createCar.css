@@ -6,6 +6,12 @@ div#favorite-carsHolder a {
   text-decoration: none;
   color: black;
 }
+div#home-carsholder,
+div#favorite-carsHolder {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 section.carsHolder {
   margin-top: 80px;
   display: flex;
@@ -19,8 +25,6 @@ section.carsHolder div.carList a.add {
   padding: 16px;
   border-radius: 10px;
   background-color: white;
-  /* text-decoration: none; */
-  /* color: black; */
 }
 section.carsHolder div.carList {
   display: flex;

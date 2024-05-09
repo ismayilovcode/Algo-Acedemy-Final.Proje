@@ -18,7 +18,7 @@
           <img src="fotos/logo/logo4.svg" alt="error" />
         </a>
         <div class="right">
-          <a href="#" id="Cars">Cars</a>
+          <a href="/" id="Cars">Cars</a>
           <a href="features.html" id="Features">Features</a>
         </div>
         <a href="#" id="Favorites" onclick="list()">
@@ -28,103 +28,12 @@
       </header>
     </div>
 
-    <!-- <div class="form-bg">
-      <form action="" class="features">
-        <h3 for="">Features</h3>
-        <div class="divParent">
-          <div class="left">
-            <label for="">City</label>
-            <input type="text" name="" id="input1" />
-            <label for="">Doors</label>
-            <input type="number" min="0" name="" id="input2" />
-            <label for="">Gear</label>
-            <input type="text" name="" id="input3" />
-            <label for="">BanType</label>
-            <div class="yes">
-              <label for="">yes</label>
-              <input type="checkbox" name="BanType" id="input4" />
-            </div>
-            <div class="no">
-              <label for="">no</label>
-              <input type="checkbox" name="BanType" id="input4" />
-            </div>
-          </div>
-          <div class="right">
-            <label for="">SeatHeating</label>
-            <div class="yes">
-              <label for="">yes</label>
-              <input type="checkbox" name="SeatHeating" id="input5" />
-            </div>
-            <div class="no">
-              <label for="">no</label>
-              <input type="checkbox" name="SeatHeating" id="input5" />
-            </div>
-            <label for="">ParkingCamera</label>
-            <div class="yes">
-              <label for="">yes</label>
-              <input type="checkbox" name="" id="input6" />
-            </div>
-            <div class="no">
-              <label for="">no</label>
-              <input type="checkbox" name="" id="input6" />
-            </div>
-            <label for="">ParkingRadar</label>
-            <div class="yes">
-              <label for="">yes</label>
-              <input type="checkbox" name="" id="input7" />
-            </div>
-            <div class="no">
-              <label for="">no</label>
-              <input type="checkbox" name="" id="input7" />
-            </div>
-            <label for="">WingMirror</label>
-            <div class="yes">
-              <label for="">yes</label>
-              <input type="checkbox" name="" id="input8" />
-            </div>
-          </div>
-          <div class="no">
-            <label for="">no</label>
-            <input type="checkbox" name="" id="input8" />
-          </div>
-        </div>
-        <button type="button" onclick="addvertFeatures()" class="onclick">
-          Add new advert
-        </button>
-      </form>
-    </div> -->
-
-    <div class="form-bg container">
-      <form action="" class="features">
-        <h3 for="">Features</h3>
-        <div class="divParent">
-          <div class="left">
-            <label for="" class="label1">City</label>
-            <input type="text" name="" id="input1" />
-            <label for="" class="label2">Doors</label>
-            <input type="number" min="0" name="" id="input2" />
-            <label for="" class="label3">Gear</label>
-            <input type="text" name="" id="input3" />
-            <label for="" class="label4">BanType</label>
-            <input type="text" name="" id="input4" />
-          </div>
-          <div class="right">
-            <label for="" class="label5">SeatHeating</label>
-            <input type="text" name="" id="input5" />
-            <label for="" class="label6">ParkingCamera</label>
-            <input type="text" name="" id="input6" />
-            <label for="" class="label7">ParkingRadar</label>
-            <input type="text" name="" id="input7" />
-            <label for="" class="label8">WingMirror</label>
-            <input type="text" name="" id="input8" />
-          </div>
-        </div>
-        <button type="button" onclick="addvertFeatures()" class="onclick">
-          Add new advert
-        </button>
-      </form>
+    <div class="createFeatures">
+      <input type="text" id="input1" />
+      <button type="button" onclick="features()">Add new feature</button>
     </div>
 
+    <div id="features"></div>
     <script src="JS/features.js"></script>
     <script
       src="https://kit.fontawesome.com/d49ab259ea.js"
