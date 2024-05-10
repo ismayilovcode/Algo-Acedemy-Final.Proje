@@ -1,6 +1,5 @@
 function renderHTML() {
   let todos = JSON.parse(localStorage.getItem("carlist") || "[]");
-  // let FeaturesJson = JSON.parse(localStorage.getItem("Features") || "[]");
   let x = ``;
 
   for (let i = 0; i < todos.length; i++) {
@@ -16,7 +15,7 @@ function renderHTML() {
        <div class="engineYear">
          <span>${todos[i].engine}</span> <span>${todos[i].year}</span>
        </div>
-       <div class="features">
+       <div id="features">
       <span>Features 1</span>
       <span>Features 2</span>
       <span>Features 3</span>

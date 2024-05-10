@@ -23,7 +23,7 @@ div.createFeatures input {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-div.createFeatures button.enter{
+div.createFeatures button.enter {
   border-left: none;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -47,17 +47,17 @@ div#feature h1 {
 }
 div#feature div.buttons {
 }
-div#feature div.buttons .addfeature{
+div#feature div.buttons .addfeature {
   background-color: #e54592;
   border-color: #e54592;
   color: white;
 }
-div#feature button.editfeature { 
+div#feature button.editfeature {
   background-color: white;
 }
 
 div#feature div.buttons .editfeature,
-div#feature div.buttons .addfeature{
+div#feature div.buttons .addfeature {
   padding: 12px 16px;
   border-radius: 12px;
 }

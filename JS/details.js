@@ -13,34 +13,27 @@ if (hash.length) {
 
   if (foundCar) {
     document.getElementById("details").innerHTML = `
-    <div class="carInfo">
+    <div class="carInfos">
     <a href="details.html#${foundCar.id}" class="image"><img src="${
       foundCar.img
     }" alt="" /></a>
      <div class="text">
-       <div class="name">
-       <span>${foundCar.brand}</span><span>${foundCar.model}</span>
-       </div> 
+     <div class="nameModel">
+     <span>${foundCar.brand}</span><span>${foundCar.model}</span>
+     </div> 
+     <span>${foundCar.engine}</span> 
        <div class="about">
-       <span>${foundCar.engine}</span> • <span>${
-      foundCar.millage
-    }  miles</span> • <span>${foundCar.fuel}</span>
-       </div>
-       <div class="features">
-      <span>Features 1</span>
-      <span>Features 2</span>
-      <span>Features 3</span>
-      <span>Features 4</span>
+       <span>${foundCar.year}</span> • <span>${foundCar.millage}  Miles</span> • <span>${foundCar.fuel}</span>
        </div>
        <div class="price"><span>$</span> <span>${foundCar.price}</span></div>
          </div>
-         </div>  
          ${
            check(foundCar.id)
-             ? `<div class="favs" onclick="addDeleteFavs(${foundCar.id})"><i class="fa-solid fa-heart"></i></div>`
-             : `<div class="favs" onclick="addDeleteFavs(${foundCar.id})"><i class="fa-regular fa-heart"></i></div>`
+             ? `<div class="favorite" onclick="addDeleteFavs(${foundCar.id})"><i class="fa-solid fa-heart"></i></div>`
+             : `<div class="favorite" onclick="addDeleteFavs(${foundCar.id})"><i class="fa-regular fa-heart"></i></div>`
          }
-         </div>
+          </div>  
+        </div> 
      `;
   } else {
     document.getElementById("details").innerHTML = "Car not found...";
@@ -98,7 +91,6 @@ function list() {
            <span>${todos[i].color}</span>
            </div>
            </div>
-        
      <button type="button" id="button${todos[i].id}" onclick="DeleteFavs(${todos[i].id})" class="buttonType" >Delete</button>
            </div>
      `;
