@@ -1,11 +1,6 @@
 div.carsholder-bg {
   background-color: whitesmoke;
 }
-div.carsholder-bg section.carsHolder div.carList a,
-div#favorite-carsHolder a {
-  text-decoration: none;
-  color: black;
-}
 div#home-carsholder,
 div#favorite-carsHolder {
   display: flex;
@@ -19,12 +14,13 @@ section.carsHolder {
   gap: 20px;
 }
 section.carsHolder div.carList a.add {
-  font-size: 30px;
+  font-size: 35px;
   text-align: center;
   border: 5px dashed black;
   padding: 16px;
   border-radius: 10px;
   background-color: white;
+  color: black;
 }
 section.carsHolder div.carList {
   display: flex;
@@ -54,63 +50,62 @@ div.filter span.selected2 {
   border-radius: 0px 00px 10px 10px;
 }
 
-div.carList div.carInfo {
+div.carInfo {
   box-shadow: 0px 2px 5px rgb(0, 0, 0, 0.1);
   display: flex;
   border-radius: 10px;
   background-color: white;
 }
-div.carList div.carInfo div.image {
-  flex: 3;
+div.carInfo a.image {
+  flex: 40%;
   width: 200px;
+  height: auto;
 }
-div.carList div.carInfo div.image img {
+div.carInfo a.image img {
   display: flex;
   width: 100%;
   height: 100%;
   border-radius: 10px 0px 0px 10px;
 }
-div.carList div.carInfo div.text {
-  flex: 4;
+div#favorite-carsHolder div.carInfo div.text {
+  flex: 60%;
   padding: 10px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+}
+div#home-carsholder div.carInfo div.text {
+  flex: 60%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  font-size: large;
 }
 div.carList div.carInfo div.text div.name {
   font-weight: 700;
   display: flex;
   gap: 10px;
 }
-div.carList div.carInfo div.text div.name span {
-}
-div.carList div.carInfo div.text div.engineYear {
-}
-div.carList div.carInfo div.text div.engineYear span {
-}
-div.carInfo div.text div.features {
-}
 div.carInfo div.text div.features span {
   font-weight: 500;
   color: #948979;
 }
-div.carList div.carInfo div.text div.price {
+div.carInfo div.text div.price {
   font-weight: 700;
   display: flex;
   gap: 10px;
 }
-div.carList div.carInfo div.text div.price span {
-}
-div.carList div.carInfo div.text div.about {
-}
-div.carList div.carInfo div.text div.about span {
+div.carInfo div.text div.about span {
   font-weight: 500;
   color: #948979;
 }
-div.carList div.carInfo div.favs {
+div.carInfo div.favs {
   padding: 10px;
+  /* position: absolute;
+  top: 0;
+  right: 0; */
 }
-div.carList div.carInfo div.favs i {
+div.carInfo div.favs i {
   font-size: 20px;
 }
 div#favorites2 {
@@ -120,16 +115,12 @@ div#favorites2 {
   transform: translate(-50%, -50%);
 }
 div#favorites2:hover,
-  .buttonType:hover {
+.buttonType:hover {
   box-shadow: 1px 2px 5px rgb(0, 0, 0, 0.1);
-}
-#favorite-carsholder {
-  display: flex;
-  flex-direction: column;
 }
 .buttonType {
   color: #67729d;
-  background-color:white;
+  background-color: white;
   width: 80px;
   height: 50px;
   border-radius: 10px;

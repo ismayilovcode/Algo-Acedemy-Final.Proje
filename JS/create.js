@@ -48,6 +48,7 @@ function addvertCar() {
   input9.value = "";
   input10.value = "";
   input11.value = "";
+  input12.value = "";
 
   renderHTML();
 }

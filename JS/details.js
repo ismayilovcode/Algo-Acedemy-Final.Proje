@@ -1,20 +1,30 @@
-function renderHTML() {
-  let todos = JSON.parse(localStorage.getItem("carlist") || "[]");
-  // let FeaturesJson = JSON.parse(localStorage.getItem("Features") || "[]");
-  let x = ``;
+let hash = location.hash;
+if (hash.length) {
+  let hashId = Number(hash.slice(1, hash.length));
+  let carArr = JSON.parse(localStorage.getItem("carlist") || "[]");
+  let foundCar = null;
 
-  for (let i = 0; i < todos.length; i++) {
-    x += `
+  for (let i = 0; i < carArr.length; i++) {
+    if (carArr[i].id == hashId) {
+      foundCar = carArr[i];
+      break;
+    }
+  }
+
+  if (foundCar) {
+    document.getElementById("details").innerHTML = `
     <div class="carInfo">
-    <a href="details.html#${todos[i].id}" class="image"><img src="${
-      todos[i].img
+    <a href="details.html#${foundCar.id}" class="image"><img src="${
+      foundCar.img
     }" alt="" /></a>
      <div class="text">
        <div class="name">
-         <span>${todos[i].model}</span>
-       </div>
-       <div class="engineYear">
-         <span>${todos[i].engine}</span> <span>${todos[i].year}</span>
+       <span>${foundCar.brand}</span><span>${foundCar.model}</span>
+       </div> 
+       <div class="about">
+       <span>${foundCar.engine}</span> • <span>${
+      foundCar.millage
+    }  miles</span> • <span>${foundCar.fuel}</span>
        </div>
        <div class="features">
       <span>Features 1</span>
@@ -22,24 +32,22 @@ function renderHTML() {
       <span>Features 3</span>
       <span>Features 4</span>
        </div>
-       <div class="price"><span>$</span> <span>${todos[i].price}</span></div>
-       <div class="about">
-         <span>${todos[i].millage} millage</span>
-         <span>${todos[i].fuel}</span><span>${todos[i].transmission}</span>
-         <span>${todos[i].color}</span>
+       <div class="price"><span>$</span> <span>${foundCar.price}</span></div>
          </div>
-         </div>
+         </div>  
          ${
-           check(todos[i].id)
-             ? `<div class="favs" onclick="addDeleteFavs(${todos[i].id})"><i class="fa-solid fa-heart"></i></div>`
-             : `<div class="favs" onclick="addDeleteFavs(${todos[i].id})"><i class="fa-regular fa-heart"></i></div>`
+           check(foundCar.id)
+             ? `<div class="favs" onclick="addDeleteFavs(${foundCar.id})"><i class="fa-solid fa-heart"></i></div>`
+             : `<div class="favs" onclick="addDeleteFavs(${foundCar.id})"><i class="fa-regular fa-heart"></i></div>`
          }
-         </div> 
+         </div>
      `;
+  } else {
+    document.getElementById("details").innerHTML = "Car not found...";
   }
-  document.getElementById("home-carsholder").innerHTML = x;
 }
-renderHTML();
+
+//
 
 function addfavs(id) {
   let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
@@ -114,10 +122,8 @@ function addDeleteFavs(id) {
     favsCars.push(id);
     localStorage.setItem("favsCars", JSON.stringify(favsCars));
   }
-  renderHTML();
 }
 list();
-renderHTML();
 
 function DeleteFavs(id) {
   let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");

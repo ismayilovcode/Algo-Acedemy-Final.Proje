@@ -14,46 +14,55 @@ function features() {
     name: input1.value,
   };
 
+  input1.value = "";
+
   todos.push(newtodo);
 
   localStorage.setItem("featurelist", JSON.stringify(todos));
-  renderHTML();
+  renderFeatureHTML();
 }
 
-function renderHTML() {
+function renderFeatureHTML() {
   let todos = JSON.parse(localStorage.getItem("featurelist") || "[]");
   let x = ``;
   for (let i = 0; i < todos.length; i++) {
     x += `
     <div id="feature">
     <h1>${todos[i].name}</h1>
-    <button type="button" class="addCar" onclick="addedCar()">Added Car</button>
     <div class="buttons">
-    <button type="button" onclick="deletFeature(${todos[i].id})">delete</button>
-    <button type="button">edit</button>
+    <button type="button" class="addfeature" onclick="deletFeature(${todos[i].id})">delete <i class="fa-solid fa-trash"></i></button>
+    <button type="button" class="editfeature">edit <i class="fa-regular fa-pen-to-square"></i></button>
     </div>
     </div>
     `;
   }
   document.getElementById("features").innerHTML = x;
 }
-renderHTML();
+renderFeatureHTML();
 
 function deletFeature(id) {
-  let feature = JSON.parse(localStorage.getItem("feature") || "[]");
-  
-  if (localStorage.getItem("feature").includes(id)) {
-    let x = [];
-    for (let i = 0; i < feature.length; i++) {
-      if (feature[i] != id) {
-        x.push(feature[i]);
-      }
+  let feature = JSON.parse(localStorage.getItem("featurelist") || "[]");
+  let newFeature = [];
+
+  for (let i = 0; i < feature.length; i++) {
+    if (feature[i].id != id) {
+      newFeature.push(feature[i]);
     }
-    localStorage.setItem("feature", JSON.stringify(x));
-  } else {
-    feature.push(id);
-    localStorage.setItem("feature", JSON.stringify(feature));
   }
-  renderHTML();
+  localStorage.setItem("featurelist", JSON.stringify(newFeature));
+
+  renderFeatureHTML();
 }
-renderHTML();
+renderFeatureHTML();
+
+function addedFeature() {
+  let feature = JSON.parse(localStorage.getItem("featurelist") || "[]");
+  x = ``;
+
+  for (i = 0; i < feature.length; i++) {
+    x += `
+    <option value="${feature[i].id}">${feature[i].name}</option>
+    `;
+    document.getElementById("input12").innerHTML = x;
+  }
+}
