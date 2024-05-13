@@ -55,11 +55,11 @@ div.carInfo {
   display: flex;
   border-radius: 10px;
   background-color: white;
+  /* width: 705px; */
 }
 div.carInfo a.image {
-  flex: 40%;
+  flex: 25%;
   width: 200px;
-  height: auto;
 }
 div.carInfo a.image img {
   display: flex;

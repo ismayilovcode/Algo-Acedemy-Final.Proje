@@ -10,7 +10,7 @@ function renderHTML() {
     }" alt="" /></a>
      <div class="text">
        <div class="name">
-         <span>${todos[i].model}</span>
+       <span>${todos[i].brand}</span> <span>${todos[i].model}</span>
        </div>
        <div class="engineYear">
          <span>${todos[i].engine}</span> <span>${todos[i].year}</span>
@@ -71,7 +71,7 @@ function list() {
       <a href="details.html#${todos[i].id}" class="image"><img src="${todos[i].img}" alt="" /></a>
        <div class="text">
          <div class="name">
-           <span>${todos[i].model}</span>
+         <span>${todos[i].brand}</span> <span>${todos[i].model}</span>
          </div>
          <div class="engineYear">
            <span>${todos[i].engine}</span> <span>${todos[i].year}</span>
@@ -89,7 +89,6 @@ function list() {
            <span>${todos[i].color}</span>
            </div>
            </div>
-        
      <button type="button" id="button${todos[i].id}" onclick="DeleteFavs(${todos[i].id})" class="buttonType" >Delete</button>
            </div>
      `;
@@ -131,6 +130,7 @@ function DeleteFavs(id) {
     localStorage.setItem("favsCars", JSON.stringify(x));
   }
   renderHTML();
+  list();
 }
 
 function check(id) {

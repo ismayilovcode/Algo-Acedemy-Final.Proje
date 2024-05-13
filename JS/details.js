@@ -23,7 +23,9 @@ if (hash.length) {
      </div> 
      <span>${foundCar.engine}</span> 
        <div class="about">
-       <span>${foundCar.year}</span> • <span>${foundCar.millage}  Miles</span> • <span>${foundCar.fuel}</span>
+       <span>${foundCar.year}</span> • <span>${
+      foundCar.millage
+    }  Miles</span> • <span>${foundCar.fuel}</span>
        </div>
        <div class="price"><span>$</span> <span>${foundCar.price}</span></div>
          </div>
@@ -91,6 +93,53 @@ function list() {
            <span>${todos[i].color}</span>
            </div>
            </div>
+     <button type="button" id="button${todos[i].id}" onclick="DeleteFavs(${todos[i].id})" class="buttonType" >Delete</button>
+           </div>
+     `;
+    }
+  }
+  document.getElementById("favorite-carsHolder").innerHTML = y;
+}
+
+function list() {
+  let x = document.getElementById("favorites2");
+
+  if (x.style.display == "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+
+  let y = ``;
+  let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
+  let todos = JSON.parse(localStorage.getItem("carlist") || "[]");
+
+  for (let i = 0; i < todos.length; i++) {
+    if (favsCars.includes(todos[i].id)) {
+      y += `
+      <div class="carInfo">
+      <a href="details.html#${todos[i].id}" class="image"><img src="${todos[i].img}" alt="" /></a>
+       <div class="text">
+         <div class="name">
+         <span>${todos[i].brand}</span> <span>${todos[i].model}</span>
+         </div>
+         <div class="engineYear">
+           <span>${todos[i].engine}</span> <span>${todos[i].year}</span>
+         </div>
+         <div class="features">
+        <span>Features 1</span>
+        <span>Features 2</span>
+        <span>Features 3</span>
+        <span>Features 4</span>
+         </div>
+         <div class="price"><span>$</span> <span>${todos[i].price}</span></div>
+         <div class="about">
+           <span>${todos[i].millage} miles</span>
+           <span>${todos[i].fuel}</span><span>${todos[i].transmission}</span>
+           <span>${todos[i].color}</span>
+           </div>
+           </div>
+        
      <button type="button" id="button${todos[i].id}" onclick="DeleteFavs(${todos[i].id})" class="buttonType" >Delete</button>
            </div>
      `;
