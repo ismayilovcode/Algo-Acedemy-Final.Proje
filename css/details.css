@@ -3,6 +3,7 @@ body {
   display: flex;
   justify-content: center;
   background-color: whitesmoke;
+  flex-direction: column;
 }
 div#details {
   margin-top: 100px;
@@ -10,6 +11,8 @@ div#details {
   display: flex;
   background-color: white;
   border-radius: 10px;
+  width: 700px;
+  justify-content: center;
 }
 div#details div.carInfos {
   display: flex;
@@ -107,4 +110,35 @@ div.carInfo div.text div.engineYear,
 div.carInfo div.text div.price,
 div.carInfo div.text div.name {
   font-weight: 700;
+}
+
+div#divParent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: whitesmoke;
+  padding: 20px 40px;
+}
+div#divParent div.detailsParent {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+div#divParent div.detailsParent div {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+div#divParent div.detailsParent div span {
+  background-color: #cccccc3e;
+  padding: 12px 16px;
+  width: 200px;
+}
+div#divParent div.detailsParent div.right {
+}
+div#divParent div.detailsParent div.right span {
+}
+div#divParent div.detailsParent div.left {
+}
+div#divParent div.detailsParent div.left span {
 }

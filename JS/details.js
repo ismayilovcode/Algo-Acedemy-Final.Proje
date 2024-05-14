@@ -43,7 +43,32 @@ if (hash.length) {
 }
 
 //
-
+let carArr = JSON.parse(localStorage.getItem("carlist") || "[]");
+for (let i = 0; i < carArr.length; i++) {
+  let carArr = JSON.parse(localStorage.getItem("carlist") || "[]");
+  let x = ``;
+  x += `
+  <h1>Car detalis</h1>
+  <div class="detailsParent">
+    <div class="right">
+     <span>Year: ${carArr[i].brand}</span>
+     <span>Year: ${carArr[i].model}</span>
+      <span>Year: ${carArr[i].year}</span>
+      <span>Engine: ${carArr[i].engine}</span>
+      <span>Transmission: ${carArr[i].transmission}</span>
+      </div>
+      <div class="left">
+      <span>Fuel: ${carArr[i].fuel}</span>
+      <span>Mileage: ${carArr[i].millage}</span>
+      <span>Color: ${carArr[i].color}</span>
+      <span>Body Type: ${carArr[i].bodyType}</span>
+      <span>Price: ${carArr[i].price}</span>
+    </div>
+</div>
+  `;
+  document.getElementById("divParent").innerHTML = x;
+}
+//
 function addfavs(id) {
   let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
 
