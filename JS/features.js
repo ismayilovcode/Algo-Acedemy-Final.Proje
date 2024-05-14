@@ -54,15 +54,3 @@ function deletFeature(id) {
   renderFeatureHTML();
 }
 renderFeatureHTML();
-
-function addedFeature() {
-  let feature = JSON.parse(localStorage.getItem("featurelist") || "[]");
-  x = ``;
-
-  for (i = 0; i < feature.length; i++) {
-    x += `
-    <option value="${feature[i].id}">${feature[i].name}</option>
-    `;
-    document.getElementById("input12").innerHTML = x;
-  }
-}
