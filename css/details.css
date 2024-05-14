@@ -6,13 +6,14 @@ body {
   flex-direction: column;
 }
 div#details {
-  margin-top: 100px;
-  flex-direction: column;
-  display: flex;
-  background-color: white;
   border-radius: 10px;
-  width: 700px;
-  justify-content: center;
+  width: 1000px;
+  background-color: white;
+
+  margin-top: 100px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 20px;
 }
 div#details div.carInfos {
   display: flex;
@@ -26,19 +27,23 @@ div.carInfo {
 }
 div#details div.carInfos a.image {
   flex: 1;
-  width: 400px;
+  display: flex;
 }
 div#details div.carInfos a.image img {
   width: 100%;
   border-radius: 10px 0 0 10px;
 }
+div#details div.carInfos div.text div {
+  justify-content: center;
+}
 div#details div.carInfos div.text {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 25px;
   flex: 1;
+  font-size: 20px;
   color: #394144;
-  padding: 15px;
+  padding-top: 15px;
 }
 .favorite {
   font-size: 20px;
@@ -58,7 +63,6 @@ div#details div.carInfos div.text div.nameModel span {
 }
 div#details div.carInfos div.text div.about {
   font-weight: 700;
-  border-bottom: 1px solid #ccc;
 }
 div#details div.carInfos div.text div.price {
 }
@@ -116,7 +120,7 @@ div#divParent {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: whitesmoke;
+  background-color: white;
   padding: 20px 40px;
 }
 div#divParent div.detailsParent {
