@@ -1,63 +1,73 @@
 body {
   background-color: whitesmoke;
 }
-
 div.createFeatures {
-  margin-top: 85px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  margin-top: 90px;
   display: flex;
+  border-radius: 10px;
 }
-div.createFeatures input {
-  flex: 1;
+div.createFeatures:hover > input {
+  border-color: black;
 }
-div.createFeatures button {
-  color: #67729d;
-  background-color: white;
+div.createFeatures:hover > .enter {
+  border-color: black;
 }
-div.createFeatures button,
-div.createFeatures input {
-  padding: 12px 16px;
-  border-radius: 12px;
-}
-div.createFeatures input {
-  border-right: none;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-div.createFeatures button.enter {
+.createFeatures button.enter {
   border-left: none;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
-
-div#feature {
-  text-align: center;
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 2px 5px rgb(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
+.createFeatures input {
+  width: 100%;
+  border-right: 0;
+  border-color: transparent;
+  padding: 8px;
+  border-radius: 10px 0 0 10px;
 }
-div#features {
+div.createFeatures input:focus-visible {
+  outline: none;
+}
+.enter {
+  border-color: transparent;
+  background-color: white;
+  border-left: none;
+  padding: 1px 0;
+  padding: 8px;
+  border-radius: 0 10px 10px 0;
+}
+.enter i {
+  font-size: 18px;
+}
+
+div#featuresParent {
   display: grid;
   grid-template-columns: auto auto auto;
   gap: 10px;
+  margin-top: 20px;
 }
-div#feature h1 {
+div#featuresParent div.feature {
+  background-color: white;
+  padding: 12px 16px;
+  border-radius: 10px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
 }
-div#feature div.buttons {
+div#featuresParent div.feature h1 {
+  text-align: center;
 }
-div#feature div.buttons .addfeature {
+div#featuresParent div.feature div.buttons {
+  display: flex;
+  gap: 10px;
+}
+div#featuresParent div.feature div.buttons div {
+  padding: 12px 16px;
+  border-radius: 10px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  margin: auto;
+}
+div#featuresParent div.feature div.buttons div.addfeature {
   background-color: #e54592;
-  border-color: #e54592;
   color: white;
 }
-div#feature button.editfeature {
-  background-color: white;
-}
-
-div#feature div.buttons .editfeature,
-div#feature div.buttons .addfeature {
-  padding: 12px 16px;
-  border-radius: 12px;
+div#featuresParent div.feature div.buttons div.editfeature {
 }

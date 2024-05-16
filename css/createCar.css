@@ -1,8 +1,7 @@
 div.carsholder-bg {
   background-color: whitesmoke;
 }
-div#home-carsholder,
-div#favorite-carsHolder {
+div#home-carsholder{
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -16,7 +15,7 @@ section.carsHolder {
 section.carsHolder div.carList a.add {
   font-size: 35px;
   text-align: center;
-  border: 5px dashed black;
+  border: 5px dashed rgba(0, 0,0,0.5);
   padding: 16px;
   border-radius: 10px;
   background-color: white;
@@ -105,21 +104,7 @@ div.carInfo div.favs {
 div.carInfo div.favs i {
   font-size: 20px;
 }
-div#favorites2 {
-  position: fixed;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
 div#favorites2:hover,
 .buttonType:hover {
   box-shadow: 1px 2px 5px rgb(0, 0, 0, 0.1);
-}
-.buttonType {
-  color: #67729d;
-  background-color: white;
-  width: 80px;
-  height: 50px;
-  border-radius: 10px;
-  margin: auto;
 }

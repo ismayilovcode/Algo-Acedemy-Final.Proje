@@ -37,10 +37,27 @@
   section.carsHolder {
     flex-direction: column;
   }
+  div#details {
+    flex-direction: column;
+  }
+  div#details div.image {
+    width: 400px;
+    height: auto;
+  }
+
+  div.bgParent {
+    display: none;
+  }
+  div.responsivTable {
+    display: block;
+  }
 }
 @media (max-width: 880px) {
   div#features {
     grid-template-columns: auto auto;
+  }
+  div.table div.parent {
+    flex-direction: column;
   }
 }
 @media (max-width: 576px) {

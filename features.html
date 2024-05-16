@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/features.css" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/header.css" />
-    <link rel="stylesheet" href="css/createCar.css" />
-    <link rel="stylesheet" href="css/features.css" />
+    <link rel="stylesheet" href="css/favorite.css" />
     <link rel="stylesheet" href="css/responsiv.css" />
     <title>Document</title>
   </head>
@@ -29,12 +29,14 @@
 
     <div class="createFeatures container">
       <input type="text" id="input1" />
-      <button type="button" onclick="features()" class="enter">
+      <div onclick="features()" class="enter">
         <i class="fa-solid fa-arrow-right"></i>
-      </button>
+      </div>
     </div>
 
-    <div id="features" class="container"></div>
+    <div id="featuresParent" class="container"></div>
+
+    <div id="favorites2"></div>
 
     <script src="JS/features.js"></script>
     <script

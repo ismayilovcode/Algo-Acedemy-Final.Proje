@@ -1,148 +1,112 @@
 body {
-  text-align: center;
-  display: flex;
-  justify-content: center;
   background-color: whitesmoke;
-  flex-direction: column;
 }
 div#details {
-  border-radius: 10px;
-  width: 1000px;
-  background-color: white;
-
+  display: flex;
+  padding: 0.9375rem;
+  line-height: 1.5;
+  gap: 10px;
   margin-top: 100px;
-  margin-right: auto;
-  margin-left: auto;
-  margin-bottom: 20px;
-}
-div#details div.carInfos {
-  display: flex;
-  flex-direction: row;
-}
-div.carInfo {
-  box-shadow: 0px 2px 5px rgb(0, 0, 0, 0.1);
-  display: flex;
-  border-radius: 10px;
   background-color: white;
+  width: 1000px;
+  border-radius: 10px;
 }
-div#details div.carInfos a.image {
+div#details div {
+}
+div#details div.image {
   flex: 1;
-  display: flex;
 }
-div#details div.carInfos a.image img {
+div#details div.image img {
   width: 100%;
-  border-radius: 10px 0 0 10px;
+  border-radius: 10px;
 }
-div#details div.carInfos div.text div {
-  justify-content: center;
-}
-div#details div.carInfos div.text {
-  display: flex;
-  flex-direction: column;
-  gap: 25px;
-  flex: 1;
-  font-size: 20px;
+div#details div.text {
   color: #394144;
-  padding-top: 30px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  font-size: large;
+  padding: 20px;
+
+  position: relative;
 }
-.favorite {
-  font-size: 20px;
-}
-.favorite i {
-  font-weight: 700;
-  padding: 10px;
-}
-div#details div.carInfos div.text div.nameModel {
-  font-weight: 600;
-  font-size: 25px;
+div#details div.text div {
   display: flex;
   gap: 10px;
+}
+div#details div.text div.about {
+  padding-top: 16px;
+  border-top: 1px solid #c5ccce;
+}
+div#details div.text div#features {
+  border-top: 1px solid #c5ccce;
+  padding-top: 16px;
+}
+div#details div.text div span {
+  font-size: 20px;
+}
+div#details div.text div.price span {
+  font-size: 28px;
+  font-weight: 600;
+}
+div#details div.text div#features {
+}
+div#details div.text div#features span {
+}
+div#details div.text div.favorite {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+div#details div.text div.favorite i {
+  font-size: 25px;
+}
+/* new table */
+div.bgParent,div.responsivTable {
+  margin-top: 20px;
+}
+div.bgParent {
+  background-color: white;
+  padding: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+div.bg div.parent {
+  padding: 10px;
+  display: flex;
   justify-content: center;
 }
-div#details div.carInfos div.text div.nameModel span {
-}
-div#details div.carInfos div.text div.about {
-  font-weight: 700;
-}
-div#details div.carInfos div.text div.price {
-}
-div#details div.carInfos div.text div.price span {
-  font-weight: 700;
-  font-size: 20px;
-}
-#favorites2 {
-  position: fixed;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-div#favorites2:hover,
-.buttonType:hover {
-  box-shadow: 1px 2px 5px rgb(0, 0, 0, 0.1);
-}
-.buttonType {
-  color: #67729d;
-  background-color: white;
-  width: 80px;
-  height: 50px;
-  border-radius: 10px;
-  margin: auto;
-}
-div#favorite-carsHolder div.carInfo div.text {
-  flex: 60%;
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-}
-div#favorite-carsHolder {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-div.carInfo a.image {
-  flex: 40%;
-  width: 200px;
-  height: auto;
-}
-div.carInfo a.image img {
-  display: flex;
+div.bg div {
+  padding: 0 15px;
   width: 100%;
-  height: 100%;
-  border-radius: 10px 0px 0px 10px;
 }
-div.carInfo div.text div.engineYear,
-div.carInfo div.text div.price,
-div.carInfo div.text div.name {
-  font-weight: 700;
-}
-
-div#divParent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+div.bg div table,
+div.responsivTable table {
+  width: 100%;
+  padding: 0.75rem;
   background-color: white;
-  padding: 20px 40px;
+  border-collapse: collapse;
 }
-div#divParent div.detailsParent {
-  display: flex;
-  flex-direction: row;
-  gap: 20px;
+div.responsivTable {
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 8px 23px;
+  display: none;
 }
-div#divParent div.detailsParent div {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+div.bg div table tr,
+div.responsivTable table tr {
+  color: #394144;
+  width: 100%;
 }
-div#divParent div.detailsParent div span {
-  background-color: #cccccc3e;
-  padding: 12px 16px;
-  width: 200px;
+div.bg div table tr th,
+div.responsivTable table tr th {
+  padding: 12px;
 }
-div#divParent div.detailsParent div.right {
+div.bg div table tr td,
+div.responsivTable table tr td {
+  width: 100%;
+  padding: 12px;
 }
-div#divParent div.detailsParent div.right span {
-}
-div#divParent div.detailsParent div.left {
-}
-div#divParent div.detailsParent div.left span {
+.selected {
+  background-color: #ccc;
 }

@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+}
+div.carfavorite {
+  width: 350px;
+  /* height: 1090px; */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 15px 0 0 15px;
+  padding: 1rem;
+  color: #394144;
+  background-color: white;
+
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+div.carfavorite div.carParent {
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+}
+div.carfavorite div.saved {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+}
+div.carfavorite div.saved span {
+  font-size: 20px;
+  font-weight: 700;
+}
+div.carfavorite div.saved span i {
+  color: #394144;
+}
+div.carfavorite div.favoriteCar {
+  display: flex;
+  border-radius: 20px 20px 0 0;
+}
+div.carfavorite div.favoriteCar div.image {
+  width: 132.5px;
+}
+div.carfavorite div.favoriteCar div.image img {
+  width: 100%;
+  border-radius: 20px 0 0 0;
+  display: flex;
+}
+div.carfavorite div.favoriteCar div.carText {
+  background-color: white;
+  padding: 0.5rem;
+}
+div.carfavorite div.favoriteCar div.carText span {
+}
+div.carfavorite div.favoriteCar div.carText div span {
+}
+.modelName {
+  display: flex;
+  gap: 8px;
+}
+.carAbout {
+  background-color: #f7f7f9;
+  border-radius: 0 0 10px 10px;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+.buttonType {
+  
+  }
