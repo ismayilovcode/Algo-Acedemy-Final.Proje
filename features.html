@@ -11,24 +11,25 @@
     <title>Document</title>
   </head>
   <body id="detail">
-    <div class="header-bg">
-      <header class="container">
+    <div class="header1-bg">
+      <header class="header1 container">
         <a href="index.html">
           <img src="fotos/logo/logo4.svg" alt="error" />
         </a>
         <div class="right">
-          <a href="cars.html" id="Cars">Cars</a>
+          <a href="/" id="Cars">Cars</a>
           <a href="features.html" id="Features">Features</a>
         </div>
         <a id="Favorites" onclick="list()">
           <div><i class="fa-solid fa-heart"></i></div>
-          <div>SAVE</div>
+          <div>Saved (0)</div>
         </a>
+        <a id="openMenu" onclick="listMenu()">Menu</a>
       </header>
     </div>
 
     <div class="createFeatures container">
-      <input type="text" id="input1" />
+      <input type="text" id="input1" placeholder="Added Features" />
       <div onclick="features()" class="enter">
         <i class="fa-solid fa-arrow-right"></i>
       </div>
@@ -36,7 +37,24 @@
 
     <div id="featuresParent" class="container"></div>
 
-    <div id="favorites2"></div>
+    <div id="menu">
+      <div class="aParent">
+        <a href="/">Cars</a>
+        <a href="features.html" id="Features">Features</a>
+        <a id="Favorites" onclick="list()">
+          <div><i class="fa-solid fa-heart"></i></div>
+          <div>Saved</div>
+        </a>
+      </div>
+    </div>
+
+    <div id="favorites2">
+      <div class="saved">
+        <span>Saved</span>
+        <span onclick="DeleteFavs(id)"><i class="fa-solid fa-xmark"></i></span>
+      </div>
+      <div id="carfavorite"></div>
+    </div>
 
     <script src="JS/features.js"></script>
     <script

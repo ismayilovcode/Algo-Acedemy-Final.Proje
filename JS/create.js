@@ -18,7 +18,7 @@ function addvertCar() {
       maxId = todos[i].id;
     }
   }
-
+  let featurelist = JSON.parse(localStorage.getItem("featurelist") || "[]");
   let newtodo = {
     id: maxId + 1,
     brand: input1.value,
@@ -64,5 +64,92 @@ function addedFeature() {
     `;
     option.innerHTML = x;
   }
+
+  let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
+  for (let i = 0; i < favsCars.length; i++) {
+    document.getElementById("Favorites").innerHTML = `
+    <div><i class="fa-solid fa-heart"></i></div>
+    <div>Saved (${favsCars.length})</div>
+    `;
+  }
 }
 addedFeature();
+
+function listMenu() {
+  let x = document.getElementById("menu");
+
+  if (x.style.display == "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+function DeleteFavs(id) {
+  let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
+
+  if (favsCars.includes(id)) {
+    let x = [];
+    for (let i = 0; i < favsCars.length; i++) {
+      if (favsCars[i] != id) {
+        x.push(favsCars[i]);
+      }
+    }
+    localStorage.setItem("favsCars", JSON.stringify(x));
+
+    for (let i = 0; i < favsCars.length; i++) {
+      document.getElementById("Favorites").innerHTML = `
+      <div><i class="fa-solid fa-heart"></i></div>
+      <div>Saved (0)</div>
+      `;
+    }
+  }
+  addedFeature();
+  list();
+}
+
+function list() {
+  let x = document.getElementById("favorites2");
+
+  if (x.style.display == "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+
+  let y = ``;
+  let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
+  let todos = JSON.parse(localStorage.getItem("carlist") || "[]");
+
+  for (let i = 0; i < todos.length; i++) {
+    if (favsCars.includes(todos[i].id)) {
+      y += `
+      <div class="carParent">
+        <div class="favoriteCar">
+          <div class="image">
+            <img src="${todos[i].img}" alt="error" />
+          </div>
+          <div class="carText">
+            <div class="modelName">
+              <h3>${todos[i].brand}</h3>
+              <h3>${todos[i].model}</h3>
+            </div>
+            <span>${todos[i].engine}</span> <span>${todos[i].fuel}</span>
+            <span>${todos[i].transmission}</span>
+            <span>${todos[i].year}</span>
+          </div>
+        </div>
+        <div class="carAbout">
+          <span>${todos[i].millage} Millage</span> <div id="button${todos[i].id}" onclick="DeleteFavs(${todos[i].id})" class="buttonType" ><i class="fa-solid fa-heart"></i></div>
+        </div>
+      </div>
+     `;
+    } else {
+      y += `
+      <h3>You haven't liked any car yet</h3>
+      `;
+      break;
+    }
+  }
+  document.getElementById("carfavorite").innerHTML = y;
+}

@@ -5,9 +5,8 @@ function renderHTML() {
   for (let i = 0; i < todos.length; i++) {
     x += `
     <div class="carInfo">
-    <a href="details.html#${todos[i].id}" class="image"><img src="${
-      todos[i].img
-    }" alt="" /></a>
+    <a href="details.html#${todos[i].id}" class="image" style="
+    background-image: url(${todos[i].img});"></a>
      <div class="text">
        <div class="name">
        <span>${todos[i].brand}</span> <span>${todos[i].model}</span>
@@ -15,12 +14,7 @@ function renderHTML() {
        <div class="engineYear">
          <span>${todos[i].engine}</span> <span>${todos[i].year}</span>
        </div>
-       <div id="features">
-      <span>Features 1</span>
-      <span>Features 2</span>
-      <span>Features 3</span>
-      <span>Features 4</span>
-       </div>
+       <div id="features"></div>
        <div class="price"><span>$</span> <span>${todos[i].price}</span></div>
        <div class="about">
          <span>${todos[i].millage} millage</span>
@@ -36,7 +30,27 @@ function renderHTML() {
          </div> 
      `;
   }
+
   document.getElementById("home-carsholder").innerHTML = x;
+
+  let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
+  for (let i = 0; i < favsCars.length; i++) {
+    document.getElementById("Favorites").innerHTML = `
+    <div><i class="fa-solid fa-heart"></i></div>
+    <div>Saved (${favsCars.length})</div>
+    `;
+  }
+
+  let featurelist = JSON.parse(localStorage.getItem("featurelist") || "[]");
+  end = Math.min(4, featurelist.length);
+  y = ``;
+  for (i = 0; i < end; i++) {
+    y += `
+    <span>${featurelist[i].name}</span>
+    `;
+
+    document.getElementById("features").innerHTML = y;
+  }
 }
 renderHTML();
 
@@ -67,11 +81,6 @@ function list() {
   for (let i = 0; i < todos.length; i++) {
     if (favsCars.includes(todos[i].id)) {
       y += `
-      <div class="carfavorite">
-      <div class="saved">
-        <span>Saved</span>
-        <span onclick="DeleteFavs(id)"><i class="fa-solid fa-xmark"></i></span>
-      </div>
       <div class="carParent">
         <div class="favoriteCar">
           <div class="image">
@@ -91,12 +100,12 @@ function list() {
           <span>${todos[i].millage} Millage</span> <div id="button${todos[i].id}" onclick="DeleteFavs(${todos[i].id})" class="buttonType" ><i class="fa-solid fa-heart"></i></div>
         </div>
       </div>
-    </div>
      `;
     }
   }
-  document.getElementById("favorites2").innerHTML = y;
+  document.getElementById("carfavorite").innerHTML = y;
 }
+
 function addDeleteFavs(id) {
   let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
 
@@ -108,13 +117,25 @@ function addDeleteFavs(id) {
       }
     }
     localStorage.setItem("favsCars", JSON.stringify(x));
+
+    for (let i = 0; i < favsCars.length; i++) {
+      document.getElementById("Favorites").innerHTML = `
+      <div><i class="fa-solid fa-heart"></i></div>
+      <div>Saved (0)</div>
+      `;
+    }
   } else {
     favsCars.push(id);
     localStorage.setItem("favsCars", JSON.stringify(favsCars));
+    for (let i = 0; i < favsCars.length; i++) {
+      document.getElementById("Favorites").innerHTML = `
+      <div><i class="fa-solid fa-heart"></i></div>
+      <div>Saved (${favsCars.length})</div>
+      `;
+    }
   }
   renderHTML();
 }
-list();
 renderHTML();
 
 function DeleteFavs(id) {
@@ -127,6 +148,12 @@ function DeleteFavs(id) {
         x.push(favsCars[i]);
       }
     }
+    for (let i = 0; i < favsCars.length; i++) {
+      document.getElementById("Favorites").innerHTML = `
+      <div><i class="fa-solid fa-heart"></i></div>
+      <div>Saved (0)</div>
+      `;
+    }
     localStorage.setItem("favsCars", JSON.stringify(x));
   }
   renderHTML();
@@ -137,4 +164,14 @@ function check(id) {
   let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
 
   return favsCars.includes(id);
+}
+
+function listMenu() {
+  let x = document.getElementById("menu");
+
+  if (x.style.display == "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
 }

@@ -29,12 +29,20 @@ form.create div.divParent div.leftCar {
 }
 form.create div.divParent div.rightCar {
 }
-form.create button {
+form.create div.onclick {
+  margin: auto;
+  width: 200px;
   padding: 12px 16px;
   border-radius: 12px;
   background-color: #e54592;
-  border-color: #e54592;
   color: white;
+  cursor: pointer;
+  user-select: none;
+  text-align: center;
+  box-shadow: 0px 2px 5px rgb(0, 0, 0, 0.1);
+}
+form.create div.onclick:hover {
+  box-shadow: 0px 2px 5px rgb(0, 0, 0, 0.5);
 }
 form.create div.divParent div label {
 }
@@ -50,14 +58,12 @@ form.create div.divParent div select option {
 form.create input:hover,
 form.create select:hover {
   border: 1px solid black;
-  box-shadow: 0px 2px 5px rgb(0, 0, 0, 0.1);
 }
 form.create select {
   padding: 9px;
 }
 form.create input,
 form.create select {
-  overflow: hidden;
   border: 0.0625rem solid #ccc;
 }
 form.create div.divParent div input,

@@ -11,19 +11,20 @@
     <title>Document</title>
   </head>
   <body id="detail">
-    <div class="header-bg">
-      <header class="container">
+    <div class="header1-bg">
+      <header class="header1 container">
         <a href="index.html">
           <img src="fotos/logo/logo4.svg" alt="error" />
         </a>
         <div class="right">
-          <a href="cars.html" id="Cars">Cars</a>
+          <a href="/" id="Cars">Cars</a>
           <a href="features.html" id="Features">Features</a>
         </div>
         <a id="Favorites" onclick="list()">
           <div><i class="fa-solid fa-heart"></i></div>
-          <div>SAVE</div>
+          <div>Saved (0)</div>
         </a>
+        <a id="openMenu" onclick="listMenu()">Menu</a>
       </header>
     </div>
 
@@ -43,17 +44,32 @@
         </div>
       </section>
     </div>
-    <div id="favorites2"></div>
-    <!-- özüme not
-     prablem 1 favoritede listde en axirinci gorsenir sadece hamisi yox  
-     prablem 2 detailsde sadece 1 sabit masin gorsenir prablem var
-     prablem 3 optionlardan getirilenlerin featurese verilmesi
-     prablem 4 featuresin inputunda prablem var
-     prablem 5 featuresin edit duymesinde prablem var
-     prablem 6 details yerinde headerin usdune cixir yazilar
 
-     prablem 1 ve prablem 6 nin eyni sebebden prablem yaratdigini dusunurem cunki ikiside en axirincini gorsedir
-    -->
+    <div id="menu">
+      <div class="aParent">
+        <a href="/">Cars</a>
+        <a href="features.html" id="Features">Features</a>
+        <a id="Favorites" onclick="list()">
+          <div><i class="fa-solid fa-heart"></i></div>
+          <div>Saved</div>
+        </a>
+      </div>
+    </div>
+
+    <div id="favorites2">
+      <div class="saved">
+        <span>Saved</span>
+        <span onclick="DeleteFavs(id)"><i class="fa-solid fa-xmark"></i></span>
+      </div>
+      <div id="carfavorite"></div>
+    </div>
+
+    <!--prablem 1 featurelerin yazilmasi opsi carslarda islemir prablem olur-->
+
+    <!--prablem 2 detailsdeki urekde prablem var rengi deyismir cunki adddelete de renderDetailsHtml() yazanda opsi yerde prablem cixir yazmayandada deyismir-->
+    <!--prablem 3 tam prablem sayilmir ama heleki footeri yazmamisam bizde az sey var deye footer bos qalir fikir lazimdi ki ne yazim-->
+
+    <!-- <footer> Very soon </footer> -->
     <script src="JS/index.js"></script>
     <script
       src="https://kit.fontawesome.com/d49ab259ea.js"

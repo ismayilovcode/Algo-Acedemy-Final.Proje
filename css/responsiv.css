@@ -39,12 +39,9 @@
   }
   div#details {
     flex-direction: column;
-  }
-  div#details div.image {
-    width: 400px;
+    width: 600px;
     height: auto;
   }
-
   div.bgParent {
     display: none;
   }
@@ -53,7 +50,7 @@
   }
 }
 @media (max-width: 880px) {
-  div#features {
+  div#featuresParent {
     grid-template-columns: auto auto;
   }
   div.table div.parent {
@@ -61,7 +58,25 @@
   }
 }
 @media (max-width: 576px) {
-  div#features {
+  div#featuresParent {
     grid-template-columns: auto;
+  }
+  .header1 a {
+    font-size: 16px;
+  }
+  .header1 > div.right a {
+    font-size: 12px;
+  }
+  .header1 a#openMenu {
+    display: block;
+  }
+  .header1 div.right,
+  .header1 a#Favorites {
+    display: none;
+  }
+
+  .carInfo{
+    /* flex-direction: column; */
+    gap: 10px;
   }
 }

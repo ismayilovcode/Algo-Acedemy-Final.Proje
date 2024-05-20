@@ -31,9 +31,16 @@ function renderFeatureHTML() {
     <h1>${todos[i].name}</h1>
     <div class="buttons">
     <div class="addfeature" onclick="deletFeature(${todos[i].id})">Delete <i class="fa-solid fa-trash"></i></div>
-    <div class="editfeature">Edit <i class="fa-regular fa-pen-to-square"></i></div>
     </div>
     </div>
+    `;
+  }
+
+  let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
+  for (let i = 0; i < favsCars.length; i++) {
+    document.getElementById("Favorites").innerHTML = `
+    <div><i class="fa-solid fa-heart"></i></div>
+    <div>Saved (${favsCars.length})</div>
     `;
   }
   document.getElementById("featuresParent").innerHTML = x;
@@ -71,11 +78,6 @@ function list() {
   for (let i = 0; i < todos.length; i++) {
     if (favsCars.includes(todos[i].id)) {
       y += `
-      <div class="carfavorite">
-      <div class="saved">
-        <span>Saved</span>
-        <span onclick="DeleteFavs(id)"><i class="fa-solid fa-xmark"></i></span>
-      </div>
       <div class="carParent">
         <div class="favoriteCar">
           <div class="image">
@@ -92,14 +94,13 @@ function list() {
           </div>
         </div>
         <div class="carAbout">
-          <span>${todos[i].millage} Millage</span> <i class="fa-solid fa-heart"></i>
+          <span>${todos[i].millage} Millage</span> <div id="button${todos[i].id}" onclick="DeleteFavs(${todos[i].id})" class="buttonType" ><i class="fa-solid fa-heart"></i></div>
         </div>
       </div>
-    </div>
      `;
     }
   }
-  document.getElementById("favorites2").innerHTML = y;
+  document.getElementById("carfavorite").innerHTML = y;
 }
 
 function DeleteFavs(id) {
@@ -113,7 +114,24 @@ function DeleteFavs(id) {
       }
     }
     localStorage.setItem("favsCars", JSON.stringify(x));
+
+    for (let i = 0; i < favsCars.length; i++) {
+      document.getElementById("Favorites").innerHTML = `
+      <div><i class="fa-solid fa-heart"></i></div>
+      <div>Saved (0)</div>
+      `;
+    }
   }
   renderFeatureHTML();
   list();
+}
+
+function listMenu() {
+  let x = document.getElementById("menu");
+
+  if (x.style.display == "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
 }

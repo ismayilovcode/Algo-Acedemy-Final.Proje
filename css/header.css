@@ -1,49 +1,101 @@
-div.header-bg {
+div.header1-bg {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   box-shadow: 1px 1px 5px 1px rgb(0, 0, 0, 0.1);
   background-color: white;
+  z-index: 10;
 }
 
-header {
+.header1 {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   background-color: white;
 }
-header a img {
+.header1 a img {
   width: 100%;
   height: auto;
   display: flex;
 }
-header > a {
+.header1 > a {
   display: inline-block;
   width: 130px;
 }
-header > div.right {
+.header1 > div.right {
   display: flex;
 }
-header > div.right a,
-header a {
+.header1 > div.right a {
+}
+.header1 > div.right a,
+.header1 a {
   text-decoration: none;
   text-align: center;
+  align-content: center;
   font-weight: bold;
-  color: #67729d;
+  color: #394144;
   user-select: none;
-
+  cursor: pointer;
   padding: 16px;
   display: inline-block;
   font-size: 20px;
 }
+.header1 a#Favorites {
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+  color: #394144;
+  user-select: none;
+  cursor: pointer;
+  padding: 16px;
+  display: inline-block;
+  font-size: 16px;
+}
 
-header > div.right a:hover,
-header a:hover {
+.header1 div.right a:hover,
+.header1 a:hover,
+.header1 a#Favorites:hover {
   color: pink;
   background-color: whitesmoke;
+}
+.header1 a:first-child:hover {
+  background-color: white;
 }
 a#Favorites {
   display: flex;
   flex-direction: column;
+}
+
+.header1 a#openMenu {
+  display: none;
+}
+#menu {
+  display: none;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  z-index: 3;
+  box-shadow: 1px 1px 5px 1px rgb(0, 0, 0, 0.1);
+  background-color: white;
+  height: 100vh;
+}
+#menu div.aParent {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: center;
+}
+#menu a {
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+  user-select: none;
+  cursor: pointer;
+  padding: 16px;
+  display: inline-block;
+  color: #394144;
+}
+#menu a:hover {
+  color: pink;
+  background-color: whitesmoke;
 }
