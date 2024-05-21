@@ -1,1 +1,67 @@
-/* Very soon */
+footer {
+    background-color: #394144;
+    display: flex;
+    padding: 30px 50px;
+    line-height: 1.5;
+  }
+  footer div.left {
+    padding: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  footer div.left div.text {
+    display: flex;
+    flex-direction: column;
+  }
+  footer div.left .border {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  footer div.left div.text a {
+    text-decoration: none;
+    color: white;
+    user-select: none;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  footer div.left .image {
+    width: 150px;
+  }
+  footer .image img {
+    width: 100%;
+    display: flex;
+  }
+  footer div.right {
+    padding: 10px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  footer div.right .image {
+    width: 40px;
+    display: flex;
+    gap: 20px;
+  }
+  footer div.right .imageSelected {
+    width: 200px;
+  }
+  footer div.right .imageSelected img {
+    width: 100%;
+  }
+  footer div.right .image img {
+    display: flex;
+    width: 100%;
+  }
+  footer div.right div.ico {
+    display: flex;
+    gap: 15px;
+  }
+  footer div.right div.ico i {
+    font-size: 25px;
+    color: white;
+  }
+  footer div.right div.ico i:hover {
+  }

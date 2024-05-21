@@ -9,6 +9,7 @@ div#details {
   margin-top: 100px;
   width: 1000px;
   border-radius: 10px;
+  padding-bottom: 20px;
 }
 div#details div {
 }

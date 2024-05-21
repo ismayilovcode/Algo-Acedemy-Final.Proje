@@ -10,6 +10,7 @@ section.carsHolder {
   margin-top: 80px;
   display: flex;
   padding-top: 20px;
+  padding-bottom: 70px;
   gap: 20px;
 }
 section.carsHolder div.carList a.add {

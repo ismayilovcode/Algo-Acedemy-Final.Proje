@@ -1,6 +1,10 @@
 body {
   background-color: whitesmoke;
 }
+div.create-bg {
+  padding-top: 50px;
+  padding-bottom: 70px;
+}
 form.create {
   margin-top: 100px;
   background-color: white;
@@ -71,4 +75,7 @@ form.create div.divParent div label,
 form.create div.divParent div select {
   padding: 10px;
   border-radius: 10px;
+}
+::-webkit-scrollbar {
+  width: 10px;
 }

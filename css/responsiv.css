@@ -74,9 +74,8 @@
   .header1 a#Favorites {
     display: none;
   }
-
-  .carInfo{
-    /* flex-direction: column; */
+  footer {
+    flex-direction: column;
     gap: 10px;
   }
 }
