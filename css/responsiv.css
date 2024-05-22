@@ -39,7 +39,7 @@
   }
   div#details {
     flex-direction: column;
-    width: 600px;
+    width: 350px;
     height: auto;
   }
   div.bgParent {
@@ -55,6 +55,11 @@
   }
   div.table div.parent {
     flex-direction: column;
+  }
+  footer {
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
   }
 }
 @media (max-width: 576px) {
@@ -73,9 +78,5 @@
   .header1 div.right,
   .header1 a#Favorites {
     display: none;
-  }
-  footer {
-    flex-direction: column;
-    gap: 10px;
   }
 }

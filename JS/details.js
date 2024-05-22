@@ -19,7 +19,8 @@ function renderDetailsHtml() {
     </div>
     <div class="text">
       <div class="name">
-        <h2>Brand: ${foundCar.brand} • Model${foundCar.model}</h2>
+        <h2>Brand: ${foundCar.brand}</h2>
+        <h2>Model: ${foundCar.model}</h2>
       </div>
       <div class="engine">
         <span>Engine: ${foundCar.engine}</span>
@@ -143,19 +144,19 @@ function renderDetailsHtml() {
           <th>Fuel:</th>
           <td>${foundCar.fuel}</td>
         </tr>
-        <tr>
+        <tr class="selected">
           <th>Millage:</th>
           <td>${foundCar.millage}</td>
         </tr>
-        <tr class="selected">
+        <tr>
           <th>BodyType:</th>
           <td>${foundCar.bodyType}</td>
         </tr>
-        <tr>
+        <tr class="selected">
           <th>Transmission:</th>
           <td>${foundCar.transmission}</td>
         </tr>
-        <tr class="selected">
+        <tr>
           <th>Price:</th>
           <td>${foundCar.price}</td>
         </tr>
