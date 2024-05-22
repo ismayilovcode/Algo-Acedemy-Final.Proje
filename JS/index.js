@@ -127,6 +127,7 @@ function addDeleteFavs(id) {
   } else {
     favsCars.push(id);
     localStorage.setItem("favsCars", JSON.stringify(favsCars));
+
     for (let i = 0; i < favsCars.length; i++) {
       document.getElementById("Favorites").innerHTML = `
       <div><i class="fa-solid fa-heart"></i></div>
