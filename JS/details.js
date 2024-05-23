@@ -14,9 +14,7 @@ function renderDetailsHtml() {
 
     if (foundCar) {
       document.getElementById("details").innerHTML += `
-      <div class="image">
-      <img src="${foundCar.img}" alt="" />
-    </div>
+    <div class="image" style="background-image: url(${foundCar.img});"></div>
     <div class="text">
       <div class="name">
         <h2>Brand: ${foundCar.brand}</h2>
@@ -40,28 +38,19 @@ function renderDetailsHtml() {
             ? `<div class="favorite" onclick="addDeleteFavs(${foundCar.id})"><i class="fa-solid fa-heart"></i></div>`
             : `<div class="favorite" onclick="addDeleteFavs(${foundCar.id})"><i class="fa-regular fa-heart"></i></div>`
         }
-        </div>
     </div>
           `;
 
-      let featurelist = JSON.parse(localStorage.getItem("featurelist") || "[]");
-      a = ``;
-      for (i = 0; i < featurelist.length; i++) {
-        a += `
-    <span>${featurelist[i].name}</span>
-    `;
-        document.getElementById("features").innerHTML = a;
-
-        let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
-        for (let i = 0; i < favsCars.length; i++) {
-          document.getElementById("Favorites").innerHTML = `
+      let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
+      for (let i = 0; i < favsCars.length; i++) {
+        document.getElementById("Favorites").innerHTML = `
       <div><i class="fa-solid fa-heart"></i></div>
       <div>Saved (${favsCars.length})</div>
       `;
-        }
       }
+
       document.getElementById("tableParent").innerHTML = `
-      <div class="bgParent">
+      <div class="bgParent container">
       <div class="bg">
         <h2>Car details</h2>
         <div class="parent">
@@ -117,7 +106,7 @@ function renderDetailsHtml() {
       </div>
     </div>
 
-    <div class="responsivTable">
+    <div class="responsivTable container">
       <h2>Car details</h2>
       <table>
         <tr class="selected">
@@ -191,6 +180,7 @@ function addDeleteFavs(id) {
   } else {
     favsCars.push(id);
     localStorage.setItem("favsCars", JSON.stringify(favsCars));
+
     for (let i = 0; i < favsCars.length; i++) {
       document.getElementById("Favorites").innerHTML = `
       <div><i class="fa-solid fa-heart"></i></div>
@@ -198,6 +188,7 @@ function addDeleteFavs(id) {
       `;
     }
   }
+  location.reload();
 }
 
 function DeleteFavs(id) {
@@ -257,8 +248,8 @@ function list() {
       y += `
       <div class="carParent">
         <div class="favoriteCar">
-          <div class="image">
-            <img src="${todos[i].img}" alt="error" />
+          <div class="image" style="
+          background-image: url(${todos[i].img});">
           </div>
           <div class="carText">
             <div class="modelName">

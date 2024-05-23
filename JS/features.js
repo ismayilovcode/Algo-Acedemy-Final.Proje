@@ -80,9 +80,8 @@ function list() {
       y += `
       <div class="carParent">
         <div class="favoriteCar">
-          <div class="image">
-            <img src="${todos[i].img}" alt="error" />
-          </div>
+        <a href="details.html#${todos[i].id}" class="image" style="
+        background-image: url(${todos[i].img});"></a>
           <div class="carText">
             <div class="modelName">
               <h3>${todos[i].brand}</h3>

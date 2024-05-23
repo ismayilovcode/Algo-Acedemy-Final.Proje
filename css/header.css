@@ -40,6 +40,9 @@ div.header1-bg {
   display: inline-block;
   font-size: 20px;
 }
+.header1 a:first-child {
+  padding: 0;
+}
 .header1 a#Favorites {
   text-decoration: none;
   text-align: center;
@@ -47,7 +50,7 @@ div.header1-bg {
   color: #394144;
   user-select: none;
   cursor: pointer;
-  padding: 16px;
+  padding: 0;
   display: inline-block;
   font-size: 16px;
 }

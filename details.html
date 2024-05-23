@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="css/favorite.css" />
     <link rel="stylesheet" href="css/footer.css" />
     <link rel="stylesheet" href="css/responsiv.css" />
-    <title>Document</title>
+
+    <title>Carshop Car-Details</title>
+    <link rel="icon" type="image/x-icon" href="/fotos/logo/CarShop-logo.svg" />
   </head>
 
   <body>
@@ -24,7 +26,7 @@
         </div>
         <a id="Favorites" onclick="list()">
           <div><i class="fa-solid fa-heart"></i></div>
-          <div>Saved</div>
+          <div>Saved (0)</div>
         </a>
         <a id="openMenu" onclick="listMenu()">Menu</a>
       </header>
@@ -33,7 +35,7 @@
     <div id="details" class="container"></div>
     <div id="tableParent" class="container"></div>
 
-    <div id="menu">
+    <div id="menu" style="display: none">
       <div class="aParent">
         <a href="/">Cars</a>
         <a href="features.html" id="Features">Features</a>
@@ -44,7 +46,7 @@
       </div>
     </div>
 
-    <div id="favorites2">
+    <div id="favorites2" style="display: none">
       <div class="saved">
         <span>Saved</span>
         <span onclick="DeleteFavs(id)"><i class="fa-solid fa-xmark"></i></span>
@@ -52,8 +54,7 @@
       <div id="carfavorite"></div>
     </div>
 
-
-    <footer>
+    <footer class="container">
       <div class="left">
         <div class="image">
           <img src="fotos/logo/CarShop-logo.svg" alt="error" />

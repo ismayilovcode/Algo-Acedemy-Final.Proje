@@ -11,6 +11,9 @@
   form.create div.divParent {
     flex-direction: row;
   }
+  #menu {
+    display: none;
+  }
 }
 @media (min-width: 768px) {
   .container {
@@ -37,17 +40,6 @@
   section.carsHolder {
     flex-direction: column;
   }
-  div#details {
-    flex-direction: column;
-    width: 350px;
-    height: auto;
-  }
-  div.bgParent {
-    display: none;
-  }
-  div.responsivTable {
-    display: block;
-  }
 }
 @media (max-width: 880px) {
   div#featuresParent {
@@ -59,7 +51,17 @@
   footer {
     flex-direction: column;
     gap: 10px;
-    padding: 20px;
+  }
+}
+@media (max-width: 768px) {
+  div#details {
+    /* flex-direction: column; */
+  }
+  div.bgParent {
+    display: none;
+  }
+  div.responsivTable {
+    display: block;
   }
 }
 @media (max-width: 576px) {

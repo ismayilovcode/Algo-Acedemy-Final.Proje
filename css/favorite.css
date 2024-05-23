@@ -9,12 +9,18 @@ body {
   padding: 1rem;
   color: #394144;
   background-color: #ffffff;
-  display: none;
+  flex-direction: column;
+  z-index: 3;
 
+  overflow: auto;
   position: fixed;
   top: 80px;
   right: 0;
   bottom: 0;
+}
+div#carfavorite {
+  display: flex;
+  flex-direction: column;
 }
 .carParent {
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
@@ -36,16 +42,14 @@ body {
 }
 .favoriteCar {
   display: flex;
-  border-radius: 20px 20px 0 0;
+  /* border-radius: 20px 20px 0 0; */
 }
-.favoriteCar div.image {
-  width: 132.5px;
+.favoriteCar .image {
   flex: 1;
-}
-.favoriteCar div.image img {
-  width: 100%;
-  border-radius: 20px 0 0 0;
-  display: flex;
+  border-top-left-radius: 20px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
 }
 .favoriteCar div.carText {
   flex: 1;

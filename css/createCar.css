@@ -1,5 +1,8 @@
-div.carsholder-bg {
+body {
   background-color: whitesmoke;
+}
+div.carsholder-bg {
+  /* background-color: whitesmoke; */
 }
 div#home-carsholder {
   display: flex;
@@ -7,7 +10,7 @@ div#home-carsholder {
   gap: 10px;
 }
 section.carsHolder {
-  margin-top: 80px;
+  margin-top: 60px;
   display: flex;
   padding-top: 20px;
   padding-bottom: 70px;

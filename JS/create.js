@@ -10,6 +10,7 @@ function addvertCar() {
   input9 = document.getElementById("input9");
   input10 = document.getElementById("input10");
   input11 = document.getElementById("input11");
+  input12 = document.getElementById("input12");
 
   let todos = JSON.parse(localStorage.getItem("carlist") || "[]");
   let maxId = 0;
@@ -18,7 +19,7 @@ function addvertCar() {
       maxId = todos[i].id;
     }
   }
-  let featurelist = JSON.parse(localStorage.getItem("featurelist") || "[]");
+
   let newtodo = {
     id: maxId + 1,
     brand: input1.value,
@@ -32,11 +33,13 @@ function addvertCar() {
     transmission: input9.value,
     img: input10.value,
     price: input11.value,
+    features: input12.value,
   };
 
   todos.push(newtodo);
 
   localStorage.setItem("carlist", JSON.stringify(todos));
+
   input1.value = "";
   input2.value = "";
   input3.value = "";
@@ -126,9 +129,8 @@ function list() {
       y += `
       <div class="carParent">
         <div class="favoriteCar">
-          <div class="image">
-            <img src="${todos[i].img}" alt="error" />
-          </div>
+        <a href="details.html#${todos[i].id}" class="image" style="
+        background-image: url(${todos[i].img});"></a>
           <div class="carText">
             <div class="modelName">
               <h3>${todos[i].brand}</h3>

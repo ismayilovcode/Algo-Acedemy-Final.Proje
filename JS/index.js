@@ -41,16 +41,15 @@ function renderHTML() {
     `;
   }
 
-  let featurelist = JSON.parse(localStorage.getItem("featurelist") || "[]");
-  end = Math.min(4, featurelist.length);
-  y = ``;
-  for (i = 0; i < end; i++) {
-    y += `
-    <span>${featurelist[i].name}</span>
-    `;
+  // end = Math.min(4, todos.length);
+  // y = ``;
+  // for (i = 0; i < end; i++) {
+  //   y += `
+  //   <span>${todos[i].name}</span>
+  //   `;
 
-    document.getElementById("features").innerHTML = y;
-  }
+  //   document.getElementById("features").innerHTML = y;
+  // }
 }
 renderHTML();
 
@@ -67,9 +66,11 @@ function addfavs(id) {
 
 function list() {
   let x = document.getElementById("favorites2");
+  let c = document.getElementById("menu");
 
   if (x.style.display == "none") {
     x.style.display = "block";
+    c.style.display = "none";
   } else {
     x.style.display = "none";
   }
@@ -83,9 +84,8 @@ function list() {
       y += `
       <div class="carParent">
         <div class="favoriteCar">
-          <div class="image">
-            <img src="${todos[i].img}" alt="error" />
-          </div>
+        <a href="details.html#${todos[i].id}" class="image" style="
+        background-image: url(${todos[i].img});"></a>
           <div class="carText">
             <div class="modelName">
               <h3>${todos[i].brand}</h3>
@@ -169,9 +169,11 @@ function check(id) {
 
 function listMenu() {
   let x = document.getElementById("menu");
+  let c = document.getElementById("favorites2");
 
   if (x.style.display == "none") {
     x.style.display = "block";
+    c.style.display = "none";
   } else {
     x.style.display = "none";
   }
