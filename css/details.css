@@ -66,6 +66,8 @@ div#details div.text div.favorite i {
   font-size: 22px;
   margin-top: 10px;
   margin-right: 10px;
+  user-select: none;
+  cursor: pointer;
 }
 div#details div.text div 
 /* new table */

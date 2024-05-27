@@ -13,8 +13,9 @@ function renderDetailsHtml() {
     }
 
     if (foundCar) {
-      document.getElementById("details").innerHTML += `
-    <div class="image" style="background-image: url(${foundCar.img});"></div>
+      document.getElementById("details").innerHTML = `
+      <div class="image" style="background-image: url(${foundCar.img});">
+    </div>
     <div class="text">
       <div class="name">
         <h2>Brand: ${foundCar.brand}</h2>
@@ -38,19 +39,33 @@ function renderDetailsHtml() {
             ? `<div class="favorite" onclick="addDeleteFavs(${foundCar.id})"><i class="fa-solid fa-heart"></i></div>`
             : `<div class="favorite" onclick="addDeleteFavs(${foundCar.id})"><i class="fa-regular fa-heart"></i></div>`
         }
+        </div>
     </div>
           `;
+      let carlist = JSON.parse(localStorage.getItem("carlist") || "[]");
+      let featurelist = JSON.parse(localStorage.getItem("featurelist") || "[]");
+      let carsFeatures = ` `;
+      for (i = 0; i < foundCar.features.length; i++) {
+        for (a = 0; a < featurelist.length; a++) {
+          if (featurelist[a].id == foundCar.features[i]) {
+            carsFeatures += `
+            <span>${featurelist[a].name}</span>
+              `;
+          }
+        }
 
-      let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
-      for (let i = 0; i < favsCars.length; i++) {
-        document.getElementById("Favorites").innerHTML = `
+        let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
+        for (let i = 0; i < favsCars.length; i++) {
+          document.getElementById("Favorites").innerHTML = `
       <div><i class="fa-solid fa-heart"></i></div>
       <div>Saved (${favsCars.length})</div>
       `;
+        }
       }
+      document.getElementById("features").innerHTML = carsFeatures;
 
       document.getElementById("tableParent").innerHTML = `
-      <div class="bgParent container">
+      <div class="bgParent">
       <div class="bg">
         <h2>Car details</h2>
         <div class="parent">
@@ -106,7 +121,7 @@ function renderDetailsHtml() {
       </div>
     </div>
 
-    <div class="responsivTable container">
+    <div class="responsivTable">
       <h2>Car details</h2>
       <table>
         <tr class="selected">
@@ -180,7 +195,6 @@ function addDeleteFavs(id) {
   } else {
     favsCars.push(id);
     localStorage.setItem("favsCars", JSON.stringify(favsCars));
-
     for (let i = 0; i < favsCars.length; i++) {
       document.getElementById("Favorites").innerHTML = `
       <div><i class="fa-solid fa-heart"></i></div>
@@ -188,7 +202,7 @@ function addDeleteFavs(id) {
       `;
     }
   }
-  location.reload();
+  renderDetailsHtml();
 }
 
 function DeleteFavs(id) {
@@ -248,8 +262,8 @@ function list() {
       y += `
       <div class="carParent">
         <div class="favoriteCar">
-          <div class="image" style="
-          background-image: url(${todos[i].img});">
+          <div class="image">
+            <img src="${todos[i].img}" alt="error" />
           </div>
           <div class="carText">
             <div class="modelName">

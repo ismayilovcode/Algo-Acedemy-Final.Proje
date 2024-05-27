@@ -64,9 +64,11 @@ renderFeatureHTML();
 
 function list() {
   let x = document.getElementById("favorites2");
+  let c = document.getElementById("menu");
 
   if (x.style.display == "none") {
     x.style.display = "block";
+    c.style.display = "none";
   } else {
     x.style.display = "none";
   }
@@ -127,9 +129,11 @@ function DeleteFavs(id) {
 
 function listMenu() {
   let x = document.getElementById("menu");
+  let c = document.getElementById("favorites2");
 
   if (x.style.display == "none") {
     x.style.display = "block";
+    c.style.display = "none";
   } else {
     x.style.display = "none";
   }

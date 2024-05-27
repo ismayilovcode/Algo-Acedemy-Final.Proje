@@ -1,6 +1,9 @@
 body {
   margin: 0;
 }
+::-webkit-scrollbar {
+  width: 10px;
+}
 #favorites2 {
   width: 350px;
   height: auto;
@@ -71,6 +74,11 @@ div#carfavorite {
 }
 .carAbout i {
   cursor: pointer;
+  user-select: none;
 }
 .buttonType {
+}
+#carLike {
+  position: relative;
+  left: 65px;
 }

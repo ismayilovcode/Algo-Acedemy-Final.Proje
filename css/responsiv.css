@@ -8,12 +8,6 @@
   .container {
     width: 540px;
   }
-  form.create div.divParent {
-    flex-direction: row;
-  }
-  #menu {
-    display: none;
-  }
 }
 @media (min-width: 768px) {
   .container {
@@ -36,6 +30,7 @@
   }
 }
 
+/* max */
 @media (max-width: 992px) {
   section.carsHolder {
     flex-direction: column;
@@ -79,6 +74,14 @@
   }
   .header1 div.right,
   .header1 a#Favorites {
+    display: none;
+  }
+}
+@media (min-width: 576px) {
+  form.create div.divParent {
+    flex-direction: row;
+  }
+  #menu {
     display: none;
   }
 }

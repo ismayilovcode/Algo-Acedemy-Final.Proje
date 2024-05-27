@@ -81,6 +81,7 @@ a#Favorites {
   box-shadow: 1px 1px 5px 1px rgb(0, 0, 0, 0.1);
   background-color: white;
   height: 100vh;
+  border-top-right-radius: 10px;
 }
 #menu div.aParent {
   display: flex;

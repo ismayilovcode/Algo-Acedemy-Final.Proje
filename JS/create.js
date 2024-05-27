@@ -1,17 +1,42 @@
 function addvertCar() {
-  input1 = document.getElementById("input1");
-  input2 = document.getElementById("input2");
-  input3 = document.getElementById("input3");
-  input4 = document.getElementById("input4");
-  input5 = document.getElementById("input5");
-  input6 = document.getElementById("input6");
-  input7 = document.getElementById("input7");
-  input8 = document.getElementById("input8");
-  input9 = document.getElementById("input9");
-  input10 = document.getElementById("input10");
-  input11 = document.getElementById("input11");
-  input12 = document.getElementById("input12");
+  input1 = Boolean(String(document.getElementById("input1").value).trim())
+    ? document.getElementById("input1")
+    : false;
+  input2 = Boolean(String(document.getElementById("input2").value).trim())
+    ? document.getElementById("input2")
+    : false;
+  input3 = Boolean(String(document.getElementById("input3").value).trim())
+    ? document.getElementById("input3")
+    : false;
+  input4 = Boolean(String(document.getElementById("input4").value).trim())
+    ? document.getElementById("input4")
+    : false;
+  input5 = Boolean(String(document.getElementById("input5").value).trim())
+    ? document.getElementById("input5")
+    : false;
+  input6 = Boolean(String(document.getElementById("input6").value).trim())
+    ? document.getElementById("input6")
+    : false;
+  input7 = Boolean(String(document.getElementById("input7").value).trim())
+    ? document.getElementById("input7")
+    : false;
+  input8 = Boolean(String(document.getElementById("input8").value).trim())
+    ? document.getElementById("input8")
+    : false;
+  input9 = Boolean(String(document.getElementById("input9").value).trim())
+    ? document.getElementById("input9")
+    : false;
+  input10 = Boolean(String(document.getElementById("input10").value).trim())
+    ? document.getElementById("input10")
+    : false;
+  input11 = Boolean(String(document.getElementById("input11").value).trim())
+    ? document.getElementById("input11")
+    : false;
+  input12 = Boolean(String(document.getElementById("input12").value).trim())
+    ? document.getElementById("input12")
+    : false;
 
+  addedFeatures = [];
   let todos = JSON.parse(localStorage.getItem("carlist") || "[]");
   let maxId = 0;
   for (let i = 0; i < todos.length; i++) {
@@ -20,6 +45,13 @@ function addvertCar() {
     }
   }
 
+  for (let i = 0; i < input12.length; i++) {
+    if (input12[i].selected) {
+      addedFeatures.push(input12[i].value);
+    }
+  }
+
+  let featurelist = JSON.parse(localStorage.getItem("featurelist") || "[]");
   let newtodo = {
     id: maxId + 1,
     brand: input1.value,
@@ -33,12 +65,31 @@ function addvertCar() {
     transmission: input9.value,
     img: input10.value,
     price: input11.value,
-    features: input12.value,
+    features: addedFeatures,
   };
 
   todos.push(newtodo);
 
-  localStorage.setItem("carlist", JSON.stringify(todos));
+  if (
+    Boolean(
+      input1 &&
+        input2 &&
+        input3 &&
+        input4 &&
+        input5 &&
+        input6 &&
+        input7 &&
+        input8 &&
+        input9 &&
+        input10 &&
+        input11 &&
+        input12
+    )
+  ) {
+    localStorage.setItem("carlist", JSON.stringify(todos));
+  } else {
+    alert("yaradila bilmedi");
+  }
 
   input1.value = "";
   input2.value = "";
@@ -52,8 +103,6 @@ function addvertCar() {
   input10.value = "";
   input11.value = "";
   input12.value = "";
-
-  renderHTML();
 }
 
 function addedFeature() {
@@ -63,26 +112,28 @@ function addedFeature() {
 
   for (i = 0; i < feature.length; i++) {
     x += `
-    <option value="${feature[i].id}">${feature[i].name}</option>
-    `;
+      <option value="${feature[i].id}">${feature[i].name}</option>
+      `;
     option.innerHTML = x;
   }
 
   let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
   for (let i = 0; i < favsCars.length; i++) {
     document.getElementById("Favorites").innerHTML = `
-    <div><i class="fa-solid fa-heart"></i></div>
-    <div>Saved (${favsCars.length})</div>
-    `;
+      <div><i class="fa-solid fa-heart"></i></div>
+      <div>Saved (${favsCars.length})</div>
+      `;
   }
 }
 addedFeature();
 
 function listMenu() {
   let x = document.getElementById("menu");
+  let c = document.getElementById("favorites2");
 
   if (x.style.display == "none") {
     x.style.display = "block";
+    c.style.display = "none";
   } else {
     x.style.display = "none";
   }
@@ -102,20 +153,21 @@ function DeleteFavs(id) {
 
     for (let i = 0; i < favsCars.length; i++) {
       document.getElementById("Favorites").innerHTML = `
-      <div><i class="fa-solid fa-heart"></i></div>
-      <div>Saved (0)</div>
-      `;
+        <div><i class="fa-solid fa-heart"></i></div>
+        <div>Saved (0)</div>
+        `;
     }
   }
   addedFeature();
   list();
 }
-
 function list() {
   let x = document.getElementById("favorites2");
+  let c = document.getElementById("menu");
 
   if (x.style.display == "none") {
     x.style.display = "block";
+    c.style.display = "none";
   } else {
     x.style.display = "none";
   }
@@ -146,11 +198,6 @@ function list() {
         </div>
       </div>
      `;
-    } else {
-      y += `
-      <h3>You haven't liked any car yet</h3>
-      `;
-      break;
     }
   }
   document.getElementById("carfavorite").innerHTML = y;
