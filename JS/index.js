@@ -1,38 +1,48 @@
 function renderHTML() {
-  let todos = JSON.parse(localStorage.getItem("carlist") || "[]");
-  let x = ``;
-  for (let i = 0; i < todos.length; i++) {
-    x += `
-    <div class="carInfo" id="carInfo${todos[i].id}">
-    <a href="details.html#${todos[i].id}" class="image" style="
-    background-image: url(${todos[i].img});"></a>
+  let featurelist = JSON.parse(localStorage.getItem("featurelist") || "[]");
+  let carlist = JSON.parse(localStorage.getItem("carlist") || "[]");
+  let renderCars = ``;
+  for (let i = 0; i < carlist.length; i++) {
+    let featureHTml = ``;
+    let addedFeatureCount = 0;
+    for (let a = 0; a < featurelist.length; a++) {
+      if (carlist[i].features.includes(String(featurelist[a].id))) {
+        featureHTml += `<span>${featurelist[a].name}</span> `;
+        addedFeatureCount++;
+      }
+      if (addedFeatureCount === 4) {
+        break;
+      }
+    }
+
+    renderCars += `
+    <div class="carInfo" id="carInfo${carlist[i].id}">
+    <a href="details.html#${carlist[i].id}" class="image" style="
+    background-image: url(${carlist[i].img});"></a>
      <div class="text">
        <div class="name">
-       <span>${todos[i].brand}</span> <span>${todos[i].model}</span>
+       <span>${carlist[i].brand}</span> <span>${carlist[i].model}</span>
        </div>
        <div class="engineYear">
-       <span>${todos[i].engine}</span> <span>${todos[i].year}</span>
+       <span>${carlist[i].engine}</span> <span>${carlist[i].year}</span>
        </div>
-       <div id="features"></div>
-       <div class="price"><span>$</span> <span>${todos[i].price}</span></div>
+       <div class="features">${featureHTml}</div>
+       <div class="price"><span>$</span> <span>${carlist[i].price}</span></div>
        <div class="about">
-         <span>${todos[i].millage} millage</span>
-         <span>${todos[i].fuel}</span><span>${todos[i].transmission}</span>
-         <span>${todos[i].color}</span>
+         <span>${carlist[i].millage} millage</span>
+         <span>${carlist[i].fuel}</span><span>${carlist[i].transmission}</span>
+         <span>${carlist[i].color}</span>
          </div>
          </div>
          ${
-           check(todos[i].id)
-             ? `<div class="favs" onclick="addDeleteFavs(${todos[i].id})"><i class="fa-solid fa-heart"></i></div>`
-             : `<div class="favs" onclick="addDeleteFavs(${todos[i].id})"><i class="fa-regular fa-heart"></i></div>`
+           check(carlist[i].id)
+             ? `<div class="favs" onclick="addDeleteFavs(${carlist[i].id})"><i class="fa-solid fa-heart"></i></div>`
+             : `<div class="favs" onclick="addDeleteFavs(${carlist[i].id})"><i class="fa-regular fa-heart"></i></div>`
          }
-         <div class="deleteButton" onclick="DeleteCar(${
-           todos[i].id
-         })"><i class="fa-solid fa-xmark"></i></div>
             </div> 
             `;
   }
-  document.getElementById("home-carsholder").innerHTML = x;
+  document.getElementById("home-carsholder").innerHTML = renderCars;
 
   let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
   for (let i = 0; i < favsCars.length; i++) {
@@ -43,26 +53,6 @@ function renderHTML() {
   }
 }
 renderHTML();
-
-// function carsFeaturesRenderHTML() {
-//   let todos = JSON.parse(localStorage.getItem("carlist") || "[]");
-//   let featurelist = JSON.parse(localStorage.getItem("featurelist") || "[]");
-
-//   for (let i = 0; i < todos.length; i++) {
-//     for (let a = 0; a < 4; a++) {
-//       if (todos[i].features.id == featurelist[a].id) {
-//         document.getElementById("features").innerHTML += `
-//         <span>${featurelist[a].name}</span>
-//         `;
-//       } else {
-//         console.log("prablem");
-//       }
-//     }
-//   }
-
-//   renderHTML();
-// }
-// carsFeaturesRenderHTML();
 
 function addfavs(id) {
   let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
@@ -76,60 +66,68 @@ function addfavs(id) {
 }
 
 function list() {
-  let x = document.getElementById("favorites2");
-  let c = document.getElementById("menu");
+  let favorites = document.getElementById("favorites2");
+  let menulist = document.getElementById("menu");
 
-  if (x.style.display == "none") {
-    x.style.display = "block";
-    c.style.display = "none";
+  if (favorites.style.display == "none") {
+    favorites.style.display = "block";
+    menulist.style.display = "none";
   } else {
-    x.style.display = "none";
+    favorites.style.display = "none";
   }
 
-  let y = ``;
+  let newFavCars = ``;
   let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
-  let todos = JSON.parse(localStorage.getItem("carlist") || "[]");
+  let carlist = JSON.parse(localStorage.getItem("carlist") || "[]");
 
-  for (let i = 0; i < todos.length; i++) {
-    if (favsCars.includes(todos[i].id)) {
-      y += `
+  for (let i = 0; i < carlist.length; i++) {
+    if (favsCars.includes(carlist[i].id)) {
+      newFavCars += `
       <div class="carParent">
         <div class="favoriteCar">
-        <a href="details.html#${todos[i].id}" class="image" style="
-        background-image: url(${todos[i].img});"></a>
+        <a href="details.html#${carlist[i].id}" class="image" style="
+        background-image: url(${carlist[i].img});"></a>
           <div class="carText">
             <div class="modelName">
-              <h3>${todos[i].brand}</h3>
-              <h3>${todos[i].model}</h3>
+              <h3>${carlist[i].brand}</h3>
+              <h3>${carlist[i].model}</h3>
             </div>
-            <span>${todos[i].engine}</span> <span>${todos[i].fuel}</span>
-            <span>${todos[i].transmission}</span>
-            <span>${todos[i].year}</span>
+            <span>${carlist[i].engine}</span> <span>${carlist[i].fuel}</span>
+            <span>${carlist[i].transmission}</span>
+            <span>${carlist[i].year}</span>
           </div>
         </div>
         <div class="carAbout">
-          <span>${todos[i].millage} Millage</span> <div id="button${todos[i].id}" onclick="DeleteFavs(${todos[i].id})" class="buttonType" ><i class="fa-solid fa-heart"></i></div>
+          <span>${carlist[i].millage} Millage</span> <div id="button${carlist[i].id}" onclick="DeleteFavs(${carlist[i].id})" class="buttonType" ><i class="fa-solid fa-heart"></i></div>
         </div>
       </div>
      `;
     }
   }
-  document.getElementById("carfavorite").innerHTML = y;
+  document.getElementById("carfavorite").innerHTML =
+    newFavCars || "No favorite!";
 }
 
 function addDeleteFavs(id) {
   let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
   if (favsCars.includes(id)) {
-    let x = [];
+    let addDeleteFavCars = [];
     for (let i = 0; i < favsCars.length; i++) {
       if (favsCars[i] != id) {
-        x.push(favsCars[i]);
+        addDeleteFavCars.push(favsCars[i]);
       }
     }
-    localStorage.setItem("favsCars", JSON.stringify(x));
+    localStorage.setItem("favsCars", JSON.stringify(addDeleteFavCars));
 
+    let favorites = document.getElementById("Favorites");
+    let listFavorite = document.getElementById("listFavorite");
     for (let i = 0; i < favsCars.length; i++) {
-      document.getElementById("Favorites").innerHTML = `
+      favorites.innerHTML = `
+      <div><i class="fa-solid fa-heart"></i></div>
+      <div>Saved (0)</div>
+      `;
+
+      listFavorite.innerHTML = `
       <div><i class="fa-solid fa-heart"></i></div>
       <div>Saved (0)</div>
       `;
@@ -138,8 +136,15 @@ function addDeleteFavs(id) {
     favsCars.push(id);
     localStorage.setItem("favsCars", JSON.stringify(favsCars));
 
+    let favorites = document.getElementById("Favorites");
+    let listFavorite = document.getElementById("listFavorite");
     for (let i = 0; i < favsCars.length; i++) {
-      document.getElementById("Favorites").innerHTML = `
+      favorites.innerHTML = `
+      <div><i class="fa-solid fa-heart"></i></div>
+      <div>Saved (${favsCars.length})</div>
+      `;
+
+      listFavorite.innerHTML = `
       <div><i class="fa-solid fa-heart"></i></div>
       <div>Saved (${favsCars.length})</div>
       `;
@@ -153,10 +158,10 @@ function DeleteFavs(id) {
   let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
 
   if (favsCars.includes(id)) {
-    let x = [];
+    let favCars = [];
     for (let i = 0; i < favsCars.length; i++) {
       if (favsCars[i] != id) {
-        x.push(favsCars[i]);
+        favCars.push(favsCars[i]);
       }
     }
     for (let i = 0; i < favsCars.length; i++) {
@@ -165,23 +170,10 @@ function DeleteFavs(id) {
       <div>Saved (0)</div>
       `;
     }
-    localStorage.setItem("favsCars", JSON.stringify(x));
+    localStorage.setItem("favsCars", JSON.stringify(favCars));
   }
   renderHTML();
   list();
-}
-
-function DeleteCar(id) {
-  let todos = JSON.parse(localStorage.getItem("carlist") || "[]");
-  let newCarInfo = [];
-
-  for (let i = 0; i < todos.length; i++) {
-    if (todos[i].id != id) {
-      newCarInfo.push(todos[i]);
-    }
-  }
-  localStorage.setItem("carlist", JSON.stringify(newCarInfo));
-  renderHTML();
 }
 
 function check(id) {
@@ -191,13 +183,13 @@ function check(id) {
 }
 
 function listMenu() {
-  let x = document.getElementById("menu");
-  let c = document.getElementById("favorites2");
+  let listmenu = document.getElementById("menu");
+  let favorites = document.getElementById("favorites2");
 
-  if (x.style.display == "none") {
-    x.style.display = "block";
-    c.style.display = "none";
+  if (listmenu.style.display == "none") {
+    listmenu.style.display = "block";
+    favorites.style.display = "none";
   } else {
-    x.style.display = "none";
+    listmenu.style.display = "none";
   }
 }

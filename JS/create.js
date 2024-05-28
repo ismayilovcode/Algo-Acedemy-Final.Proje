@@ -37,11 +37,11 @@ function addvertCar() {
     : false;
 
   addedFeatures = [];
-  let todos = JSON.parse(localStorage.getItem("carlist") || "[]");
+  let carlist = JSON.parse(localStorage.getItem("carlist") || "[]");
   let maxId = 0;
-  for (let i = 0; i < todos.length; i++) {
-    if (todos[i].id > maxId) {
-      maxId = todos[i].id;
+  for (let i = 0; i < carlist.length; i++) {
+    if (carlist[i].id > maxId) {
+      maxId = carlist[i].id;
     }
   }
 
@@ -68,7 +68,7 @@ function addvertCar() {
     features: addedFeatures,
   };
 
-  todos.push(newtodo);
+  carlist.push(newtodo);
 
   if (
     Boolean(
@@ -86,9 +86,9 @@ function addvertCar() {
         input12
     )
   ) {
-    localStorage.setItem("carlist", JSON.stringify(todos));
+    localStorage.setItem("carlist", JSON.stringify(carlist));
   } else {
-    alert("yaradila bilmedi");
+    alert("yaradıla bilmedi");
   }
 
   input1.value = "";
@@ -108,13 +108,13 @@ function addvertCar() {
 function addedFeature() {
   let feature = JSON.parse(localStorage.getItem("featurelist") || "[]");
   let option = document.getElementById("input12");
-  x = ``;
+  newFeature = ``;
 
   for (i = 0; i < feature.length; i++) {
-    x += `
+    newFeature += `
       <option value="${feature[i].id}">${feature[i].name}</option>
       `;
-    option.innerHTML = x;
+    option.innerHTML = newFeature;
   }
 
   let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
@@ -128,14 +128,14 @@ function addedFeature() {
 addedFeature();
 
 function listMenu() {
-  let x = document.getElementById("menu");
-  let c = document.getElementById("favorites2");
+  let listmenu = document.getElementById("menu");
+  let favorites = document.getElementById("favorites2");
 
-  if (x.style.display == "none") {
-    x.style.display = "block";
-    c.style.display = "none";
+  if (listmenu.style.display == "none") {
+    listmenu.style.display = "block";
+    favorites.style.display = "none";
   } else {
-    x.style.display = "none";
+    listmenu.style.display = "none";
   }
 }
 
@@ -143,13 +143,13 @@ function DeleteFavs(id) {
   let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
 
   if (favsCars.includes(id)) {
-    let x = [];
+    let favCars = [];
     for (let i = 0; i < favsCars.length; i++) {
       if (favsCars[i] != id) {
-        x.push(favsCars[i]);
+        favCars.push(favsCars[i]);
       }
     }
-    localStorage.setItem("favsCars", JSON.stringify(x));
+    localStorage.setItem("favsCars", JSON.stringify(favCars));
 
     for (let i = 0; i < favsCars.length; i++) {
       document.getElementById("Favorites").innerHTML = `
@@ -162,23 +162,23 @@ function DeleteFavs(id) {
   list();
 }
 function list() {
-  let x = document.getElementById("favorites2");
-  let c = document.getElementById("menu");
+  let favorites = document.getElementById("favorites2");
+  let listmenu = document.getElementById("menu");
 
-  if (x.style.display == "none") {
-    x.style.display = "block";
-    c.style.display = "none";
+  if (favorites.style.display == "none") {
+    favorites.style.display = "block";
+    listmenu.style.display = "none";
   } else {
-    x.style.display = "none";
+    favorites.style.display = "none";
   }
 
-  let y = ``;
+  let newfavCars = ``;
   let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
   let todos = JSON.parse(localStorage.getItem("carlist") || "[]");
 
   for (let i = 0; i < todos.length; i++) {
     if (favsCars.includes(todos[i].id)) {
-      y += `
+      newfavCars += `
       <div class="carParent">
         <div class="favoriteCar">
         <a href="details.html#${todos[i].id}" class="image" style="
@@ -200,5 +200,5 @@ function list() {
      `;
     }
   }
-  document.getElementById("carfavorite").innerHTML = y;
+  document.getElementById("carfavorite").innerHTML = newfavCars;
 }

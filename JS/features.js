@@ -3,11 +3,11 @@ function features() {
     ? document.getElementById("input1")
     : false;
 
-  let todos = JSON.parse(localStorage.getItem("featurelist") || "[]");
+  let featurelist = JSON.parse(localStorage.getItem("featurelist") || "[]");
   let maxId = 0;
-  for (let i = 0; i < todos.length; i++) {
-    if (todos[i].id > maxId) {
-      maxId = todos[i].id;
+  for (let i = 0; i < featurelist.length; i++) {
+    if (featurelist[i].id > maxId) {
+      maxId = featurelist[i].id;
     }
   }
 
@@ -16,12 +16,12 @@ function features() {
     name: input1.value,
   };
 
-  todos.push(newtodo);
+  featurelist.push(newtodo);
 
   if (Boolean(input1)) {
-    localStorage.setItem("featurelist", JSON.stringify(todos));
+    localStorage.setItem("featurelist", JSON.stringify(featurelist));
   } else {
-    alert("yaradila bilmedi");
+    alert("yaradıla bilmədi");
   }
 
   input1.value = "";
@@ -29,14 +29,14 @@ function features() {
 }
 
 function renderFeatureHTML() {
-  let todos = JSON.parse(localStorage.getItem("featurelist") || "[]");
-  let x = ``;
-  for (let i = 0; i < todos.length; i++) {
-    x += `
+  let featurelist = JSON.parse(localStorage.getItem("featurelist") || "[]");
+  let feature = ``;
+  for (let i = 0; i < featurelist.length; i++) {
+    feature += `
     <div class="feature">
-    <h1>${todos[i].name}</h1>
+    <h1>${featurelist[i].name}</h1>
     <div class="buttons">
-    <div class="addfeature" onclick="deletFeature(${todos[i].id})">Delete <i class="fa-solid fa-trash"></i></div>
+    <div class="addfeature" onclick="deletFeature(${featurelist[i].id})">Delete <i class="fa-solid fa-trash"></i></div>
     </div>
     </div>
     `;
@@ -49,7 +49,7 @@ function renderFeatureHTML() {
     <div>Saved (${favsCars.length})</div>
     `;
   }
-  document.getElementById("featuresParent").innerHTML = x;
+  document.getElementById("featuresParent").innerHTML = feature;
 }
 renderFeatureHTML();
 
@@ -69,23 +69,23 @@ function deletFeature(id) {
 renderFeatureHTML();
 
 function list() {
-  let x = document.getElementById("favorites2");
-  let c = document.getElementById("menu");
+  let favorites = document.getElementById("favorites2");
+  let menulist = document.getElementById("menu");
 
-  if (x.style.display == "none") {
-    x.style.display = "block";
-    c.style.display = "none";
+  if (favorites.style.display == "none") {
+    favorites.style.display = "block";
+    menulist.style.display = "none";
   } else {
-    x.style.display = "none";
+    favorites.style.display = "none";
   }
 
-  let y = ``;
+  let favCars = ``;
   let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
   let todos = JSON.parse(localStorage.getItem("carlist") || "[]");
 
   for (let i = 0; i < todos.length; i++) {
     if (favsCars.includes(todos[i].id)) {
-      y += `
+      favCars += `
       <div class="carParent">
         <div class="favoriteCar">
         <a href="details.html#${todos[i].id}" class="image" style="
@@ -107,20 +107,20 @@ function list() {
      `;
     }
   }
-  document.getElementById("carfavorite").innerHTML = y;
+  document.getElementById("carfavorite").innerHTML = favCars || "No favorite!";
 }
 
 function DeleteFavs(id) {
   let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
 
   if (favsCars.includes(id)) {
-    let x = [];
+    let favCars = [];
     for (let i = 0; i < favsCars.length; i++) {
       if (favsCars[i] != id) {
-        x.push(favsCars[i]);
+        favCars.push(favsCars[i]);
       }
     }
-    localStorage.setItem("favsCars", JSON.stringify(x));
+    localStorage.setItem("favsCars", JSON.stringify(favCars));
 
     for (let i = 0; i < favsCars.length; i++) {
       document.getElementById("Favorites").innerHTML = `
@@ -134,13 +134,13 @@ function DeleteFavs(id) {
 }
 
 function listMenu() {
-  let x = document.getElementById("menu");
-  let c = document.getElementById("favorites2");
+  let listmenu = document.getElementById("menu");
+  let favorites = document.getElementById("favorites2");
 
-  if (x.style.display == "none") {
-    x.style.display = "block";
-    c.style.display = "none";
+  if (listmenu.style.display == "none") {
+    listmenu.style.display = "block";
+    favorites.style.display = "none";
   } else {
-    x.style.display = "none";
+    listmenu.style.display = "none";
   }
 }

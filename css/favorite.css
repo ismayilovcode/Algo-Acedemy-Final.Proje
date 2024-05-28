@@ -13,7 +13,7 @@ body {
   color: #394144;
   background-color: #ffffff;
   flex-direction: column;
-  z-index: 3;
+  z-index: 30;
 
   overflow: auto;
   position: fixed;

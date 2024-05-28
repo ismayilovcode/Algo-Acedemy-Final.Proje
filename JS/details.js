@@ -39,6 +39,9 @@ function renderDetailsHtml() {
             ? `<div class="favorite" onclick="addDeleteFavs(${foundCar.id})"><i class="fa-solid fa-heart"></i></div>`
             : `<div class="favorite" onclick="addDeleteFavs(${foundCar.id})"><i class="fa-regular fa-heart"></i></div>`
         }
+        <div class="deleteButton" onclick="DeleteCar(${
+          foundCar.id
+        })"><i class="fa-solid fa-trash"></i></div>
         </div>
     </div>
           `;
@@ -53,6 +56,7 @@ function renderDetailsHtml() {
               `;
           }
         }
+        document.getElementById("features").innerHTML = carsFeatures;
 
         let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
         for (let i = 0; i < favsCars.length; i++) {
@@ -62,7 +66,6 @@ function renderDetailsHtml() {
       `;
         }
       }
-      document.getElementById("features").innerHTML = carsFeatures;
 
       document.getElementById("tableParent").innerHTML = `
       <div class="bgParent">
@@ -176,18 +179,24 @@ renderDetailsHtml();
 
 function addDeleteFavs(id) {
   let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
-
   if (favsCars.includes(id)) {
-    let x = [];
+    let favCars = [];
     for (let i = 0; i < favsCars.length; i++) {
       if (favsCars[i] != id) {
-        x.push(favsCars[i]);
+        favCars.push(favsCars[i]);
       }
     }
-    localStorage.setItem("favsCars", JSON.stringify(x));
+    localStorage.setItem("favsCars", JSON.stringify(favCars));
 
+    let favorites = document.getElementById("Favorites");
+    let listFavorite = document.getElementById("listFavorite");
     for (let i = 0; i < favsCars.length; i++) {
-      document.getElementById("Favorites").innerHTML = `
+      favorites.innerHTML = `
+      <div><i class="fa-solid fa-heart"></i></div>
+      <div>Saved (0)</div>
+      `;
+
+      listFavorite.innerHTML = `
       <div><i class="fa-solid fa-heart"></i></div>
       <div>Saved (0)</div>
       `;
@@ -195,8 +204,16 @@ function addDeleteFavs(id) {
   } else {
     favsCars.push(id);
     localStorage.setItem("favsCars", JSON.stringify(favsCars));
+
+    let favorites = document.getElementById("Favorites");
+    let listFavorite = document.getElementById("listFavorite");
     for (let i = 0; i < favsCars.length; i++) {
-      document.getElementById("Favorites").innerHTML = `
+      favorites.innerHTML = `
+      <div><i class="fa-solid fa-heart"></i></div>
+      <div>Saved (${favsCars.length})</div>
+      `;
+
+      listFavorite.innerHTML = `
       <div><i class="fa-solid fa-heart"></i></div>
       <div>Saved (${favsCars.length})</div>
       `;
@@ -204,18 +221,19 @@ function addDeleteFavs(id) {
   }
   renderDetailsHtml();
 }
+renderDetailsHtml();
 
 function DeleteFavs(id) {
   let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
 
   if (favsCars.includes(id)) {
-    let x = [];
+    let favCars = [];
     for (let i = 0; i < favsCars.length; i++) {
       if (favsCars[i] != id) {
-        x.push(favsCars[i]);
+        favCars.push(favsCars[i]);
       }
     }
-    localStorage.setItem("favsCars", JSON.stringify(x));
+    localStorage.setItem("favsCars", JSON.stringify(favCars));
 
     for (let i = 0; i < favsCars.length; i++) {
       document.getElementById("Favorites").innerHTML = `
@@ -245,26 +263,27 @@ function addfavs(id) {
 }
 
 function list() {
-  let x = document.getElementById("favorites2");
+  let favorite = document.getElementById("favorites2");
+  let listmenu = document.getElementById("menu");
 
-  if (x.style.display == "none") {
-    x.style.display = "block";
+  if (favorite.style.display == "none") {
+    favorite.style.display = "block";
+    listmenu.style.display = "none";
   } else {
-    x.style.display = "none";
+    favorite.style.display = "none";
   }
 
-  let y = ``;
+  let newFavCars = ``;
   let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
   let todos = JSON.parse(localStorage.getItem("carlist") || "[]");
 
   for (let i = 0; i < todos.length; i++) {
     if (favsCars.includes(todos[i].id)) {
-      y += `
+      newFavCars += `
       <div class="carParent">
         <div class="favoriteCar">
-          <div class="image">
-            <img src="${todos[i].img}" alt="error" />
-          </div>
+        <a href="details.html#${todos[i].id}" class="image" style="
+        background-image: url(${todos[i].img});"></a>
           <div class="carText">
             <div class="modelName">
               <h3>${todos[i].brand}</h3>
@@ -282,15 +301,30 @@ function list() {
      `;
     }
   }
-  document.getElementById("carfavorite").innerHTML = y;
+  document.getElementById("carfavorite").innerHTML = newFavCars || "No favorite!";
+}
+
+function DeleteCar(id) {
+  let carlist = JSON.parse(localStorage.getItem("carlist") || "[]");
+  let newCarInfo = [];
+
+  for (let i = 0; i < carlist.length; i++) {
+    if (carlist[i].id != id) {
+      newCarInfo.push(carlist[i]);
+    }
+  }
+  localStorage.setItem("carlist", JSON.stringify(newCarInfo));
+  renderDetailsHtml();
 }
 
 function listMenu() {
-  let x = document.getElementById("menu");
+  let menu = document.getElementById("menu");
+  let favorites = document.getElementById("favorites2");
 
-  if (x.style.display == "none") {
-    x.style.display = "block";
+  if (menu.style.display == "none") {
+    menu.style.display = "block";
+    favorites.style.display = "none";
   } else {
-    x.style.display = "none";
+    menu.style.display = "none";
   }
 }

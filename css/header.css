@@ -82,6 +82,7 @@ a#Favorites {
   background-color: white;
   height: 100vh;
   border-top-right-radius: 10px;
+  width: 170px;
 }
 #menu div.aParent {
   display: flex;

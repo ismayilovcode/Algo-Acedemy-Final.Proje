@@ -27,7 +27,7 @@
           <div><i class="fa-solid fa-heart"></i></div>
           <div>Saved (0)</div>
         </a>
-        <a id="openMenu" onclick="listMenu()">Menu</a>
+        <a id="openMenu" onclick="listMenu(id)">Menu</a>
       </header>
     </div>
 
@@ -51,8 +51,8 @@
     <div id="menu" style="display: none">
       <div class="aParent">
         <a href="/">Cars</a>
-        <a href="features.html" id="Features">Features</a>
-        <a id="Favorites" onclick="list()">
+        <a href="features.html" id="Features2">Features</a>
+        <a id="listFavorite" onclick="list()">
           <div><i class="fa-solid fa-heart"></i></div>
           <div>Saved (0)</div>
         </a>
@@ -67,36 +67,34 @@
       <div id="carfavorite"></div>
     </div>
 
-    <!--  bu optionlarin featureden yazilmaginda yungul prablem var  -->
-    <!-- prablem deyil ama duzelde bilmedim #menu 576px li kecende baglanmalidi elemetn style vere bilmedim :( -->
-    <!-- favs bos olanda icinde hecne yazmirrr-->
-
-    <footer class="container">
-      <div class="left">
-        <div class="image">
-          <img src="fotos/logo/CarShop-logo.svg" alt="error" />
+    <footer>
+      <div class="container">
+        <div class="left">
+          <div class="image">
+            <img src="fotos/logo/CarShop-logo.svg" alt="error" />
+          </div>
+          <div class="border"></div>
+          <div class="text">
+            <a href="index.html">Cars</a>
+            <a href="create.html">CreateCar</a>
+            <a href="features.html">Features</a>
+          </div>
         </div>
-        <div class="border"></div>
-        <div class="text">
-          <a href="index.html">Cars</a>
-          <a href="create.html">CreateCar</a>
-          <a href="features.html">Features</a>
-        </div>
-      </div>
-      <div class="right">
-        <div class="imageSelected">
-          <img src="fotos/logo/tp-logo-white.svg" alt="error" />
-        </div>
-        <div class="ico">
-          <i class="fa-brands fa-facebook"></i>
-          <i class="fa-brands fa-twitter"></i>
-          <i class="fa-brands fa-instagram"></i>
-          <i class="fa-brands fa-linkedin"></i>
-          <i class="fa-brands fa-youtube"></i>
-        </div>
-        <div class="image">
-          <img src="fotos/logo/visa_logo.png" alt="error" />
-          <img src="fotos/logo/mc_logo_white.png" alt="error" />
+        <div class="right">
+          <div class="imageSelected">
+            <img src="fotos/logo/tp-logo-white.svg" alt="error" />
+          </div>
+          <div class="ico">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-twitter"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-linkedin"></i>
+            <i class="fa-brands fa-youtube"></i>
+          </div>
+          <div class="image">
+            <img src="fotos/logo/visa_logo.png" alt="error" />
+            <img src="fotos/logo/mc_logo_white.png" alt="error" />
+          </div>
         </div>
       </div>
     </footer>
