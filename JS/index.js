@@ -44,25 +44,25 @@ function renderHTML() {
 }
 renderHTML();
 
-function carsFeaturesRenderHTML() {
-  let todos = JSON.parse(localStorage.getItem("carlist") || "[]");
-  let featurelist = JSON.parse(localStorage.getItem("featurelist") || "[]");
+// function carsFeaturesRenderHTML() {
+//   let todos = JSON.parse(localStorage.getItem("carlist") || "[]");
+//   let featurelist = JSON.parse(localStorage.getItem("featurelist") || "[]");
 
-  for (let i = 0; i < todos.length; i++) {
-    for (let a = 0; a < 4; a++) {
-      if (todos[i].features.id == featurelist[a].id) {
-        document.getElementById("features").innerHTML += `
-        <span>${featurelist[a].name}</span>
-        `;
-      } else {
-        console.log("prablem");
-      }
-    }
-  }
+//   for (let i = 0; i < todos.length; i++) {
+//     for (let a = 0; a < 4; a++) {
+//       if (todos[i].features.id == featurelist[a].id) {
+//         document.getElementById("features").innerHTML += `
+//         <span>${featurelist[a].name}</span>
+//         `;
+//       } else {
+//         console.log("prablem");
+//       }
+//     }
+//   }
 
-  renderHTML();
-}
-carsFeaturesRenderHTML();
+//   renderHTML();
+// }
+// carsFeaturesRenderHTML();
 
 function addfavs(id) {
   let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
