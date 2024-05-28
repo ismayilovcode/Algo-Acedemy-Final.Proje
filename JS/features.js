@@ -1,5 +1,7 @@
 function features() {
-  input1 = document.getElementById("input1");
+  input1 = Boolean(String(document.getElementById("input1").value).trim())
+    ? document.getElementById("input1")
+    : false;
 
   let todos = JSON.parse(localStorage.getItem("featurelist") || "[]");
   let maxId = 0;
@@ -14,11 +16,15 @@ function features() {
     name: input1.value,
   };
 
-  input1.value = "";
-
   todos.push(newtodo);
 
-  localStorage.setItem("featurelist", JSON.stringify(todos));
+  if (Boolean(input1)) {
+    localStorage.setItem("featurelist", JSON.stringify(todos));
+  } else {
+    alert("yaradila bilmedi");
+  }
+
+  input1.value = "";
   renderFeatureHTML();
 }
 
