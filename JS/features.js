@@ -71,11 +71,14 @@ renderFeatureHTML();
 function list() {
   let favorites = document.getElementById("favorites2");
   let menulist = document.getElementById("menu");
+  let floor = document.getElementById("floor");
 
   if (favorites.style.display == "none") {
+    floor.style.display = "block";
     favorites.style.display = "block";
     menulist.style.display = "none";
   } else {
+    floor.style.display = "none";
     favorites.style.display = "none";
   }
 
@@ -136,11 +139,14 @@ function DeleteFavs(id) {
 function listMenu() {
   let listmenu = document.getElementById("menu");
   let favorites = document.getElementById("favorites2");
+  let floor = document.getElementById("floor");
 
   if (listmenu.style.display == "none") {
     listmenu.style.display = "block";
     favorites.style.display = "none";
+    floor.style.display = "block";
   } else {
+    floor.style.display = "none";
     listmenu.style.display = "none";
   }
 }

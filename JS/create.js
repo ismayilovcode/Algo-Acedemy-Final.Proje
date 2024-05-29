@@ -127,18 +127,6 @@ function addedFeature() {
 }
 addedFeature();
 
-function listMenu() {
-  let listmenu = document.getElementById("menu");
-  let favorites = document.getElementById("favorites2");
-
-  if (listmenu.style.display == "none") {
-    listmenu.style.display = "block";
-    favorites.style.display = "none";
-  } else {
-    listmenu.style.display = "none";
-  }
-}
-
 function DeleteFavs(id) {
   let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
 
@@ -153,7 +141,7 @@ function DeleteFavs(id) {
 
     for (let i = 0; i < favsCars.length; i++) {
       document.getElementById("Favorites").innerHTML = `
-        <div><i class="fa-solid fa-heart"></i></div>
+      <div><i class="fa-solid fa-heart"></i></div>
         <div>Saved (0)</div>
         `;
     }
@@ -163,12 +151,15 @@ function DeleteFavs(id) {
 }
 function list() {
   let favorites = document.getElementById("favorites2");
-  let listmenu = document.getElementById("menu");
+  let menulist = document.getElementById("menu");
+  let floor = document.getElementById("floor");
 
   if (favorites.style.display == "none") {
+    floor.style.display = "block";
     favorites.style.display = "block";
-    listmenu.style.display = "none";
+    menulist.style.display = "none";
   } else {
+    floor.style.display = "none";
     favorites.style.display = "none";
   }
 
@@ -180,25 +171,40 @@ function list() {
     if (favsCars.includes(todos[i].id)) {
       newfavCars += `
       <div class="carParent">
-        <div class="favoriteCar">
+      <div class="favoriteCar">
         <a href="details.html#${todos[i].id}" class="image" style="
         background-image: url(${todos[i].img});"></a>
           <div class="carText">
-            <div class="modelName">
+          <div class="modelName">
               <h3>${todos[i].brand}</h3>
               <h3>${todos[i].model}</h3>
-            </div>
+              </div>
             <span>${todos[i].engine}</span> <span>${todos[i].fuel}</span>
             <span>${todos[i].transmission}</span>
             <span>${todos[i].year}</span>
-          </div>
+            </div>
         </div>
         <div class="carAbout">
           <span>${todos[i].millage} Millage</span> <div id="button${todos[i].id}" onclick="DeleteFavs(${todos[i].id})" class="buttonType" ><i class="fa-solid fa-heart"></i></div>
-        </div>
-      </div>
-     `;
+          </div>
+          </div>
+          `;
     }
   }
   document.getElementById("carfavorite").innerHTML = newfavCars;
+}
+
+function listMenu() {
+  let listmenu = document.getElementById("menu");
+  let favorites = document.getElementById("favorites2");
+  let floor = document.getElementById("floor");
+
+  if (listmenu.style.display == "none") {
+    listmenu.style.display = "block";
+    favorites.style.display = "none";
+    floor.style.display = "block";
+  } else {
+    floor.style.display = "none";
+    listmenu.style.display = "none";
+  }
 }
