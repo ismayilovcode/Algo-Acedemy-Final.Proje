@@ -32,7 +32,7 @@ function renderDetailsHtml() {
       
       <div id="features"></div>
       <div class="price">
-        <span>Price: ${foundCar.price}</span>
+        <span>Price: ${foundCar.price}$</span>
         </div>
         ${
           check(foundCar.id)
@@ -52,7 +52,7 @@ function renderDetailsHtml() {
         for (a = 0; a < featurelist.length; a++) {
           if (featurelist[a].id == foundCar.features[i]) {
             carsFeatures += `
-            <span>${featurelist[a].name}</span>
+            <span> ${featurelist[a].name}  </span>
               `;
           }
         }

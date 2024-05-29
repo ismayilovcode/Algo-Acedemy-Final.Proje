@@ -15,6 +15,9 @@ div#details div {
 #features {
   display: grid;
   grid-template-columns: auto auto auto;
+  justify-items: start;
+  gap: 10px;
+  box-sizing: border-box;
 }
 #features span {
   border-bottom: 1px solid #c5ccce;
