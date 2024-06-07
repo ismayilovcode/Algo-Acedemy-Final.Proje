@@ -191,7 +191,8 @@ function list() {
           `;
     }
   }
-  document.getElementById("carfavorite").innerHTML = newfavCars;
+  document.getElementById("carfavorite").innerHTML =
+    newfavCars || "No favorite!";
 }
 
 function listMenu() {
@@ -206,5 +207,19 @@ function listMenu() {
   } else {
     floor.style.display = "none";
     listmenu.style.display = "none";
+  }
+}
+
+function floor() {
+  let floor = document.getElementById("floor");
+  let favorites = document.getElementById("favorites2");
+  let listmenu = document.getElementById("menu");
+
+  if (listmenu.style.display == "block") {
+    floor.style.display = "block";
+  } else {
+    floor.style.display = "none";
+    listmenu.style.display = "none";
+    favorites.style.display = "none";
   }
 }
