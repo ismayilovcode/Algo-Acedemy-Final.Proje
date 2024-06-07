@@ -202,8 +202,8 @@ function listMenu() {
 
   if (listmenu.style.display == "none") {
     listmenu.style.display = "block";
-    favorites.style.display = "none";
     floor.style.display = "block";
+    favorites.style.display = "none";
   } else {
     floor.style.display = "none";
     listmenu.style.display = "none";
@@ -216,10 +216,10 @@ function floor() {
   let listmenu = document.getElementById("menu");
 
   if (listmenu.style.display == "block") {
-    floor.style.display = "block";
-  } else {
     floor.style.display = "none";
     listmenu.style.display = "none";
+  } else {
+    floor.style.display = "none";
     favorites.style.display = "none";
   }
 }

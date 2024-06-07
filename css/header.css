@@ -39,6 +39,7 @@ div.header1-bg {
   padding: 16px;
   display: inline-block;
   font-size: 20px;
+  box-sizing: border-box;
 }
 .header1 a:first-child {
   padding: 0;
@@ -97,6 +98,7 @@ a#Favorites {
   user-select: none;
   cursor: pointer;
   padding: 16px;
+  box-sizing: border-box;
   display: inline-block;
   color: #394144;
 }

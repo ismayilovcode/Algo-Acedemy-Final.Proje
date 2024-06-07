@@ -2,6 +2,7 @@ body {
   background-color: whitesmoke;
 }
 div.create-bg {
+  box-sizing: border-box;
   padding-top: 50px;
   padding-bottom: 70px;
 }
@@ -9,6 +10,7 @@ form.create {
   margin-top: 100px;
   background-color: white;
   padding: 20px;
+  box-sizing: border-box;
   border-radius: 15px;
 }
 form.create:hover {
@@ -22,6 +24,7 @@ form.create div.divParent {
   display: flex;
   flex-direction: column;
   padding: 20px;
+  box-sizing: border-box;
   gap: 10px;
 }
 form.create div.divParent div {
@@ -38,6 +41,7 @@ form.create div.onclick {
   width: 200px;
   height: auto;
   padding: 12px 16px;
+  box-sizing: border-box;
   border-radius: 12px;
   background-color: #e54592;
   color: white;
@@ -66,6 +70,7 @@ form.create select:hover {
 }
 form.create select {
   padding: 9px;
+  box-sizing: border-box;
 }
 form.create input,
 form.create select {
@@ -75,8 +80,9 @@ form.create div.divParent div input,
 form.create div.divParent div label,
 form.create div.divParent div select {
   padding: 10px;
+  box-sizing: border-box;
   border-radius: 10px;
 }
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 0px;
 }

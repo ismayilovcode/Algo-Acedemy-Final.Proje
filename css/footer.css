@@ -2,7 +2,6 @@ footer {
   background-color: #394144;
   display: flex;
   line-height: 1.5;
-  border-radius: 5px;
   position: relative;
   top: 20px;
 }
@@ -11,6 +10,7 @@ footer .container {
 }
 footer .container div.left {
   padding: 10px;
+  box-sizing: border-box;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -40,6 +40,7 @@ footer .container .image img {
 }
 footer .container div.right {
   padding: 10px;
+  box-sizing: border-box;
   flex: 1;
   display: flex;
   flex-direction: column;
