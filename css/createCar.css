@@ -2,7 +2,7 @@ body {
   background-color: whitesmoke;
 }
 div.carsholder-bg {
-  /* background-color: whitesmoke; */
+  margin-top: 60px;
 }
 div#home-carsholder {
   display: flex;
@@ -10,7 +10,6 @@ div#home-carsholder {
   gap: 10px;
 }
 section.carsHolder {
-  margin-top: 60px;
   display: flex;
   padding-top: 20px;
   padding-bottom: 70px;
@@ -38,21 +37,43 @@ section.carsHolder > div.filter {
   flex: 1;
   border-radius: 12px;
 }
-div.filter span.selected {
-  background-color: violet;
-  border-radius: 10px 10px 0px 0px;
-}
 div.filter span {
+  width: 100%;
   box-sizing: border-box;
   border-bottom: 1px solid #ccc;
   background-color: white;
   font-size: 20px;
   font-weight: 350;
-  padding: 12px;
   box-shadow: 0px 2px 5px rgb(0, 0, 0, 0.1);
+  display: flex;
+}
+section.carsHolder > div.filter span input {
+  width: 100%;
+  border: none;
+}
+div.filter span.selected {
+  background-color: violet;
+  border-radius: 10px 10px 0px 0px;
 }
 div.filter span.selected2 {
-  border-radius: 0px 00px 10px 10px;
+  border-radius: 0px 0px 10px 10px;
+  user-select: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 400;
+}
+div.filter span.selected2 i {
+  font-size: 20px;
+  color: #394144;
+}
+div.filter span.selected,
+div.filter span.selected2,
+section.carsHolder > div.filter span input {
+  padding: 12px;
+}
+section.carsHolder > div.filter span input:focus-visible {
+  border: none;
 }
 
 div.carInfo {
@@ -65,7 +86,7 @@ div.carInfo {
 div.carInfo:hover {
   box-shadow: 0px 1px 5px rgb(0, 0, 0, 0.5);
 }
-div.carInfo a.image {
+.image {
   flex: 1;
   background-repeat: no-repeat;
   background-size: cover;
@@ -136,4 +157,12 @@ div#favorites2:hover,
 }
 .deleteButton i {
   font-size: 20px;
+}
+#next,
+#prev {
+  user-select: none;
+  cursor: pointer;
+}
+.item img {
+  width: 100%;
 }

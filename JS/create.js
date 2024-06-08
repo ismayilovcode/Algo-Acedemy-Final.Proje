@@ -88,7 +88,7 @@ function addvertCar() {
   ) {
     localStorage.setItem("carlist", JSON.stringify(carlist));
   } else {
-    alert("yaradıla bilmedi");
+    alert("could not be created");
   }
 
   input1.value = "";

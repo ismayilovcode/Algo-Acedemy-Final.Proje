@@ -21,7 +21,7 @@ function renderHTML() {
     background-image: url(${carlist[i].img});"></a>
      <div class="text">
        <div class="name">
-       <span>${carlist[i].brand}</span> <span>${carlist[i].model}</span>
+       <span>${carlist[i].brand}</span> <span>${carlist[i].model}</span>  
        </div>
        <div class="engineYear">
        <span>${carlist[i].engine}L</span> <span>${carlist[i].year}</span>
@@ -42,7 +42,8 @@ function renderHTML() {
             </div> 
             `;
   }
-  document.getElementById("home-carsholder").innerHTML = renderCars;
+  document.getElementById("home-carsholder").innerHTML =
+    renderCars || "The car you were looking for was not found";
 
   let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
   for (let i = 0; i < favsCars.length; i++) {
@@ -50,6 +51,18 @@ function renderHTML() {
     <div><i class="fa-solid fa-heart"></i></div>
     <div>Saved (${favsCars.length})</div>
     `;
+  }
+
+  let newSlide = ``;
+  for (let i = 0; i < Math.min(5, carlist.length); i++) {
+    let carlist = JSON.parse(localStorage.getItem("carlist") || "[]");
+    let list = document.getElementById("list");
+    newSlide += `
+     <div class="item">
+    <img src="${carlist[i].img}" alt="" />
+   </div>
+     `;
+    list.innerHTML = newSlide;
   }
 }
 renderHTML();
@@ -212,4 +225,67 @@ function floor() {
     floor.style.display = "none";
     favorites.style.display = "none";
   }
+}
+function searchCars() {
+  let carlist = JSON.parse(localStorage.getItem("carlist") || "[]");
+  let featurelist = JSON.parse(localStorage.getItem("featurelist") || "[]");
+
+  let carsModel = document.getElementById("carsModel");
+  let carsBrand = document.getElementById("carsBrand");
+  let carsEngine = document.getElementById("carsEngine");
+
+  let foundCars = ``;
+  for (let i = 0; i < carlist.length; i++) {
+    let featureHTml = ``;
+    let addedFeatureCount = 0;
+    for (let a = 0; a < featurelist.length; a++) {
+      if (carlist[i].features.includes(String(featurelist[a].id))) {
+        featureHTml += `<span>${featurelist[a].name}</span> `;
+        addedFeatureCount++;
+      }
+      if (addedFeatureCount === 4) {
+        break;
+      }
+    }
+    if (
+      carlist[i].model.toLowerCase().includes(carsModel.value.toLowerCase()) &&
+      carlist[i].brand.toLowerCase().includes(carsBrand.value.toLowerCase()) &&
+      carlist[i].engine.toLowerCase().includes(carsEngine.value.toLowerCase())
+    ) {
+      foundCars += `<div class="carInfo" id="carInfo${carlist[i].id}">
+      <a href="details.html#${carlist[i].id}" class="image" style="
+      background-image: url(${carlist[i].img});"></a>
+       <div class="text">
+         <div class="name">
+         <span>${carlist[i].brand}</span> <span>${carlist[i].model}</span>
+         </div>
+         <div class="engineYear">
+         <span>${carlist[i].engine}L</span> <span>${carlist[i].year}</span>
+         </div>
+         <div class="features">${featureHTml}</div>
+         <div class="price"><span>$</span> <span>${
+           carlist[i].price
+         }</span></div>
+         <div class="about">
+           <span>${carlist[i].millage} millage</span>
+           <span>${carlist[i].fuel}</span><span>${
+        carlist[i].transmission
+      }</span>
+           <span>${carlist[i].color}</span>
+           </div>
+           </div>
+           ${
+             check(carlist[i].id)
+               ? `<div class="favs" onclick="addDeleteFavs(${carlist[i].id})">
+                 <i class="fa-solid fa-heart"></i>
+               </div>`
+               : `<div class="favs" onclick="addDeleteFavs(${carlist[i].id})">
+                 <i class="fa-regular fa-heart"></i>
+               </div>`
+           }
+              </div> `;
+    }
+  }
+  document.getElementById("home-carsholder").innerHTML =
+    foundCars || "The car you were looking for was not found";
 }

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/favorite.css" />
     <link rel="stylesheet" href="css/createCar.css" />
     <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/slide.css" />
     <link rel="stylesheet" href="css/responsiv.css" />
 
     <title>Carshop</title>
@@ -35,11 +36,31 @@
       <section class="carsHolder container">
         <div class="filter">
           <span class="selected">Filters</span>
-          <span>Model</span>
-          <span>Brand</span>
-          <span class="selected2">Engine</span>
+          <span><input type="text" id="carsBrand" placeholder="Brand" /></span>
+          <span><input type="text" id="carsModel" placeholder="Model" /></span>
+          <span
+            ><input type="text" id="carsEngine" placeholder="Engine"
+          /></span>
+          <span class="selected2" onclick="searchCars()"
+            ><div id="enter-button">Search</div>
+            <i class="fa-solid fa-magnifying-glass"></i
+          ></span>
         </div>
         <div class="carList">
+          <div class="slider">
+            <div id="list"></div>
+            <div class="buttons">
+              <button id="prev"><</button>
+              <button id="next">></button>
+            </div>
+            <ul class="dots">
+              <li class="active"></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </div>
           <a href="create.html" class="add"><i class="fa-solid fa-plus"></i></a>
           <div id="home-carsholder">
             <div class="favs"><i class="fa-solid fa-heart"></i></div>
@@ -101,6 +122,7 @@
       </div>
     </footer>
     <script src="JS/index.js"></script>
+    <script src="JS/slide.js"></script>
     <script
       src="https://kit.fontawesome.com/d49ab259ea.js"
       crossorigin="anonymous"
