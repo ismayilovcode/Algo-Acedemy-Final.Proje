@@ -142,9 +142,13 @@ function DeleteFavs(id) {
     for (let i = 0; i < favsCars.length; i++) {
       document.getElementById("Favorites").innerHTML = `
       <div><i class="fa-solid fa-heart"></i></div>
-        <div>Saved (0)</div>
+      <div>Saved (0)</div>
         `;
     }
+  }
+  let floor2 = document.getElementById("floor2");
+  if (floor2.style.display == "block") {
+    floor2.style.display = "none";
   }
   addedFeature();
   list();
@@ -153,6 +157,7 @@ function list() {
   let favorites = document.getElementById("favorites2");
   let menulist = document.getElementById("menu");
   let floor = document.getElementById("floor");
+  let floor2 = document.getElementById("floor2");
 
   if (favorites.style.display == "none") {
     floor.style.display = "block";
@@ -162,7 +167,9 @@ function list() {
     floor.style.display = "none";
     favorites.style.display = "none";
   }
-
+  if (floor2.style.display == "block") {
+    floor.style.display = "none";
+  }
   let newfavCars = ``;
   let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
   let todos = JSON.parse(localStorage.getItem("carlist") || "[]");
@@ -223,3 +230,35 @@ function floor() {
     favorites.style.display = "none";
   }
 }
+function floor2() {
+  let floor2 = document.getElementById("floor2");
+  let favorites = document.getElementById("favorites2");
+  let listmenu = document.getElementById("menu");
+
+  if (listmenu.style.display == "block") {
+    floor2.style.display = "none";
+    listmenu.style.display = "none";
+  } else {
+    floor2.style.display = "none";
+    favorites.style.display = "none";
+  }
+}
+function addDeleteListFavs(id) {
+  let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
+  if (!favsCars.includes(id)) {
+    let favorites = document.getElementById("Favorites");
+    let listFavorite = document.getElementById("listFavorite");
+    for (let i = 0; i < favsCars.length; i++) {
+      favorites.innerHTML = `
+      <div><i class="fa-solid fa-heart"></i></div>
+      <div>Saved (${favsCars.length})</div>
+      `;
+
+      listFavorite.innerHTML = `
+      <div><i class="fa-solid fa-heart"></i></div>
+      <div>Saved (${favsCars.length})</div>
+      `;
+    }
+  }
+}
+addDeleteListFavs();

@@ -204,22 +204,9 @@ function addDeleteFavs(id) {
   } else {
     favsCars.push(id);
     localStorage.setItem("favsCars", JSON.stringify(favsCars));
-
-    let favorites = document.getElementById("Favorites");
-    let listFavorite = document.getElementById("listFavorite");
-    for (let i = 0; i < favsCars.length; i++) {
-      favorites.innerHTML = `
-      <div><i class="fa-solid fa-heart"></i></div>
-      <div>Saved (${favsCars.length})</div>
-      `;
-
-      listFavorite.innerHTML = `
-      <div><i class="fa-solid fa-heart"></i></div>
-      <div>Saved (${favsCars.length})</div>
-      `;
-    }
   }
   renderDetailsHtml();
+  addDeleteListFavs();
 }
 renderDetailsHtml();
 
@@ -233,15 +220,20 @@ function DeleteFavs(id) {
         favCars.push(favsCars[i]);
       }
     }
-    localStorage.setItem("favsCars", JSON.stringify(favCars));
-
     for (let i = 0; i < favsCars.length; i++) {
       document.getElementById("Favorites").innerHTML = `
-      <div><i class="fa-solid fa-heart"></i></div>
-      <div>Saved (0)</div>
-      `;
+        <div><i class="fa-solid fa-heart"></i></div>
+          <div>Saved (0)</div>
+          `;
     }
+    localStorage.setItem("favsCars", JSON.stringify(favCars));
   }
+  let floor2 = document.getElementById("floor2");
+  if (floor2.style.display == "block") {
+    floor2.style.display = "none";
+  }
+  renderDetailsHtml();
+  addDeleteListFavs();
   list();
 }
 
@@ -266,39 +258,40 @@ function list() {
   let favorites = document.getElementById("favorites2");
   let menulist = document.getElementById("menu");
   let floor = document.getElementById("floor");
+  let floor2 = document.getElementById("floor2");
 
   if (favorites.style.display == "none") {
-    floor.style.display = "block";
     favorites.style.display = "block";
     menulist.style.display = "none";
   } else {
-    floor.style.display = "none";
     favorites.style.display = "none";
   }
-
+  if (floor2.style.display == "block") {
+    floor.style.display = "none";
+  }
   let newFavCars = ``;
   let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
-  let todos = JSON.parse(localStorage.getItem("carlist") || "[]");
+  let carlist = JSON.parse(localStorage.getItem("carlist") || "[]");
 
-  for (let i = 0; i < todos.length; i++) {
-    if (favsCars.includes(todos[i].id)) {
+  for (let i = 0; i < carlist.length; i++) {
+    if (favsCars.includes(carlist[i].id)) {
       newFavCars += `
       <div class="carParent">
         <div class="favoriteCar">
-        <a href="details.html#${todos[i].id}" class="image" style="
-        background-image: url(${todos[i].img});"></a>
+        <a href="details.html#${carlist[i].id}" class="image" style="
+        background-image: url(${carlist[i].img});"></a>
           <div class="carText">
             <div class="modelName">
-              <h3>${todos[i].brand}</h3>
-              <h3>${todos[i].model}</h3>
+              <h3>${carlist[i].brand}</h3>
+              <h3>${carlist[i].model}</h3>
             </div>
-            <span>${todos[i].engine}</span> <span>${todos[i].fuel}</span>
-            <span>${todos[i].transmission}</span>
-            <span>${todos[i].year}</span>
+            <span>${carlist[i].engine}</span> <span>${carlist[i].fuel}</span>
+            <span>${carlist[i].transmission}</span>
+            <span>${carlist[i].year}</span>
           </div>
         </div>
         <div class="carAbout">
-          <span>${todos[i].millage} Millage</span> <div id="button${todos[i].id}" onclick="DeleteFavs(${todos[i].id})" class="buttonType" ><i class="fa-solid fa-heart"></i></div>
+          <span>${carlist[i].millage} Millage</span> <div id="button${carlist[i].id}" onclick="DeleteFavs(${carlist[i].id})" class="buttonType" ><i class="fa-solid fa-heart"></i></div>
         </div>
       </div>
      `;
@@ -324,14 +317,14 @@ function DeleteCar(id) {
 function listMenu() {
   let listmenu = document.getElementById("menu");
   let favorites = document.getElementById("favorites2");
-  let floor = document.getElementById("floor");
+  let floor2 = document.getElementById("floor2");
 
   if (listmenu.style.display == "none") {
     listmenu.style.display = "block";
     favorites.style.display = "none";
-    floor.style.display = "block";
+    floor2.style.display = "block";
   } else {
-    floor.style.display = "none";
+    floor2.style.display = "none";
     listmenu.style.display = "none";
   }
 }
@@ -349,3 +342,35 @@ function floor() {
     favorites.style.display = "none";
   }
 }
+function floor2() {
+  let floor2 = document.getElementById("floor2");
+  let favorites = document.getElementById("favorites2");
+  let listmenu = document.getElementById("menu");
+
+  if (listmenu.style.display == "block") {
+    floor2.style.display = "none";
+    listmenu.style.display = "none";
+  } else {
+    floor2.style.display = "none";
+    favorites.style.display = "none";
+  }
+}
+function addDeleteListFavs(id) {
+  let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
+  if (!favsCars.includes(id)) {
+    let favorites = document.getElementById("Favorites");
+    let listFavorite = document.getElementById("listFavorite");
+    for (let i = 0; i < favsCars.length; i++) {
+      favorites.innerHTML = `
+      <div><i class="fa-solid fa-heart"></i></div>
+      <div>Saved (${favsCars.length})</div>
+      `;
+
+      listFavorite.innerHTML = `
+      <div><i class="fa-solid fa-heart"></i></div>
+      <div>Saved (${favsCars.length})</div>
+      `;
+    }
+  }
+}
+addDeleteListFavs();

@@ -82,6 +82,7 @@ function list() {
   let favorites = document.getElementById("favorites2");
   let menulist = document.getElementById("menu");
   let floor = document.getElementById("floor");
+  let floor2 = document.getElementById("floor2");
 
   if (favorites.style.display == "none") {
     floor.style.display = "block";
@@ -91,7 +92,9 @@ function list() {
     floor.style.display = "none";
     favorites.style.display = "none";
   }
-
+  if (floor2.style.display == "block") {
+    floor.style.display = "none";
+  }
   let newFavCars = ``;
   let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
   let carlist = JSON.parse(localStorage.getItem("carlist") || "[]");
@@ -151,22 +154,9 @@ function addDeleteFavs(id) {
   } else {
     favsCars.push(id);
     localStorage.setItem("favsCars", JSON.stringify(favsCars));
-
-    let favorites = document.getElementById("Favorites");
-    let listFavorite = document.getElementById("listFavorite");
-    for (let i = 0; i < favsCars.length; i++) {
-      favorites.innerHTML = `
-      <div><i class="fa-solid fa-heart"></i></div>
-      <div>Saved (${favsCars.length})</div>
-      `;
-
-      listFavorite.innerHTML = `
-      <div><i class="fa-solid fa-heart"></i></div>
-      <div>Saved (${favsCars.length})</div>
-      `;
-    }
   }
   renderHTML();
+  addDeleteListFavs();
 }
 renderHTML();
 
@@ -182,13 +172,18 @@ function DeleteFavs(id) {
     }
     for (let i = 0; i < favsCars.length; i++) {
       document.getElementById("Favorites").innerHTML = `
-      <div><i class="fa-solid fa-heart"></i></div>
-      <div>Saved (0)</div>
-      `;
+          <div><i class="fa-solid fa-heart"></i></div>
+          <div>Saved (0)</div>
+          `;
     }
     localStorage.setItem("favsCars", JSON.stringify(favCars));
   }
+  let floor2 = document.getElementById("floor2");
+  if (floor2.style.display == "block") {
+    floor2.style.display = "none";
+  }
   renderHTML();
+  addDeleteListFavs();
   list();
 }
 
@@ -201,7 +196,7 @@ function check(id) {
 function listMenu() {
   let listmenu = document.getElementById("menu");
   let favorites = document.getElementById("favorites2");
-  let floor = document.getElementById("floor");
+  let floor = document.getElementById("floor2");
 
   if (listmenu.style.display == "none") {
     listmenu.style.display = "block";
@@ -226,6 +221,20 @@ function floor() {
     favorites.style.display = "none";
   }
 }
+function floor2() {
+  let floor2 = document.getElementById("floor2");
+  let favorites = document.getElementById("favorites2");
+  let listmenu = document.getElementById("menu");
+
+  if (listmenu.style.display == "block") {
+    floor2.style.display = "none";
+    listmenu.style.display = "none";
+  } else {
+    floor2.style.display = "none";
+    favorites.style.display = "none";
+  }
+}
+
 function searchCars() {
   let carlist = JSON.parse(localStorage.getItem("carlist") || "[]");
   let featurelist = JSON.parse(localStorage.getItem("featurelist") || "[]");
@@ -253,39 +262,58 @@ function searchCars() {
       carlist[i].engine.toLowerCase().includes(carsEngine.value.toLowerCase())
     ) {
       foundCars += `<div class="carInfo" id="carInfo${carlist[i].id}">
-      <a href="details.html#${carlist[i].id}" class="image" style="
-      background-image: url(${carlist[i].img});"></a>
-       <div class="text">
-         <div class="name">
-         <span>${carlist[i].brand}</span> <span>${carlist[i].model}</span>
-         </div>
-         <div class="engineYear">
-         <span>${carlist[i].engine}L</span> <span>${carlist[i].year}</span>
-         </div>
-         <div class="features">${featureHTml}</div>
-         <div class="price"><span>$</span> <span>${
-           carlist[i].price
-         }</span></div>
-         <div class="about">
-           <span>${carlist[i].millage} millage</span>
-           <span>${carlist[i].fuel}</span><span>${
+          <a href="details.html#${carlist[i].id}" class="image" style="
+          background-image: url(${carlist[i].img});"></a>
+          <div class="text">
+          <div class="name">
+          <span>${carlist[i].brand}</span> <span>${carlist[i].model}</span>
+          </div>
+          <div class="engineYear">
+          <span>${carlist[i].engine}L</span> <span>${carlist[i].year}</span>
+          </div>
+          <div class="features">${featureHTml}</div>
+          <div class="price"><span>$</span> <span>${
+            carlist[i].price
+          }</span></div>
+            <div class="about">
+            <span>${carlist[i].millage} millage</span>
+            <span>${carlist[i].fuel}</span><span>${
         carlist[i].transmission
       }</span>
-           <span>${carlist[i].color}</span>
-           </div>
-           </div>
-           ${
-             check(carlist[i].id)
-               ? `<div class="favs" onclick="addDeleteFavs(${carlist[i].id})">
-                 <i class="fa-solid fa-heart"></i>
-               </div>`
-               : `<div class="favs" onclick="addDeleteFavs(${carlist[i].id})">
-                 <i class="fa-regular fa-heart"></i>
-               </div>`
-           }
-              </div> `;
+              <span>${carlist[i].color}</span>
+              </div>
+              </div>
+              ${
+                check(carlist[i].id)
+                  ? `<div class="favs" onclick="addDeleteFavs(${carlist[i].id})">
+                <i class="fa-solid fa-heart"></i>
+                </div>`
+                  : `<div class="favs" onclick="addDeleteFavs(${carlist[i].id})">
+                <i class="fa-regular fa-heart"></i>
+                </div>`
+              }
+                </div> `;
     }
   }
   document.getElementById("home-carsholder").innerHTML =
     foundCars || "The car you were looking for was not found";
 }
+function addDeleteListFavs(id) {
+  let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
+  if (!favsCars.includes(id)) {
+    let favorites = document.getElementById("Favorites");
+    let listFavorite = document.getElementById("listFavorite");
+    for (let i = 0; i < favsCars.length; i++) {
+      favorites.innerHTML = `
+      <div><i class="fa-solid fa-heart"></i></div>
+      <div>Saved (${favsCars.length})</div>
+      `;
+
+      listFavorite.innerHTML = `
+      <div><i class="fa-solid fa-heart"></i></div>
+      <div>Saved (${favsCars.length})</div>
+      `;
+    }
+  }
+}
+addDeleteListFavs();

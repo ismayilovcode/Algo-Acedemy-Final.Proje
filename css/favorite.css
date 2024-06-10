@@ -81,7 +81,7 @@ div#carfavorite {
 }
 .buttonType {
 }
-#floor {
+#floor,#floor2 {
   position: fixed;
   top: 0;
   right: 0;
