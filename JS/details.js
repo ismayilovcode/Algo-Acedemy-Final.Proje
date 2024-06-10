@@ -180,13 +180,13 @@ renderDetailsHtml();
 function addDeleteFavs(id) {
   let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
   if (favsCars.includes(id)) {
-    let favCars = [];
+    let addDeleteFavCars = [];
     for (let i = 0; i < favsCars.length; i++) {
       if (favsCars[i] != id) {
-        favCars.push(favsCars[i]);
+        addDeleteFavCars.push(favsCars[i]);
       }
     }
-    localStorage.setItem("favsCars", JSON.stringify(favCars));
+    localStorage.setItem("favsCars", JSON.stringify(addDeleteFavCars));
 
     let favorites = document.getElementById("Favorites");
     let listFavorite = document.getElementById("listFavorite");
