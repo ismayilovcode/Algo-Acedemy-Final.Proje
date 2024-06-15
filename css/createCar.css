@@ -31,6 +31,7 @@ section.carsHolder div.carList {
   gap: 10px;
   flex: 3;
 }
+/*  */
 section.carsHolder > div.filter {
   display: flex;
   flex-direction: column;
@@ -54,11 +55,11 @@ section.carsHolder > div.filter span input {
 div.filter span.selected {
   background-color: violet;
   border-radius: 10px 10px 0px 0px;
+  user-select: none;
 }
 div.filter span.selected2 {
   border-radius: 0px 0px 10px 10px;
   user-select: none;
-  cursor: pointer;
   display: flex;
   justify-content: space-between;
   font-weight: 400;
@@ -66,16 +67,28 @@ div.filter span.selected2 {
 div.filter span.selected2 i {
   font-size: 20px;
   color: #394144;
+  cursor: pointer;
+  user-select: none;
 }
 div.filter span.selected,
 div.filter span.selected2,
 section.carsHolder > div.filter span input {
   padding: 12px;
 }
-section.carsHolder > div.filter span input:focus-visible {
-  border: none;
+section.carsHolder > div.filter span input[type="text"]:focus-visible,
+section.carsHolder > div.filter span input[type="number"]:focus-visible {
+  color: #394144;
+  background-color: whitesmoke;
+  outline: none;
 }
-
+div.filter span.selected2:hover {
+  box-shadow: 0px 1px 5px rgb(0, 0, 0, 0.3);
+}
+section.carsHolder > div.filter span input[type="text"]:hover,
+section.carsHolder > div.filter span input[type="number"]:hover {
+  box-shadow: 0px 1px 5px rgb(0, 0, 0, 0.5);
+}
+/*  */
 div.carInfo {
   box-shadow: 0px 2px 5px rgb(0, 0, 0, 0.1);
   display: flex;

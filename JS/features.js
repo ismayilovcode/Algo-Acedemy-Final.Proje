@@ -21,7 +21,7 @@ function features() {
   if (Boolean(input1)) {
     localStorage.setItem("featurelist", JSON.stringify(featurelist));
   } else {
-    alert("yaradıla bilmədi");
+    alert("Could not be created");
   }
 
   input1.value = "";
@@ -118,6 +118,33 @@ function list() {
     newFavCars || "No favorite!";
 }
 
+function floor() {
+  let floor = document.getElementById("floor");
+  let favorites = document.getElementById("favorites2");
+  let listmenu = document.getElementById("menu");
+
+  if (listmenu.style.display == "block") {
+    floor.style.display = "none";
+    listmenu.style.display = "none";
+  } else {
+    floor.style.display = "none";
+    favorites.style.display = "none";
+  }
+}
+function floor2() {
+  let floor2 = document.getElementById("floor2");
+  let favorites = document.getElementById("favorites2");
+  let listmenu = document.getElementById("menu");
+
+  if (listmenu.style.display == "block") {
+    floor2.style.display = "none";
+    listmenu.style.display = "none";
+  } else {
+    floor2.style.display = "none";
+    favorites.style.display = "none";
+  }
+}
+
 function DeleteFavs(id) {
   let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
 
@@ -162,32 +189,6 @@ function listMenu() {
   }
 }
 
-function floor() {
-  let floor = document.getElementById("floor");
-  let favorites = document.getElementById("favorites2");
-  let listmenu = document.getElementById("menu");
-
-  if (listmenu.style.display == "block") {
-    floor.style.display = "none";
-    listmenu.style.display = "none";
-  } else {
-    floor.style.display = "none";
-    favorites.style.display = "none";
-  }
-}
-function floor2() {
-  let floor2 = document.getElementById("floor2");
-  let favorites = document.getElementById("favorites2");
-  let listmenu = document.getElementById("menu");
-
-  if (listmenu.style.display == "block") {
-    floor2.style.display = "none";
-    listmenu.style.display = "none";
-  } else {
-    floor2.style.display = "none";
-    favorites.style.display = "none";
-  }
-}
 function addDeleteListFavs(id) {
   let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
   if (!favsCars.includes(id)) {

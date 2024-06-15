@@ -7,6 +7,7 @@ div.create-bg {
   padding-bottom: 70px;
 }
 form.create {
+  color: #394144;
   margin-top: 100px;
   background-color: white;
   padding: 20px;
@@ -83,6 +84,23 @@ form.create div.divParent div select {
   box-sizing: border-box;
   border-radius: 10px;
 }
+input[type="text"]:focus-visible,
+input[type="url"]:focus-visible,
+input[type="year"]:focus-visible,
+input[type="number"]:focus-visible {
+  background-color: whitesmoke;
+  color: #394144;
+  outline: none;
+}
+#input5:focus-visible,
+#input8:focus-visible,
+#input9:focus-visible,
+#input12:focus-visible {
+  background-color: whitesmoke;
+  color: #394144;
+  outline: none;
+}
+
 ::-webkit-scrollbar {
   width: 0px;
 }

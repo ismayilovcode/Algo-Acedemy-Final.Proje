@@ -95,36 +95,63 @@ function list() {
   if (floor2.style.display == "block") {
     floor.style.display = "none";
   }
-  let newFavCars = ``;
+  let newfavCars = ``;
   let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
-  let carlist = JSON.parse(localStorage.getItem("carlist") || "[]");
+  let todos = JSON.parse(localStorage.getItem("carlist") || "[]");
 
-  for (let i = 0; i < carlist.length; i++) {
-    if (favsCars.includes(carlist[i].id)) {
-      newFavCars += `
+  for (let i = 0; i < todos.length; i++) {
+    if (favsCars.includes(todos[i].id)) {
+      newfavCars += `
       <div class="carParent">
-        <div class="favoriteCar">
-        <a href="details.html#${carlist[i].id}" class="image" style="
-        background-image: url(${carlist[i].img});"></a>
+      <div class="favoriteCar">
+        <a href="details.html#${todos[i].id}" class="image" style="
+        background-image: url(${todos[i].img});"></a>
           <div class="carText">
-            <div class="modelName">
-              <h3>${carlist[i].brand}</h3>
-              <h3>${carlist[i].model}</h3>
+          <div class="modelName">
+              <h3>${todos[i].brand}</h3>
+              <h3>${todos[i].model}</h3>
+              </div>
+            <span>${todos[i].engine}</span> <span>${todos[i].fuel}</span>
+            <span>${todos[i].transmission}</span>
+            <span>${todos[i].year}</span>
             </div>
-            <span>${carlist[i].engine}</span> <span>${carlist[i].fuel}</span>
-            <span>${carlist[i].transmission}</span>
-            <span>${carlist[i].year}</span>
-          </div>
         </div>
         <div class="carAbout">
-          <span>${carlist[i].millage} Millage</span> <div id="button${carlist[i].id}" onclick="DeleteFavs(${carlist[i].id})" class="buttonType" ><i class="fa-solid fa-heart"></i></div>
-        </div>
-      </div>
-     `;
+          <span>${todos[i].millage} Millage</span> <div id="button${todos[i].id}" onclick="DeleteFavs(${todos[i].id})" class="buttonType" ><i class="fa-solid fa-heart"></i></div>
+          </div>
+          </div>
+          `;
     }
   }
   document.getElementById("carfavorite").innerHTML =
-    newFavCars || "No favorite!";
+    newfavCars || "No favorite!";
+}
+
+function floor() {
+  let floor = document.getElementById("floor");
+  let favorites = document.getElementById("favorites2");
+  let listmenu = document.getElementById("menu");
+
+  if (listmenu.style.display == "block") {
+    floor.style.display = "none";
+    listmenu.style.display = "none";
+  } else {
+    floor.style.display = "none";
+    favorites.style.display = "none";
+  }
+}
+function floor2() {
+  let floor2 = document.getElementById("floor2");
+  let favorites = document.getElementById("favorites2");
+  let listmenu = document.getElementById("menu");
+
+  if (listmenu.style.display == "block") {
+    floor2.style.display = "none";
+    listmenu.style.display = "none";
+  } else {
+    floor2.style.display = "none";
+    favorites.style.display = "none";
+  }
 }
 
 function addDeleteFavs(id) {
@@ -205,33 +232,6 @@ function listMenu() {
   } else {
     floor.style.display = "none";
     listmenu.style.display = "none";
-  }
-}
-
-function floor() {
-  let floor = document.getElementById("floor");
-  let favorites = document.getElementById("favorites2");
-  let listmenu = document.getElementById("menu");
-
-  if (listmenu.style.display == "block") {
-    floor.style.display = "none";
-    listmenu.style.display = "none";
-  } else {
-    floor.style.display = "none";
-    favorites.style.display = "none";
-  }
-}
-function floor2() {
-  let floor2 = document.getElementById("floor2");
-  let favorites = document.getElementById("favorites2");
-  let listmenu = document.getElementById("menu");
-
-  if (listmenu.style.display == "block") {
-    floor2.style.display = "none";
-    listmenu.style.display = "none";
-  } else {
-    floor2.style.display = "none";
-    favorites.style.display = "none";
   }
 }
 

@@ -1,5 +1,6 @@
 body {
   background-color: whitesmoke;
+  color: #394144;
 }
 div.createFeatures {
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
@@ -18,8 +19,6 @@ div.createFeatures:hover {
 div.createFeatures:hover > input {
   user-select: none;
 }
-div.createFeatures::placeholder {
-}
 .createFeatures input {
   width: 100%;
   border-color: transparent;
@@ -29,11 +28,14 @@ div.createFeatures::placeholder {
 }
 div.createFeatures input:focus-visible {
   outline: none;
+  background-color: whitesmoke;
+  color: #394144;
 }
 .enter {
   border: none;
   user-select: none;
   cursor: pointer;
+  color: #394144;
   background-color: #e54592;
   color: white;
   padding: 8px;

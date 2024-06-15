@@ -261,9 +261,11 @@ function list() {
   let floor2 = document.getElementById("floor2");
 
   if (favorites.style.display == "none") {
+    floor.style.display = "block";
     favorites.style.display = "block";
     menulist.style.display = "none";
   } else {
+    floor.style.display = "none";
     favorites.style.display = "none";
   }
   if (floor2.style.display == "block") {
@@ -301,34 +303,6 @@ function list() {
     newFavCars || "No favorite!";
 }
 
-function DeleteCar(id) {
-  let carlist = JSON.parse(localStorage.getItem("carlist") || "[]");
-  let newCarInfo = [];
-
-  for (let i = 0; i < carlist.length; i++) {
-    if (carlist[i].id != id) {
-      newCarInfo.push(carlist[i]);
-    }
-  }
-  localStorage.setItem("carlist", JSON.stringify(newCarInfo));
-  renderDetailsHtml();
-}
-
-function listMenu() {
-  let listmenu = document.getElementById("menu");
-  let favorites = document.getElementById("favorites2");
-  let floor2 = document.getElementById("floor2");
-
-  if (listmenu.style.display == "none") {
-    listmenu.style.display = "block";
-    favorites.style.display = "none";
-    floor2.style.display = "block";
-  } else {
-    floor2.style.display = "none";
-    listmenu.style.display = "none";
-  }
-}
-
 function floor() {
   let floor = document.getElementById("floor");
   let favorites = document.getElementById("favorites2");
@@ -355,6 +329,49 @@ function floor2() {
     favorites.style.display = "none";
   }
 }
+
+function DeleteCar(id) {
+  let carlist = JSON.parse(localStorage.getItem("carlist") || "[]");
+  let newCarInfo = [];
+
+  for (let i = 0; i < carlist.length; i++) {
+    if (carlist[i].id != id) {
+      newCarInfo.push(carlist[i]);
+    }
+  }
+  localStorage.setItem("carlist", JSON.stringify(newCarInfo));
+  renderDetailsHtml();
+  location.reload();
+
+  //
+  let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
+
+  if (favsCars.includes(id)) {
+    let favCars = [];
+    for (let i = 0; i < favsCars.length; i++) {
+      if (favsCars[i] != id) {
+        favCars.push(favsCars[i]);
+      }
+    }
+    localStorage.setItem("favsCars", JSON.stringify(favCars));
+  }
+}
+
+function listMenu() {
+  let listmenu = document.getElementById("menu");
+  let favorites = document.getElementById("favorites2");
+  let floor2 = document.getElementById("floor2");
+
+  if (listmenu.style.display == "none") {
+    listmenu.style.display = "block";
+    favorites.style.display = "none";
+    floor2.style.display = "block";
+  } else {
+    floor2.style.display = "none";
+    listmenu.style.display = "none";
+  }
+}
+
 function addDeleteListFavs(id) {
   let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
   if (!favsCars.includes(id)) {

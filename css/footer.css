@@ -72,3 +72,6 @@ footer .container div.right div.ico i {
 footer .container div.right div.ico i:hover {
   color: #8a8a8a;
 }
+footer .container div.left div.text a:hover {
+  color: #8a8a8a;
+}

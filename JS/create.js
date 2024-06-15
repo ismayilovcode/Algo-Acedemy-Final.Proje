@@ -88,7 +88,7 @@ function addvertCar() {
   ) {
     localStorage.setItem("carlist", JSON.stringify(carlist));
   } else {
-    alert("could not be created");
+    alert("Could not be created");
   }
 
   input1.value = "";
@@ -202,21 +202,6 @@ function list() {
     newfavCars || "No favorite!";
 }
 
-function listMenu() {
-  let listmenu = document.getElementById("menu");
-  let favorites = document.getElementById("favorites2");
-  let floor = document.getElementById("floor");
-
-  if (listmenu.style.display == "none") {
-    listmenu.style.display = "block";
-    floor.style.display = "block";
-    favorites.style.display = "none";
-  } else {
-    floor.style.display = "none";
-    listmenu.style.display = "none";
-  }
-}
-
 function floor() {
   let floor = document.getElementById("floor");
   let favorites = document.getElementById("favorites2");
@@ -243,6 +228,22 @@ function floor2() {
     favorites.style.display = "none";
   }
 }
+
+function listMenu() {
+  let listmenu = document.getElementById("menu");
+  let favorites = document.getElementById("favorites2");
+  let floor = document.getElementById("floor");
+
+  if (listmenu.style.display == "none") {
+    listmenu.style.display = "block";
+    floor.style.display = "block";
+    favorites.style.display = "none";
+  } else {
+    floor.style.display = "none";
+    listmenu.style.display = "none";
+  }
+}
+
 function addDeleteListFavs(id) {
   let favsCars = JSON.parse(localStorage.getItem("favsCars") || "[]");
   if (!favsCars.includes(id)) {
