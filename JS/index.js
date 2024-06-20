@@ -64,6 +64,11 @@ function renderHTML() {
      `;
     list.innerHTML = newSlide;
   }
+
+  if (!Boolean(carlist.length)) {
+    let slider = document.getElementById("slider");
+    slider.style.display = "none";
+  }
 }
 renderHTML();
 

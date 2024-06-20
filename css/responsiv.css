@@ -31,6 +31,16 @@
 }
 
 /* max */
+@media (max-width:1400px) {
+  .slider #list img{
+    width: 885px !important;
+  }
+}
+@media (max-width: 1200px) {
+  .slider #list img {
+    width: 720px !important;
+  }
+}
 @media (max-width: 992px) {
   section.carsHolder {
     flex-direction: column;
@@ -62,9 +72,13 @@
     display: block;
   }
   .slider {
-    height: 400px;
+    height: 400px !important;
+  }
+  .slider #list img {
+    width: 565px !important;
   }
 }
+
 @media (max-width: 576px) {
   div#featuresParent {
     grid-template-columns: auto;

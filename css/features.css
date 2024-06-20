@@ -57,6 +57,7 @@ div#featuresParent {
   margin-top: 20px;
   padding-bottom: 70px;
   box-sizing: border-box;
+  min-height: calc(100vh - 347.42px);
 }
 div#featuresParent div.feature {
   background-color: white;
