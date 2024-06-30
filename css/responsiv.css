@@ -31,8 +31,8 @@
 }
 
 /* max */
-@media (max-width:1400px) {
-  .slider #list img{
+@media (max-width: 1400px) {
+  .slider #list img {
     width: 885px !important;
   }
 }
@@ -95,6 +95,18 @@
   .header1 div.right,
   .header1 a#Favorites {
     display: none;
+  }
+  footer .container div.right div.ico i {
+    font-size: 22px;
+  }
+  footer .container div.left div.text a {
+    font-size: 20px;
+  }
+  footer .container div.left .image {
+    width: 140px;
+  }
+  footer .container div.right .imageSelected {
+    width: 150px;
   }
 }
 @media (min-width: 576px) {
