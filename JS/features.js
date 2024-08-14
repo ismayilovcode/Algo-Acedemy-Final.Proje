@@ -171,7 +171,6 @@ function DeleteFavs(id) {
   renderFeatureHTML();
   addDeleteListFavs();
   list();
-  floor2();
 }
 
 function listMenu() {

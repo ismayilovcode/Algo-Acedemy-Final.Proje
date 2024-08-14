@@ -75,3 +75,11 @@ footer .container div.right div.ico i:hover {
 footer .container div.left div.text a:hover {
   color: #8a8a8a;
 }
+
+footer .container .Name,
+footer .container .Name2 {
+  color: white;
+  font-size: 20px;
+}
+footer .container .Name {
+}
